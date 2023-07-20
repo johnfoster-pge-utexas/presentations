@@ -327,50 +327,17 @@
 
 
 <section>
-<section id="about-me" class="title-slide slide level1 center">
-<h1>About me…</h1>
-<div class="quarto-layout-panel" data-fig-align="center">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="http://www.engr.utexas.edu/images/faculty/Foster-John.jpg" width="500"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 35.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-figure quarto-figure-center" style="flex-basis: 10.0%;justify-content: center;">
-<figure>
-<p><a href="https://github.com/johntfoster"><img data-src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="50"></a></p>
-</figure>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-<div class="quarto-figure quarto-figure-center" style="flex-basis: 10.0%;justify-content: center;">
-<figure>
-<p><a href="https://twitter.com/johntfoster"><img data-src="https://img.icons8.com/fluency/512/twitter.png" width="50"></a></p>
-</figure>
-</div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 35.0%;justify-content: center;">
-<p>&nbsp;</p>
-</div>
-</div>
-</div>
-</section>
+<section id="multi-output-pinn" class="title-slide slide level1 center">
+<h1>Multi-Output PINN</h1>
+
+<img data-src="usnccm17_mopinn_files/figure-revealjs/fig-mopinn-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;1: A fully connected neural network schematic with 4, N, and M neurons in the input, hidden, and output layers respectively. The loss function is constructed with operations applied on the outputs of the neural networks <span class="math inline">\(u_{NN}\)</span>. The yellow parts of the diagram are identical in PINNs, while the blue parts indicate the multiple outputs with respect to the same inputs as well as the corresponding statistical properties <span class="math inline">\(P(u_{NN})\)</span>.</p></section>
 <section id="now-your-turn" class="slide level2">
 <h2>Now your turn…</h2>
 <ul>
 <li>Name</li>
-<li>Professional background
-<ul>
+<li>Professional background</li>
 <li>Engineer / Geoscientists / Data Scientist / Other</li>
 <li>Expectations for class</li>
-</ul></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -623,6 +590,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
