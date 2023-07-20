@@ -1,0 +1,20 @@
+{
+  "hash": "22fe49b9b1845214277414a5ec15382e",
+  "result": {
+    "markdown": "---\nformat: \n  revealjs:\n    footer: \"USNCCM 17 -- July 2023\"\nexecute:\n  freeze: true\n---\n\n\n# Multi-Output PINN \n\n\n::: {.cell}\n::: {.cell-output-display}\n![A fully connected neural network schematic with 4, N, and M neurons in the input, hidden, and output layers respectively. The loss function is constructed with operations applied on the outputs of the neural networks $u_{NN}$.  The yellow parts of the diagram are identical in PINNs, while the blue parts indicate the multiple outputs with respect to the same inputs as well as the corresponding statistical properties $P(u_{NN})$.](usnccm17_mopinn_files/figure-revealjs/fig-mopinn-1.png){#fig-mopinn width=960}\n:::\n:::\n\n\n---\n\n## Now your turn...\n\n- Name\n- Professional background\n- Engineer / Geoscientists / Data Scientist / Other\n- Expectations for class\n\n---\n\n# Why is stress important in petroleum engineering?\n\n---\n\n## Wellbore failure occurs because the stress around the well exceeds the strength of the rock. {.smaller}\n\n![&copy; American Geophysical Union, &copy; Centek Publishing [Image Source](http://petrowiki.org/img/thumb/b/b0/Devol2_1102final_Page_051_Image_0001.png/300px-Devol2_1102final_Page_051_Image_0001.png)](img/wellbore.png){width=150 fig-align=\"center\"}\n\n---\n\n## Faults will slip when the ratio of shear to normal stress on the fault exceeds its frictional strength. {.smaller}\n\n![&copy; USGS [Image Source]('http://geomaps.wr.usgs.gov/parks/deform/normalfault.gif')](img/slip.png){width=150 fig-align=\"center\"}\n\n---\n\n## Reservior depletion causes changes in the stress state at depth that can be beneficial, or detrimental, to production. {.smaller}\n\n![&copy; IESL [Image Source](http://iesl-global.com/wp-content/uploads/2014/06/ReservoirPressureIllustration.jpg)](img/depletion.png){width=250 fig-align=\"center\"}\n\n\n::: {.notes}\nImage is of a simulation that is used to identify changes in porosity and/or permeability due to pore pressure depletion.\n:::\n",
+    "supporting": [
+      "usnccm17_mopinn_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

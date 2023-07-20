@@ -2,19 +2,78 @@
 format: 
   revealjs:
     footer: "USNCCM 17 -- July 2023"
+execute:
+  freeze: true
 ---
-# About me...
 
+# Multi-Output PINN 
 
-:::: {layout="[[50], [-35, 10, -10, 10, -35]]" fig-align="center"}
+```{r, engine = 'tikz'}
+#| label: fig-mopinn 
+#| fig-cap: A fully connected neural network schematic with 4, N, and M neurons in the input, hidden, and output layers respectively. The loss function is constructed with operations applied on the outputs of the neural networks $u_{NN}$.  The yellow parts of the diagram are identical in PINNs, while the blue parts indicate the multiple outputs with respect to the same inputs as well as the corresponding statistical properties $P(u_{NN})$. 
+\usetikzlibrary{decorations.pathreplacing}
+\begin{tikzpicture}[shorten >=1pt]
+  \tikzstyle{unit}=[draw,shape=circle,minimum size=1.15cm]
+  \node[unit, fill={rgb:orange,1;yellow,2;pink,5}](x) at (0,3.5){$x$};
+  \node[unit, fill={rgb:orange,1;yellow,2;pink,5}](y) at (0,2){$y$};
+  \node[unit, fill={rgb:orange,1;yellow,2;pink,5}](z) at (0,0.5){$z$};
+  \node[unit, fill={rgb:orange,1;yellow,2;pink,5}](t) at (0,-1){$t$};
+  \node[unit, fill={rgb:orange,1;yellow,2;pink,5}](y1) at (3,2.5){$y^1$};
+  \node(dots) at (3,1.65){\vdots};
+  \node[unit, fill={rgb:orange,1;yellow,2;pink,5}](yc) at (3,0.5){$y^N$};
 
-![](http://www.engr.utexas.edu/images/faculty/Foster-John.jpg){fig-align="center" width=500}
+  \node[unit, fill={rgb:red,1;green,2;blue,5}](u1) at (5,2.5){$u_{NN}^1$};
+  \node(dots) at (5,1.65){\vdots};
+  \node[unit, fill={rgb:red,1;green,2;blue,5}](u2) at (5,0.5){$u_{NN}^M$};
+  %\node[unit](u) at (5,1.5){$u_{NN}$};
 
-[![](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png){fig-align="center" width=50}](https://github.com/johntfoster)
+  \node[unit, fill={rgb:orange,1;yellow,2;pink,5}](dt) at (8,4.0){$\frac{\partial u_{NN}}{\partial t}$};
+  \node[unit, fill={rgb:orange,1;yellow,2;pink,5}](grad) at (8,2.0){$\nabla \cdot u_{NN}$};
+  \node[unit, fill={rgb:orange,1;yellow,2;pink,5}](lap) at (8,0.2){$\Delta u_{NN}$};
+  \node[unit, fill={rgb:red,1;green,2;blue,5}](stats) at (8,-1.5){$P(u_{NN})$};
 
-[![](https://img.icons8.com/fluency/512/twitter.png){fig-align="center" width=50}](https://twitter.com/johntfoster)
+  \node[unit, fill={rgb:orange,1;yellow,2;pink,5}](l) at (11,1.5){$Loss$};
 
-::::
+  \draw[->] (x) -- (y1);
+  \draw[->] (y) -- (y1);
+  \draw[->] (z) -- (y1);
+  \draw[->] (t) -- (y1);
+
+  \draw[->] (x) -- (yc);
+  \draw[->] (y) -- (yc);
+  \draw[->] (z) -- (yc);
+  \draw[->] (t) -- (yc);
+
+  \draw[->] (y1) -- (u1);
+  \draw[->] (yc) -- (u1);
+  \draw[->] (y1) -- (u2);
+  \draw[->] (yc) -- (u2);
+
+  \draw[->] (u1) -- (dt);
+  \draw[->] (u1) -- (grad);
+  \draw[->] (u1) -- (lap);
+  \draw[->] (u1) -- (stats);
+  \draw[->] (u2) -- (dt);
+  \draw[->] (u2) -- (grad);
+  \draw[->] (u2) -- (lap);
+  \draw[->] (u2) -- (stats);
+
+  \draw[->] (dt) -- (l);
+  \draw[->] (grad) -- (l);
+  \draw[->] (lap) -- (l);
+  \draw[->] (stats) -- (l);
+
+  \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (-0.5,4) -- (0.75,4) node [black,midway,yshift=+0.6cm]{\small Input layer};
+  \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (2.5,3) -- (3.75,3) node [black,midway,yshift=+0.6cm]{\small Hidden layer};
+  \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (5.75,-0.1) -- (4.5,-0.1) node [black,midway,yshift=-0.6cm]{\small Output layer};
+  \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (5.95,-1.5) -- (-0.5,-1.5) node [black,midway,yshift=-0.6cm]{\small Neural networks};
+  \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (4.5,4.6) -- (11.5,4.6) node [black,midway,yshift=+0.6cm]{\small Loss function};
+\end{tikzpicture}
+\begin{tikzpicture}
+\draw (0,0) circle (1cm);
+% \draw (0,0) circle (2cm);
+\end{tikzpicture}
+```
 
 ---
 
@@ -22,8 +81,8 @@ format:
 
 - Name
 - Professional background
-  - Engineer / Geoscientists / Data Scientist / Other
-  - Expectations for class
+- Engineer / Geoscientists / Data Scientist / Other
+- Expectations for class
 
 ---
 
