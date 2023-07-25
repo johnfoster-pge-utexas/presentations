@@ -1,0 +1,67 @@
+---
+format: 
+  clean-revealjs:
+    footer: "USNCCM 17 - Novel Methods TTA -- July 2023"
+    scrollable: true
+execute:
+  freeze: true
+title: Novel Methods in Computational Engineeering and Sciences
+author: 
+  - name: John T. Foster (Chair)
+    email: john.foster@utexas.edu
+    affiliations: 
+      - "Oden Institute for Computational Engineering and Science"
+      - "Hildebrand Department of Petroleum and Geosystems Engineering"
+      - "Department of Aerospace Engineering and Engineering Mechanics"
+      - "The University of Texas at Austin"
+  - name: Pania Newell (Vice-Chair)
+    affiliations: ["Department of Mechanical Engineering", "The University of Utah"]
+date: July 25, 2023
+---
+
+## Thanks to C.T. Wu 
+### TTA Chair 2017-2023
+
+![](img_tta/ct.jpeg){fig-align="center"}
+
+## Introductions
+
+* Name and affiliation
+
+## Current Organization
+
+* John T. Foster (Chair)
+* Pania Newell (Vice-Chair) 
+* Steve WaiChing Sun (Member-at-Large)
+* Michael Hillman (Member-at-Large)
+
+## TTA Charter
+
+Each TTA will be charged with the following tasks:
+
+1. Organize mini-symposia in the technical thrust areas at every USNCCM;
+1. Be responsible for the organization of at least one thematic conference in a two-year cycle; and
+1. Maintain a TTA website on the USACM webpage documenting all activities.
+
+## Thematic Conferences {.smaller}
+
+* [Thematic Conference Request](https://unsacm.memberclicks.net/index.php?option=com_mcform&view=ngforms&id=39653#!/)
+
+* Past TTA Conferences
+  * Meshfree and Novel Finite Elements with Applicatoins, *Berkeley, CA 2022*
+  * Meshfree and Particle Methods: Applications and Theory *Santa Fe, NM 2018*
+  * Nonlocal Methods in Fracture, *Austin, TX 2018*
+  * Isogeometric and Meshfree Methdos, *La Jolla, CA 2016*
+  * Meshfree Methods for Large-Scale Computational Science and Engineering, *Tampa, FL, 2014*
+  * Nonlocal Damage and Failure: Peridynamics and Other Nonlocal Methods, *San Antonio, TX 2013*
+
+* Upcoming???
+  * "Meshfree Meeting" ??? Austin, TX ???
+  * Others ???
+
+## Other business
+
+* TTA Seminar Series?
+* Meeting frequency?
+* Suggestions?
+
