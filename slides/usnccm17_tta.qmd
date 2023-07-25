@@ -15,18 +15,15 @@ author:
       - "Department of Aerospace Engineering and Engineering Mechanics"
       - "The University of Texas at Austin"
   - name: Pania Newell (Vice-Chair)
+    email: pania.newell@utah.edu
     affiliations: ["Department of Mechanical Engineering", "The University of Utah"]
 date: July 25, 2023
 ---
 
 ## Thanks to C.T. Wu 
-### TTA Chair 2017-2023
+### TTA Chair 2019-2023
 
 ![](img_tta/ct.jpeg){fig-align="center"}
-
-## Introductions
-
-* Name and affiliation
 
 ## Current Organization
 
@@ -34,6 +31,10 @@ date: July 25, 2023
 * Pania Newell (Vice-Chair) 
 * Steve WaiChing Sun (Member-at-Large)
 * Michael Hillman (Member-at-Large)
+
+## Introductions
+
+* Name and affiliation
 
 ## TTA Charter
 
@@ -64,4 +65,3 @@ Each TTA will be charged with the following tasks:
 * TTA Seminar Series?
 * Meeting frequency?
 * Suggestions?
-
