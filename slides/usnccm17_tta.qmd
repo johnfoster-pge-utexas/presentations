@@ -49,10 +49,10 @@ Each TTA will be charged with the following tasks:
 * [Thematic Conference Request](https://unsacm.memberclicks.net/index.php?option=com_mcform&view=ngforms&id=39653#!/)
 
 * Past TTA Conferences
-  * Meshfree and Novel Finite Elements with Applicatoins, *Berkeley, CA 2022*
+  * Meshfree and Novel Finite Elements with Applications, *Berkeley, CA 2022*
   * Meshfree and Particle Methods: Applications and Theory *Santa Fe, NM 2018*
   * Nonlocal Methods in Fracture, *Austin, TX 2018*
-  * Isogeometric and Meshfree Methdos, *La Jolla, CA 2016*
+  * Isogeometric and Meshfree Methods, *La Jolla, CA 2016*
   * Meshfree Methods for Large-Scale Computational Science and Engineering, *Tampa, FL, 2014*
   * Nonlocal Damage and Failure: Peridynamics and Other Nonlocal Methods, *San Antonio, TX 2013*
 
