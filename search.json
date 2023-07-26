@@ -200,7 +200,7 @@
     "href": "slides/usnccm17_mopinn.html#inverse-estimates",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Inverse Estimates",
-    "text": "Inverse Estimates\n\\(k\\)\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.698\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 0.678\\)"
+    "text": "Inverse Estimates\n\\(k_{exact} = 0.7\\)\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.698\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 0.678\\)"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#sensitivity-of-k_avg-w.r.t-number-of-outputs",
@@ -221,7 +221,7 @@
     "href": "slides/usnccm17_mopinn.html#inverse-estimates-1",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Inverse Estimates",
-    "text": "Inverse Estimates\n\\(k\\)\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.995\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 1.02\\)"
+    "text": "Inverse Estimates\n\\(k_{exact} = 1.0\\)\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.995\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 1.02\\)"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#comparison-to-monte-carlo-fem",
