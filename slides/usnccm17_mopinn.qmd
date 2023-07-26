@@ -3,6 +3,7 @@ format:
   clean-revealjs:
     footer: "USNCCM 17 -- July 2023"
     scrollable: false
+    touch: true
 execute:
   freeze: true
 title: Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties
