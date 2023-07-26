@@ -470,7 +470,7 @@ $k=[???, ???, ???, \dots, ???]$ with $N$ entries corresponding to $N$ outputs of
 ---
 
 ## Inverse Estimates 
-### $k$
+### $k_{exact} = 0.7$
 
 ::: {layout-ncol=2}
 
@@ -522,7 +522,7 @@ $k=[???, ???, ???, \dots, ???]$ with $N$ entries corresponding to $N$ outputs of
 ---
 
 ## Inverse Estimates
-### $k$
+### $k_{exact} = 1.0$
 
 ::: {layout-ncol=2}
 
