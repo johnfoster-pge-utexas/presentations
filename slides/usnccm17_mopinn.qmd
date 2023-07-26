@@ -2,7 +2,7 @@
 format: 
   clean-revealjs:
     footer: "USNCCM 17 -- July 2023"
-    scrollable: true
+    scrollable: false
 execute:
   freeze: true
 title: Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties
@@ -20,9 +20,17 @@ author:
       - "Department of Aerospace Engineering and Engineering Mechanics"
       - "The University of Texas at Austin"
 date: July 26, 2023
+bibliography: bib_files/usnccm17_mopinn.bib 
 ---
 
-## PINN
+## Physics Informed Neural Networks
+### PINNs
+
+Introduced in [@raissi2019physics] as a general method for solving partial differential equations.
+
+Already recieved >5900 citations since posting on arXiv in 2018!
+
+## Generic PINN architecture
 
 ```{r, engine = 'tikz'}
 #| fig-align: "center"
@@ -78,8 +86,38 @@ date: July 26, 2023
 
 ---
 
+## Loss function for generic PINN system {.smaller}
+
+$$
+\begin{align}
+    r_d(u_{NN}, f_{NN}) &= \mathcal{L} u_{NN} - f_{NN},\qquad x \in \Omega
+    \\
+    r_e(u_{NN}) &= u_{NN} - h,\qquad x \in \partial \Omega_h
+    \\
+    r_n(u_{NN}) &= \frac{\partial u_{NN}}{\partial x} - g,\qquad x \in \partial \Omega_g 
+    \\
+    r_{u}(u_{NN}) &= u_{NN}(x^u_i) - u_m(x^u_i), \qquad i=1,2,...,n 
+    \\
+    r_{f}(f_{NN}) &= f_{NN}(x^f_i) - f_m(x^f_i), \qquad i=1,2,...,m 
+\end{align}
+$$
+
+::: {.fragment}
+$$
+\begin{gather}
+    L_{MSE} = \frac{1}{N}\sum_{i}^N r_d^2 + \frac{1}{N_e}\sum_{i=1}^{N_e} r_e^2 + \frac{1}{N_n}\sum_{i=1}^{N_n} r_n^2 + \frac{1}{n}\sum_{i=1}^{n} r_{u}^2 + \frac{1}{m}\sum_{i=1}^m r_{f}^2
+\end{gather}
+$$
+:::
+
+## Extensions of PINNs for UQ
+
+* B-PINNs [@yang2021b]
+* E-PINN [@jiang2022pinn]
+
+
 ## Multi-Output PINN 
-### MO-PINN
+### MO-PINN [@mingyuan2022a]
 
 ```{r, engine = 'tikz'}
 #| fig-align: "center"
@@ -141,14 +179,31 @@ date: July 26, 2023
   \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (5.95,-1.5) -- (-0.5,-1.5) node [black,midway,yshift=-0.6cm]{\small Neural networks};
   \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (4.5,4.6) -- (11.5,4.6) node [black,midway,yshift=+0.6cm]{\small Loss function};
 \end{tikzpicture}
-\begin{tikzpicture}
-\draw (0,0) circle (1cm);
-% \draw (0,0) circle (2cm);
-\end{tikzpicture}
 ```
 
----
+## Loss function for generic MO-PINN system {.smaller}
 
+$$
+\begin{align}
+    r_d(u_{NN}^j, f_{NN}^j) &= \mathcal{L} u_{NN}^j - f_{NN}^j,\qquad x \in \Omega
+    \\
+    r_e(u_{NN}^j) &= u_{NN}^j - h,\qquad x \in \partial \Omega_h
+    \\
+    r_n(u_{NN}^j) &= \frac{\partial u_{NN}^j}{\partial x} - g,\qquad x \in \partial \Omega_g
+    \\
+    r_{um}(u_{NN}^j) &= u_{NN}^j(x^u_i) - \left(u_m(x^u_i) + \sigma_u^j\right), \qquad i=1,2,...,n 
+    \\
+    r_{fm}(f_{NN}^j) &= f_{NN}^j(x^f_i) - \left(f_m(x^f_i) + \sigma_f^j\right), \qquad i=1,2,...,m \
+\end{align}
+$$
+
+::: {.fragment}
+$$
+\begin{gather}
+    L_{MSE} = \frac{1}{M}\sum_{j=1}^{M} \left( \frac{1}{N}\sum_{i}^N r_d^2 + \frac{1}{N_e}\sum_{i=1}^{N_e} r_e^2 + \frac{1}{N_n}\sum_{i=1}^{N_n} r_n^2 + \frac{1}{n}\sum_{i=1}^{n} r_{um}^2 + \frac{1}{m}\sum_{i=1}^m r_{fm}^2  \right)
+\end{gather}
+$$
+:::
 # Forward PDE problems
 
 ---
@@ -163,13 +218,13 @@ $$
 $$ 
 where $\lambda = 0.01$ and  $u=\sin^3(6x)$
 
-:::: {layout="[[1, 1]]"}
+::: {layout="[[1, 1]]"}
 
 ![Solution $u$](img_mopinn/1d_linear_solution_u.png)
 
 ![Source $f$ from manufactured solution](img_mopinn/1d_linear_source_f.png)
 
-::::
+:::
 
 ---
 
@@ -196,403 +251,357 @@ where $\lambda = 0.01$ and  $u=\sin^3(6x)$
 
 ## Predictions w/ $\sigma = 0.01$ noise on measurements
 
-::: {layout-nrow=2}
+::: {layout="[[1, 1], [1, 1]]"}
 
-![Prediction $u$ w/ raw solutions](img_mopinn/1d_linear_u_raw_0.01_noise.png){height=40%}
+![Prediction $u$ w/ raw solutions](img_mopinn/1d_linear_u_raw_0.01_noise.png){width=350px}
 
-![Prediction $f$ w/ raw solutions](img_mopinn/1d_linear_f_raw_0.01_noise.png){height=40%}
+![Prediction $f$ w/ raw solutions](img_mopinn/1d_linear_f_raw_0.01_noise.png){width=350px}
 
-![Prediction $u$ w/ $2\sigma$ distribution](img_mopinn/1d_linear_u_with_std_0.01_noise.png){height=40%}
+![Prediction $u$ w/ $2\sigma$ distribution](img_mopinn/1d_linear_u_with_std_0.01_noise.png){width=350px}
 
-![Prediction $f$ w/ $2\sigma$ distribution](img_mopinn/1d_linear_f_with_std_0.01_noise.png){height=40%}
+![Prediction $f$ w/ $2\sigma$ distribution](img_mopinn/1d_linear_f_with_std_0.01_noise.png){width=350px}
 
 :::
 
+---
 
-<!---->
-<!-- Now we assume that the functional form of $u$ and $f$ are both unknown, -->
-<!-- and only sparse noisy measurements of $u$ and $f$ are available as -->
-<!-- training data. The goal of training is to obtain two neural network -->
-<!-- representations for $u$ and $f$ over the whole domain. -->
-<!---->
-<!-- Here we assume that 16 measurements of $f$ are available which are -->
-<!-- equally sampled in the range $x \in [-0.7, 0.7]$. Additionally, we -->
-<!-- assume that two measurements of $u$ at two ends are available, which -->
-<!-- serve as the Dirichlet boundary conditions for the equation. We also -->
-<!-- assume that both measurements of $u$ and $f$ are noisy and the errors -->
-<!-- follow a given distribution. In this example, we investigate two cases -->
-<!-- where errors follow the Gaussian distribution with different standard -->
-<!-- deviations: -->
-<!---->
-<!-- ::: center -->
-<!-- 1.  $\epsilon_u \sim \mathcal{N}(0,\,0.01^{2})\,,\qquad \epsilon_f \sim \mathcal{N}(0,\,0.01^{2}),$ -->
-<!---->
-<!-- 2.  $\epsilon_u \sim \mathcal{N}(0,\,0.1^{2})\,,\qquad \epsilon_f \sim \mathcal{N}(0,\,0.1^{2}),$ -->
-<!-- ::: -->
-<!---->
-<!-- The training data of $u_{data}$ and $f_{data}$ is then -->
-<!-- $$\begin{gathered} -->
-<!--     u_{data} = u_{exact} + \epsilon_u \label{u data},  -->
-<!--     \\ -->
-<!--     f_{data} = f_{exact} + \epsilon_f \label{f data}. -->
-<!-- \end{gathered}$$ Consequently, the multiple outputs of neural networks -->
-<!-- are $$\begin{gathered} -->
-<!--     u_{output} = u_{data} + \epsilon_u, \notag -->
-<!--     \\ -->
-<!--     f_{output} = f_{data} + \epsilon_f. \notag -->
-<!-- \end{gathered}$$ -->
-<!---->
-<!-- In this work, all the examples of MO-PINNs are implemented with PyTorch -->
-<!-- [@paszke2017automatic]. The neural network structures are the same for -->
-<!-- $u_{NN}$ and $f_{NN}$, which are defined as fully connected neural -->
-<!-- networks with two hidden layers consisting of 20 and 40 neurons -->
-<!-- individually while the output layer consists of 500 neurons. The -->
-<!-- hyperbolic tangent function ($\tanh{}$) is used as activation function -->
-<!-- in this section and throughout the rest of this work. The ADAM optimizer -->
-<!-- is used for training with a learning rate of $10^{-3}$. The Xavier -->
-<!-- normal initialization strategy is used in this study which it yields -->
-<!-- neural networks with different weights at the beginning of training for -->
-<!-- different random seeds. All results in this section were obtained after -->
-<!-- 10000 epochs of training. -->
-<!---->
-<!-- The results of the two cases with different noise scales are shown in -->
-<!-- Figure -->
-<!-- [\[fig:1d linear possion u and f prediction 0.01 noise\]](#fig:1d linear possion u and f prediction 0.01 noise){reference-type="ref" -->
-<!-- reference="fig:1d linear possion u and f prediction 0.01 noise"} and -->
-<!-- Figure -->
-<!-- [\[fig:1d linear possion u and f prediction 0.1 noise\]](#fig:1d linear possion u and f prediction 0.1 noise){reference-type="ref" -->
-<!-- reference="fig:1d linear possion u and f prediction 0.1 noise"}. First -->
-<!-- we see that the means of predictions for both $u$ and $f$ pass through -->
-<!-- the noisy measurements which is consistent with our error distribution -->
-<!-- assumptions. Next we see that the multiple outputs from neural networks -->
-<!-- form the posterior estimations of $u$ and $f$ over the investigated -->
-<!-- range $[-0.7, 0.7]$. In addition, it can be seen that the exact -->
-<!-- solutions are bounded by two standard deviations, which means that the -->
-<!-- predictions are reasonable. Last, we see that the standard deviations of -->
-<!-- predictions grow as the measurement error increases. The results that we -->
-<!-- obtain with MO-PINN are comparable with the ones presented in paper -->
-<!-- [@yang2021b] using Bayesian Hamiltonian Monte Carlo physics-informed -->
-<!-- neural networks (B-PINN-HMC). However, our approach does not require -->
-<!-- assumed prior distributions of hyperparameters in neural networks and -->
-<!-- can be easily implemented by modifying the standard PINN. -->
-<!---->
-<!-- We also verified our solutions from multiple aspects. First, we checked -->
-<!-- the consistency of the solutions when the two neural networks are -->
-<!-- initialized differently and different random noise are assigned to the -->
-<!-- outputs. Here we take the case 2 as example and run the simulations with -->
-<!-- different random seeds while keeping the measurements the same. Four -->
-<!-- predictions of $u$ are presented in Figure -->
-<!-- [\[fig:1d linear possion u with different random seeds\]](#fig:1d linear possion u with different random seeds){reference-type="ref" -->
-<!-- reference="fig:1d linear possion u with different random seeds"}. It is -->
-<!-- shown that the results are in agreement which means that the solution is -->
-<!-- consistent and invariant to the randomness at the beginning of training. -->
-<!---->
-<!-- It should also be noted that the predictions are different with respect -->
-<!-- to different noisy measurements from -->
-<!-- Equation [\[u data\]](#u data){reference-type="eqref" -->
-<!-- reference="u data"} and -->
-<!-- Equation [\[f data\]](#f data){reference-type="eqref" -->
-<!-- reference="f data"}. In an physical setting, we would likely have no -->
-<!-- control over the measurements in practice, which means that the best we -->
-<!-- can expect is that the exact solution is bounded by two or three -->
-<!-- standard deviations for all possible measurements. Therefore, we tested -->
-<!-- our approach on different measurements and the results are shown in -->
-<!-- Figure [\[fig:1d linear possion u with different measurements\]](#fig:1d linear possion u with different measurements){reference-type="ref" -->
-<!-- reference="fig:1d linear possion u with different measurements"}. We can -->
-<!-- see that for all cases the exact solution is bounded by two standard -->
-<!-- deviations which confirms the reliability of our approach. -->
-<!---->
-<!-- Finally, we also tested the convergence of the predictions with respect -->
-<!-- to different number of outputs used in the neural networks. In this -->
-<!-- work, we do not have a rigorous theory to derive the optimal number of -->
-<!-- outputs so that they can truly represent the posterior distributions. -->
-<!-- Instead, an ad hoc strategy is adopted here such that we incrementally -->
-<!-- increased the number of outputs and accepted the results when the change -->
-<!-- from previous iterations was trivial. For example, in Figure -->
-<!-- [\[fig:1d linear possion u with different number of outputs on the same measurements.\]](#fig:1d linear possion u with different number of outputs on the same measurements.){reference-type="ref" -->
-<!-- reference="fig:1d linear possion u with different number of outputs on the same measurements."}, -->
-<!-- we tested our approach with different number of outputs for both $u$ and -->
-<!-- $f$ neural networks on the same measurements. It is shown that the mean -->
-<!-- of predictions as well as the shady areas do not change much from 50 -->
-<!-- outputs to 100 and 500 outputs, so that we consider the predictions with -->
-<!-- 500 outputs to be our converged solution to this problem. -->
-<!---->
-<!-- ### 1D nonlinear Poisson equation {#1d nonlinear case} -->
-<!---->
-<!-- In this section we consider the following one-dimensional nonlinear -->
-<!-- Poisson equation $$\begin{gathered} -->
-<!--     \lambda \frac{\partial^2 u}{\partial x^2} + k\tanh(u) = f, \qquad x \in [-0.7, 0.7], \label{1d nonlinear possion equation}  -->
-<!-- \end{gathered}$$ where $\lambda = 0.01$, $k=0.7$ and the solution $u$ is -->
-<!-- assumed to be the same with the one in the last section, -->
-<!-- i.e. $u=\sin^3(6x)$. Therefore, the source term $f$ can be derived from -->
-<!-- the -->
-<!-- Equation [\[1d nonlinear possion equation\]](#1d nonlinear possion equation){reference-type="eqref" -->
-<!-- reference="1d nonlinear possion equation"} with manufactured solution. -->
-<!-- The solution $u$ and the exact source term $f$ are shown in Figure -->
-<!-- [\[fig:1d nonlinear possion u and f\]](#fig:1d nonlinear possion u and f){reference-type="ref" -->
-<!-- reference="fig:1d nonlinear possion u and f"}. -->
-<!---->
-<!-- This time we assume that 32 measurements of $f$ are available to us -->
-<!-- which are equidistantly sampled in the range $x \in [-0.7, 0.7]$, while -->
-<!-- the exact expression of $f$ is assumed to be unknown. Again, we assume -->
-<!-- that two measurements of $u$ at two ends are available, which serve as -->
-<!-- the Dirichlet boundary conditions for the equation. We also investigate -->
-<!-- two cases with errors following the same distribution as in -->
-<!-- § [3.1.1](#linear case){reference-type="ref" reference="linear case"}. -->
-<!-- The neural network structures and the settings of training are kept the -->
-<!-- same as in last section. All results are collected after 10000 epochs. -->
-<!---->
-<!-- The predictions of $u$ and $f$ for the two cases are shown -->
-<!-- Figure [\[fig:1d nonlinear possion u and f prediction 0.01 noise\]](#fig:1d nonlinear possion u and f prediction 0.01 noise){reference-type="ref" -->
-<!-- reference="fig:1d nonlinear possion u and f prediction 0.01 noise"} and -->
-<!-- Figure [\[fig:1d nonlinear possion u and f prediction 0.1 noise\]](#fig:1d nonlinear possion u and f prediction 0.1 noise){reference-type="ref" -->
-<!-- reference="fig:1d nonlinear possion u and f prediction 0.1 noise"}. -->
-<!-- Again, we have the same observations about the results as in the last -->
-<!-- section that exact solution of $u$ is bounded by two standard deviations -->
-<!-- and the shaded area grows as errors from the measurements increase. -->
-<!-- Nevertheless, it is shown that the standard deviations of $u$ -->
-<!-- predictions are smaller than those in the linear Poisson example. This -->
-<!-- is due to the fact that there are more measurements of $f$ available for -->
-<!-- training in this example which reduces the uncertainty of predictions. -->
-<!-- This observation is also consistent with the results presented in -->
-<!-- [@yang2021b]. -->
-<!---->
-<!-- ### 2D nonlinear Allen-Cahn equation {#2d forward section} -->
-<!---->
-<!-- In this section we test the MO-PINN on a two-dimensional problem with -->
-<!-- the nonlinear Allen-Cahn equation. The equation can be written as -->
-<!-- $$\begin{gathered} -->
-<!--     \lambda \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) + u\left(u^2-1\right) = f, \qquad x,y \in [-1, 1], \label{2d ac equation}  -->
-<!-- \end{gathered}$$ where $\lambda$ is a constant of 0.01 in this example. -->
-<!-- Again, we adopted the same problem setting as in the paper [@yang2021b] -->
-<!-- to generate the training data, so that we can validate the results and -->
-<!-- for readers to compare them. The exact solution of $u$ is assumed to be -->
-<!-- $u=\sin(\pi x)\sin(\pi y)$ and the source $f$ can be calculated with the -->
-<!-- Equation [\[2d ac equation\]](#2d ac equation){reference-type="eqref" -->
-<!-- reference="2d ac equation"}. Further, we assume that 500 noisy -->
-<!-- measurements of $f$ are available in the domain which are randomly -->
-<!-- distributed. In addition, 25 equally spaced measurements of $u$ are -->
-<!-- available at each boundary. Again, we investigate two cases with -->
-<!-- different noise scales and the errors follow the same distributions as -->
-<!-- those in § [3.1.1](#linear case){reference-type="ref" -->
-<!-- reference="linear case"}. -->
-<!-- Figure [\[fig:2d ac\]](#fig:2d ac){reference-type="ref" -->
-<!-- reference="fig:2d ac"} shows the exact solution $u$ to the problem, the -->
-<!-- source $f$ and their respective measurements. The training data is -->
-<!-- generated in the same fashion as in the one-dimensional cases to provide -->
-<!-- the outputs of the neural networks, and the goal is also to find the -->
-<!-- posterior distribution of $u$. -->
-<!---->
-<!-- For both cases (small and large noise), the same neural network -->
-<!-- structure is used for $u$ and $f$, i.e. 3 hidden layers consisting of -->
-<!-- 200 neurons in each followed by the output layer with 2000 neurons. The -->
-<!-- ADAM optimizer is used for training with a learning rate of $10^{-3}$ -->
-<!-- and the results are collected after 50000 epochs. -->
-<!---->
-<!-- The results of the two-dimensional forward solution to the Allen-Cahn -->
-<!-- problem are shown in -->
-<!-- Figure [\[fig:2d ac 0.01 noise\]](#fig:2d ac 0.01 noise){reference-type="ref" -->
-<!-- reference="fig:2d ac 0.01 noise"} and Figure -->
-<!-- [\[fig:2d ac 0.1 noise\]](#fig:2d ac 0.1 noise){reference-type="ref" -->
-<!-- reference="fig:2d ac 0.1 noise"}. Similarly, the exact solution to the -->
-<!-- problem is largely bounded by two standard deviations for both cases -->
-<!-- with different scales of measurement noise. In addition, the error -->
-<!-- between the exact solution and the mean prediction grows as the noise -->
-<!-- scale increases. -->
-<!---->
-<!-- ## Inverse PDE problems -->
-<!---->
-<!-- We define *inverse problems* as those where all or some constitutive -->
-<!-- parameters are unknown and we are seeking complete solutions to the PDE -->
-<!-- and the discovery of the unknown parameters. Examples for linear and -->
-<!-- nonlinear problems in one and two dimensions are demonstrated. -->
-<!---->
-<!-- ### 1D diffusion-reaction system with nonlinear source term -->
-<!---->
-<!-- Again, we use the same problem as in the paper [@yang2021b] to -->
-<!-- demonstrate the capability of MO-PINN to solve inverse problems. Here, -->
-<!-- the PDE used in this section is the same as -->
-<!-- [\[1d nonlinear possion equation\]](#1d nonlinear possion equation){reference-type="eqref" -->
-<!-- reference="1d nonlinear possion equation"} except that this time the -->
-<!-- coefficient $k$ is assumed to be unknown and the goal is to find the -->
-<!-- corresponding distribution of $k$ with respect to noisy measurements of -->
-<!-- $u$ and $f$. We assume that 32 measurements of $f$ are available and -->
-<!-- equally sampled between $x \in [-0.7, 0.7]$. Additionally, 8 -->
-<!-- measurements of $u$ are also available and equally sampled in same -->
-<!-- domain, and the solution of $u$ is assumed to be the same as in -->
-<!-- § [3.1.2](#1d nonlinear case){reference-type="ref" -->
-<!-- reference="1d nonlinear case"}. $k=0.7$ is considered to be the true -->
-<!-- solution of $k$ and used to generate the data for $f$. We also test our -->
-<!-- approach on cases with two noise scales which are the same as in -->
-<!-- previous sections. -->
-<!---->
-<!-- The neural network structures as well as the training setting remain the -->
-<!-- same as in the one-dimensional forward problems. In addition to the -->
-<!-- neural networks, a trainable array is defined for $k$ which corresponds -->
-<!-- to the multiple outputs of $u_{NN}$ and $f_{NN}$ when formulating the -->
-<!-- loss function. The array of $k$ is initialized with random values at the -->
-<!-- beginning of training, so that it does not require a priori information -->
-<!-- regarding the $k$ distribution. -->
-<!---->
-<!-- A summary of results of this one-dimensional inverse problem for both -->
-<!-- noise scale cases is shown in -->
-<!-- Figure [\[fig:1d inverse\]](#fig:1d inverse){reference-type="ref" -->
-<!-- reference="fig:1d inverse"}. Similar to the results in the forward -->
-<!-- problems, the mean predictions of $u$ and $f$ pass through the noisy -->
-<!-- measurements. In addition, we end up with distributions of $k$ which is -->
-<!-- the objective of the inverse problem training. It is shown that the -->
-<!-- values in the array of $k$ follow a normal distribution as expected. -->
-<!-- Moreover, the true solution $k=0.7$ is bounded by the mean prediction of -->
-<!-- $k$ plus/minus two standard deviations which indicates that MO-PINN is -->
-<!-- capable of returning a reasonable posterior distribution in this inverse -->
-<!-- problem. -->
-<!---->
-<!-- ::: center -->
-<!-- ::: {#tab:1d inverse consistency} -->
-<!--   **No.**    **Mean**    **Std** -->
-<!--   --------- ---------- --------- -->
-<!--   1          $0.673$       0.073 -->
-<!--   2          $0.681$       0.075 -->
-<!--   3          $0.675$       0.072 -->
-<!--   4          $0.676$       0.073 -->
-<!--   5          $0.674$       0.071 -->
-<!--   6          $0.675$       0.073 -->
-<!---->
-<!--   : Mean and standard deviation of predicted $k$ of 6 simulations with -->
-<!--   different random seeds for case 2. -->
-<!-- ::: -->
-<!---->
-<!-- []{#tab:1d inverse consistency label="tab:1d inverse consistency"} -->
-<!-- ::: -->
-<!---->
-<!-- We also tested the consistency of our solutions by training on the same -->
-<!-- measurements but different random seeds to initialize the neural -->
-<!-- networks. Results of 6 simulations are shown in -->
-<!-- Table [1](#tab:1d inverse consistency){reference-type="ref" -->
-<!-- reference="tab:1d inverse consistency"}, and it demonstrates that all -->
-<!-- return all of the distributions of predicted $k$ are in agreement. -->
-<!---->
-<!-- Additionally, we solved the problem with different number of outputs for -->
-<!-- the neural networks and the respective $k$ distributions are shown in -->
-<!-- Figure [\[fig:1d inverse convergence\]](#fig:1d inverse convergence){reference-type="ref" -->
-<!-- reference="fig:1d inverse convergence"}. It gives us a better intuition -->
-<!-- of the process that the posterior distribution forms as the number of -->
-<!-- outputs increases. -->
-<!---->
-<!-- ### Two-dimensional nonlinear diffusion-reaction system -->
-<!---->
-<!-- For the two-dimensional inverse problem, we consider the following PDE, -->
-<!-- $$\begin{gathered} -->
-<!--     \lambda \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) + k u^2 = f, \qquad x,y \in [-1, 1], \label{2d inverse equation}  -->
-<!-- \end{gathered}$$ where the constant $\lambda=0.01$ and $k$ is an unknown -->
-<!-- parameter to be solved for with noisy measurements of $u$ and $f$. The -->
-<!-- same exact solution of $u$ as in -->
-<!-- § [3.1.3](#2d forward section){reference-type="ref" -->
-<!-- reference="2d forward section"} is considered here, that -->
-<!-- $u=\sin(\pi x)\sin(\pi y)$. One hundred noisy measurements of $u$ and -->
-<!-- $f$ are assumed to be available across the domain. In addition, 25 -->
-<!-- equally spaced measurements of $u$ are also available at each boundary. -->
-<!-- $k=1$ is the exact solution in this example and used to generate the -->
-<!-- training data. We also test the MO-PINN on two cases with the different -->
-<!-- noise scales. The errors in the measurements follow the same -->
-<!-- distributions as in previous sections. The structure of neural networks -->
-<!-- and the hyperparameters for training are kept the same as in -->
-<!-- § [3.1.3](#2d forward section){reference-type="ref" -->
-<!-- reference="2d forward section"}. The only difference is that we have an -->
-<!-- additional trainable array for $k$ which is of the size 2000 -->
-<!-- corresponding to the number of outputs for the two neural networks. -->
-<!---->
-<!-- The resulting $k$ distributions for both cases are shown in -->
-<!-- Figure [\[fig:2d inverse k\]](#fig:2d inverse k){reference-type="ref" -->
-<!-- reference="fig:2d inverse k"}. Again, we have similar observations as in -->
-<!-- the previous section that the exact solution of $k$ is within the two -->
-<!-- standard deviations confidence interval. Also, as the error in the -->
-<!-- measurements grow, the standard deviation of the $k$ distribution -->
-<!-- increases. -->
-<!---->
-<!-- ## Incorporation of additional prior knowledge to improve the prediction -->
-<!---->
-<!-- In this section, we will show that the MO-PINN approach is capable of -->
-<!-- taking prior knowledge from different sources into consideration to -->
-<!-- improve the predictions. We take the problem in -->
-<!-- § [3.1.1](#linear case){reference-type="ref" reference="linear case"} -->
-<!-- with the large noise scale as example for demonstration. First, we solve -->
-<!-- the same problem with the finite element method using a Monte Carlo -->
-<!-- approach. This is a common way to infer a distribution with only forward -->
-<!-- models available. In this work, the FEniCS package [@alnaes2015fenics] -->
-<!-- is used as the forward solver. In order to solve the problem with the -->
-<!-- FEM, the full information of source $f$ needs to be provided or at least -->
-<!-- at all quadrature points. Here, we made a simple assumption that the -->
-<!-- source $f$ is a linear function between measurements for the FEM -->
-<!-- approach. Therefore, for each set of training data of $u$ and $f$ in -->
-<!-- Section [3.1.1](#linear case){reference-type="ref" -->
-<!-- reference="linear case"}, there is a corresponding FEM solution to the -->
-<!-- problem, and they form the final posterior distributions as we did -->
-<!-- before. This can also be seen as another validation of the MO-PINN -->
-<!-- approach in solving this 1D problem. -->
-<!---->
-<!-- In Figure [\[fig:fenics comp\]](#fig:fenics comp){reference-type="ref" -->
-<!-- reference="fig:fenics comp"}, it shows the comparison of results between -->
-<!-- MO-PINN and the FEM Monte Carlo approach. The same number of forward -->
-<!-- simulations (500) were run to generate the posterior distributions for -->
-<!-- comparison. -->
-<!---->
-<!-- The resulting distributions of $u$ are almost the same and the minor -->
-<!-- differences are caused by different assumptions on $f$ in each approach. -->
-<!-- In MO-PINN, the neural networks naturally returns a smooth function -->
-<!-- interpolation of the measurements while we enforce $f$ to be linear in -->
-<!-- between for the FEM simulation. In -->
-<!-- Figure [\[fig:quantile\]](#fig:quantile){reference-type="ref" -->
-<!-- reference="fig:quantile"}, it shows another comparison of the two -->
-<!-- distributions of $u$ with a quantile-quantile plot. This type of plot is -->
-<!-- used to answer the question, "What percentage of the data lies in the -->
-<!-- $x$ quantile of the prediction distribution?\" where, $x$ is -->
-<!-- $10\%, 20\%, \ldots, 100\%$. -->
-<!---->
-<!-- Next, we assume that only 5 measurements of $f$ are available and other -->
-<!-- settings remain the same. It can be seen in -->
-<!-- Figure [\[fig:integration improve\]](#fig:integration improve){reference-type="ref" -->
-<!-- reference="fig:integration improve"} that the data is not sufficient to -->
-<!-- provide us with reasonable predictions of $u$ and $f$. In practice, this -->
-<!-- is quite common that the direct measurements are expensive and sparse so -->
-<!-- that numerical simulations are usually performed to assist the -->
-<!-- predictions. Here we assume that the mean and standard deviation of $u$ -->
-<!-- from the FEM approach at the 9 locations in -->
-<!-- Figure [\[fig:quantile\]](#fig:quantile){reference-type="ref" -->
-<!-- reference="fig:quantile"} are also available to us and we include this -->
-<!-- additional knowledge into our training to improve our predictions. -->
-<!---->
-<!-- In -->
-<!-- Figure [\[fig:integration improve\]](#fig:integration improve){reference-type="ref" -->
-<!-- reference="fig:integration improve"}, it shows that the predictions of -->
-<!-- $u$ and $f$ are highly improved with using mean and standard deviation -->
-<!-- information. Furthermore, it can be seen that the predictions can also -->
-<!-- be improved if only the means are available. In the framework of -->
-<!-- MO-PINN, this integration of additional data can be easily implemented -->
-<!-- by modifying the loss function which makes the approach suitable for the -->
-<!-- scenarios where the sources of data are varied and complicated. -->
-<!---->
-<!-- # Summary -->
-<!---->
-<!-- We proposed the MO-PINNs in this work to solve both forward and inverse -->
-<!-- PDE based problems with noisy data. This approach allowed us to use -->
-<!-- prior knowledge of statistical distributions into the calculations under -->
-<!-- the framework of PINNs. Our numerical results indicate that the MO-PINNs -->
-<!-- can return accurate distributions at the end of training for both -->
-<!-- forward and inverse problems. Finally, for the first time, we compared -->
-<!-- the the predicted distributions using pure deep learning framework with -->
-<!-- solutions from the traditional numerical solver (FEMs). We also -->
-<!-- demonstrated that our approach is capable of using limited statistical -->
-<!-- knowledge of the data to make a better prediction. -->
-<!---->
-<!-- In the future, we would like to advance this approach on problems with -->
-<!-- multi-fidelity data which is common in the engineering applications. We -->
-<!-- are also interested in using this deep learning framework with practical -->
-<!-- conventional PDE solvers in real engineering applications which are -->
-<!-- usually very computationally expensive, with the goal of making the -->
-<!-- ensemble of uncertain predictions faster. Finally, we are also -->
-<!-- interested in extending this approach to time-dependent problems. From -->
-<!-- the view of implementation, the time dimension is the similar to the -->
-<!-- space dimensions; however, a different behavior of the uncertainty -->
-<!-- correspondence may appear as the early uncertainties are propagated and -->
-<!-- amplified over time. -->
+## Predictions w/ $\sigma = 0.1$ noise on measurements
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$ w/ raw solutions](img_mopinn/1d_linear_u_raw_0.1_noise.png){width=350px}
+
+![Prediction $f$ w/ raw solutions](img_mopinn/1d_linear_f_raw_0.1_noise.png){width=350px}
+
+![Prediction $u$ w/ $2\sigma$ distribution](img_mopinn/1d_linear_u_with_std_0.1_noise.png){width=350px}
+
+![Prediction $f$ w/ $2\sigma$ distribution](img_mopinn/1d_linear_f_with_std_0.1_noise.png){width=350px}
+
+:::
+
+---
+
+## Sensitivity to random network parameter initialization 
+### $\sigma = 0.1$ noise
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![](img_mopinn/1d_linear_u_with_std_run_1.png){width=350px}
+
+![](img_mopinn/1d_linear_u_with_std_run_2.png){width=350px}
+
+![](img_mopinn/1d_linear_u_with_std_run_3.png){width=350px}
+
+![](img_mopinn/1d_linear_u_with_std_run_4.png){width=350px}
+
+:::
+
+---
+
+
+## Sensitivity to measurement sampling 
+### $\sigma = 0.1$ noise
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![](img_mopinn/1d_linear_u_with_std_data_1.png){width=400px}
+
+![](img_mopinn/1d_linear_u_with_std_data_2.png){width=400px}
+
+![](img_mopinn/1d_linear_u_with_std_data_3.png){width=400px}
+
+![](img_mopinn/1d_linear_u_with_std_data_4.png){width=400px}
+
+:::
+
+## One-dimensional nonlinear Poisson equation
+
+$$
+\begin{gathered}
+    \lambda \frac{\partial^2 u}{\partial x^2} + k \tanh(u) = f, \qquad x \in [-0.7, 0.7]
+\end{gathered}
+$$ 
+where $\lambda = 0.01, k=0.7$ and  $u=\sin^3(6x)$
+
+::: {layout="[[1, 1]]"}
+
+![Solution $u$](img_mopinn/1d_nonlinear_solution_u.png)
+
+![Source $f$ from manufactured solution](img_mopinn/1d_nonlinear_source_f.png)
+
+:::
+
+---
+
+## Predictions w/ $\sigma = 0.01$ noise on measurements
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$ w/ raw solutions](img_mopinn/1d_nonlinear_u_raw_0.01_noise.png){width=350px}
+
+![Prediction $f$ w/ raw solutions](img_mopinn/1d_nonlinear_f_raw_0.01_noise.png){width=350px}
+
+![Prediction $u$ w/ $2\sigma$ distribution](img_mopinn/1d_nonlinear_u_with_std_0.01_noise.png){width=350px}
+
+![Prediction $f$ w/ $2\sigma$ distribution](img_mopinn/1d_nonlinear_f_with_std_0.01_noise.png){width=350px}
+
+:::
+
+---
+
+## Predictions w/ $\sigma = 0.1$ noise on measurements
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$ w/ raw solutions](img_mopinn/1d_nonlinear_u_raw_0.1_noise.png){width=350px}
+
+![Prediction $f$ w/ raw solutions](img_mopinn/1d_nonlinear_f_raw_0.1_noise.png){width=350px}
+
+![Prediction $u$ w/ $2\sigma$ distribution](img_mopinn/1d_nonlinear_u_with_std_0.1_noise.png){width=350px}
+
+![Prediction $f$ w/ $2\sigma$ distribution](img_mopinn/1d_nonlinear_f_with_std_0.1_noise.png){width=350px}
+
+:::
+
+--- 
+
+## Two-dimensional nonlinear Allen-Cahn equation
+
+$$
+\begin{gathered}
+    \lambda \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) + u\left(u^2 -1 \right) = f, \qquad x,y \in [-1, 1]
+\end{gathered}
+$$ 
+where $\lambda = 0.01$ and  $u=\sin(\pi x)\sin(\pi y)$
+
+::: {layout="[[1, 1]]"}
+
+![Solution $u$](img_mopinn/2d_ac_u_data.png)
+
+![Source $f$ from manufactured solution](img_mopinn/2d_ac_f_data.png)
+
+:::
+
+---
+
+## Network architecture and hyperparameters
+
+ * 2 neural networks: $u_{NN}$ and $f_{NN}$
+
+ * 3 hidden layers with 200 neurons each
+
+ * $\tanh$ activation function
+
+ * ADAM optimizer 
+
+ * $10^{-3}$ learning rate
+
+ * Xavier normalization
+
+ * 50000 epochs
+
+ * 2000 outputs
+
+
+---
+
+## Predictions w/ $\sigma = 0.01$ noise on measurements
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$](img_mopinn/2d_ac_0.01_noise_u.png){width=300px}
+
+![$L_2$ error](img_mopinn/2d_ac_0.01_noise_u_error.png){width=300px}
+
+![Standard deviation of predictions](img_mopinn/2d_ac_0.01_noise_u_std.png){width=300px}
+
+![Bounded by 2$\sigma$ -- *red = bounded, blue = not bounded*](img_mopinn/2d_ac_0.01_noise_2_stds.png){width=250px}
+
+:::
+
+---
+
+## Predictions w/ $\sigma = 0.1$ noise on measurements
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$](img_mopinn/2d_ac_0.1_noise_u.png){width=300px}
+
+![$L_2$ error](img_mopinn/2d_ac_0.1_noise_u_error.png){width=300px}
+
+![Standard deviation of predictions](img_mopinn/2d_ac_0.1_noise_u_std.png){width=300px}
+
+![Bounded by 2$\sigma$ -- *red = bounded, blue = not bounded*](img_mopinn/2d_ac_0.1_noise_2_stds.png){width=250px}
+
+:::
+
+# Inverse Problems
+
+---
+
+## One-dimensional nonlinear Poisson equation
+
+$$
+\begin{gathered}
+    \lambda \frac{\partial^2 u}{\partial x^2} + k \tanh(u) = f, \qquad x \in [-0.7, 0.7]
+\end{gathered}
+$$ 
+where $\lambda = 0.01$.
+
+$k=[???, ???, ???, \dots, ???]$ with $N$ entries corresponding to $N$ outputs of the MO-PINN
+
+---
+
+## Predictions 
+### $u$ and $f$
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$ w/ $\sigma=0.01$ noise](img_mopinn/1d_inverse_u_0.01_noise.png){width=350px}
+
+![Prediction $u$ w/ $\sigma=0.1$ noise](img_mopinn/1d_inverse_u_0.1_noise.png){width=350px}
+
+![Prediction $f$ w/ $\sigma=0.01$ noise](img_mopinn/1d_inverse_f_0.01_noise.png){width=350px}
+
+![Prediction $f$ w/ $\sigma=0.1$ noise](img_mopinn/1d_inverse_f_0.1_noise.png){width=350px}
+
+:::
+
+---
+
+## Inverse Estimates 
+### $k$
+
+::: {layout-ncol=2}
+
+![$\sigma=0.01$ noise, $k_{avg} = 0.698$](img_mopinn/1d_inverse_k_distribution_0.01_noise.png){width=350px}
+
+![$\sigma=0.1$ noise, $k_{avg} = 0.678$](img_mopinn/1d_inverse_k_distribution_0.1_noise.png){width=350px}
+
+:::
+
+---
+
+## Sensitivity of $k_{avg}$ w.r.t number of outputs 
+### $\sigma=0.1$ noise
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![10 outputs, $k_{avg} = 0.67$](img_mopinn/1d_inverse_k_10.png){width=350px}
+
+![50 outputs, $k_{avg} = 0.684$](img_mopinn/1d_inverse_k_50.png){width=350px}
+
+![100 outputs, $k_{avg} = 0.668$](img_mopinn/1d_inverse_k_100.png){width=350px}
+
+![500 outputs, $k_{avg} = 0.673$](img_mopinn/1d_inverse_k_500.png){width=350px}
+
+:::
+
+---
+
+## Two-dimensional Allen-Cahn Equation 
+
+$$
+\begin{gathered}
+    \lambda \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) + u\left(u^2 -1 \right) = f, \qquad x,y \in [-1, 1]
+\end{gathered}
+$$ 
+where $\lambda = 0.01$ and  $u=\sin(\pi x)\sin(\pi y)$
+
+
+$k=[???, ???, ???, \dots, ???]$ with $N$ entries corresponding to $N$ outputs of the MO-PINN
+
+::: {layout-ncol=2}
+
+![Solution $u$ and measurements](img_mopinn/2d_inverse_u.png){width=350px}
+
+![Solution $f$ and measurements](img_mopinn/2d_inverse_f.png){width=350px}
+
+:::
+
+---
+
+## Inverse Estimates
+### $k$
+
+::: {layout-ncol=2}
+
+![$\sigma=0.01$ noise,  $k_{avg} = 0.995$](img_mopinn/2d_inverse_k_0.01_noise.png){width=350px}
+
+![$\sigma=0.1$ noise,  $k_{avg} = 1.02$](img_mopinn/2d_inverse_k_0.1_noise.png){width=350px}
+
+:::
+
+# Incorporating prior statistical knowledge
+
+
+---
+
+## Comparison to Monte Carlo FEM 
+### One-dimensional linear Poisson equation
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![MO-PINN prediction of $u$](img_mopinn/validation_u_nn.png){width=350px}
+
+![FEA prediction of $u$](img_mopinn/validation_u_fenics.png){width=350px}
+
+![MO-PINN prediction of $f$](img_mopinn/validation_f_nn.png){width=350px}
+
+![FEA prediction of $f$](img_mopinn/validation_f_fenics.png){width=350px}
+
+:::
+
+---
+
+## Comparison of distributions
+### MO-PINN vs. FEA Monte Carlo
+
+![Quantile-quantile plot of $u$ at 9 locations](img_mopinn/quantile.png)
+
+---
+
+## $u$ predictions with only 5 measurements 
+### Using mean and std to enhance learning 
+
+::: {layout-ncol=3}
+
+![Only 5 measurements](img_mopinn/nn_alone_u.png){width=350px}
+
+![5 measurements and mean](img_mopinn/integration_only_mean_u){width=350px}
+
+![5 measurements, mean, and std](img_mopinn/integration_u.png){width=350px}
+
+:::
+
+---
+
+## $f$ predictions with only 5 measurements 
+### Using mean and std to enhance learning 
+
+::: {layout-ncol=3}
+
+![Only 5 measurements](img_mopinn/nn_alone_f.png){width=350px}
+
+![5 measurements and mean](img_mopinn/integration_only_mean_f){width=350px}
+
+![5 measurements, mean, and std](img_mopinn/integration_f.png){width=350px}
+
+:::
+
+---
+
+## Conclusions
+
+
+* MO-PINNs appear promising for UQ
+* MO-PINNs can learn solution, source terms, and parameters simultaneously
+* MO-PINNs are faster than Monte Carlo forward solutions for the problem studied
+  * Only need to train a single network
+
+---
+
+## References
+
+::: {#refs}
+:::

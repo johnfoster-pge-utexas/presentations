@@ -1,5 +1,5 @@
 format: 
-  revealjs:
+  clean-revealjs:
     chalkboard:
       theme: whiteboard
     navigation-mode: linear 
