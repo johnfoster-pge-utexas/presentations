@@ -10,7 +10,10 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.433">
 
-  <title>Presentations – usnccm17_mopinn</title>
+  <meta name="author" content="Mingyuan Yang">
+  <meta name="author" content="John T. Foster">
+  <meta name="dcterms.date" content="2023-07-26">
+  <title>Presentations - Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,7 +31,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -325,53 +347,839 @@
   <div class="reveal">
     <div class="slides">
 
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties</h1>
 
-<section>
-<section id="multi-output-pinn" class="title-slide slide level1 center">
-<h1>Multi-Output PINN</h1>
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Mingyuan Yang 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:mingyuanyang@pku.edu.cn">mingyuanyang@pku.edu.cn</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Peking University
+          </p>
+        <p class="quarto-title-affiliation">
+            The University of Texas at Austin
+          </p>
+    </div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+John T. Foster 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:john.foster@utexas.edu">john.foster@utexas.edu</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Oden Institute for Computational Engineering and Science
+          </p>
+        <p class="quarto-title-affiliation">
+            Hildebrand Department of Petroleum and Geosystems Engineering
+          </p>
+        <p class="quarto-title-affiliation">
+            Department of Aerospace Engineering and Engineering Mechanics
+          </p>
+        <p class="quarto-title-affiliation">
+            The University of Texas at Austin
+          </p>
+    </div>
+</div>
 
-<img data-src="usnccm17_mopinn_files/figure-revealjs/fig-mopinn-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Figure&nbsp;1: A fully connected neural network schematic with 4, N, and M neurons in the input, hidden, and output layers respectively. The loss function is constructed with operations applied on the outputs of the neural networks <span class="math inline">\(u_{NN}\)</span>. The yellow parts of the diagram are identical in PINNs, while the blue parts indicate the multiple outputs with respect to the same inputs as well as the corresponding statistical properties <span class="math inline">\(P(u_{NN})\)</span>.</p></section>
-<section id="now-your-turn" class="slide level2">
-<h2>Now your turn…</h2>
+  <p class="date">July 26, 2023</p>
+</section>
+<section id="physics-informed-neural-networks" class="slide level2">
+<h2>Physics Informed Neural Networks</h2>
+<h3 id="pinns">PINNs</h3>
+<p>Introduced in <span class="citation" data-cites="raissi2019physics">(<a href="#/references" role="doc-biblioref" onclick="">Raissi, Perdikaris, and Karniadakis 2019</a>)</span> as a general method for solving partial differential equations.</p>
+<p>Already recieved &gt;5900 citations since posting on arXiv in 2018!</p>
+</section>
+<section id="generic-pinn-architecture" class="slide level2">
+<h2>Generic PINN architecture</h2>
+
+<img data-src="usnccm17_mopinn_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="loss-function-for-generic-pinn-system" class="slide level2 smaller">
+<h2>Loss function for generic PINN system</h2>
+<p><span class="math display">\[
+\begin{align}
+    r_d(u_{NN}, f_{NN}) &amp;= \mathcal{L} u_{NN} - f_{NN},\qquad x \in \Omega
+    \\
+    r_e(u_{NN}) &amp;= u_{NN} - h,\qquad x \in \partial \Omega_h
+    \\
+    r_n(u_{NN}) &amp;= \frac{\partial u_{NN}}{\partial x} - g,\qquad x \in \partial \Omega_g
+    \\
+    r_{u}(u_{NN}) &amp;= u_{NN}(x^u_i) - u_m(x^u_i), \qquad i=1,2,...,n
+    \\
+    r_{f}(f_{NN}) &amp;= f_{NN}(x^f_i) - f_m(x^f_i), \qquad i=1,2,...,m
+\end{align}
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{gather}
+    L_{MSE} = \frac{1}{N}\sum_{i}^N r_d^2 + \frac{1}{N_e}\sum_{i=1}^{N_e} r_e^2 + \frac{1}{N_n}\sum_{i=1}^{N_n} r_n^2 + \frac{1}{n}\sum_{i=1}^{n} r_{u}^2 + \frac{1}{m}\sum_{i=1}^m r_{f}^2
+\end{gather}
+\]</span></p>
+</div>
+</section>
+<section id="extensions-of-pinns-for-uq" class="slide level2">
+<h2>Extensions of PINNs for UQ</h2>
 <ul>
-<li>Name</li>
-<li>Professional background</li>
-<li>Engineer / Geoscientists / Data Scientist / Other</li>
-<li>Expectations for class</li>
+<li>B-PINNs <span class="citation" data-cites="yang2021b">(<a href="#/references" role="doc-biblioref" onclick="">L. Yang, Meng, and Karniadakis 2021</a>)</span></li>
+<li>E-PINN <span class="citation" data-cites="jiang2022pinn">(<a href="#/references" role="doc-biblioref" onclick="">Jiang et al. 2022</a>)</span></li>
 </ul>
 </section>
-<section class="slide level2">
+<section id="multi-output-pinn" class="slide level2">
+<h2>Multi-Output PINN</h2>
+<h3 id="mo-pinn-mingyuan2022a">MO-PINN <span class="citation" data-cites="mingyuan2022a">(<a href="#/references" role="doc-biblioref" onclick="">M. Yang and Foster 2022</a>)</span></h3>
 
-</section></section>
+<img data-src="usnccm17_mopinn_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="loss-function-for-generic-mo-pinn-system" class="slide level2 smaller">
+<h2>Loss function for generic MO-PINN system</h2>
+<p><span class="math display">\[
+\begin{align}
+    r_d(u_{NN}^j, f_{NN}^j) &amp;= \mathcal{L} u_{NN}^j - f_{NN}^j,\qquad x \in \Omega
+    \\
+    r_e(u_{NN}^j) &amp;= u_{NN}^j - h,\qquad x \in \partial \Omega_h
+    \\
+    r_n(u_{NN}^j) &amp;= \frac{\partial u_{NN}^j}{\partial x} - g,\qquad x \in \partial \Omega_g
+    \\
+    r_{um}(u_{NN}^j) &amp;= u_{NN}^j(x^u_i) - \left(u_m(x^u_i) + \sigma_u^j\right), \qquad i=1,2,...,n
+    \\
+    r_{fm}(f_{NN}^j) &amp;= f_{NN}^j(x^f_i) - \left(f_m(x^f_i) + \sigma_f^j\right), \qquad i=1,2,...,m \
+\end{align}
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{gather}
+    L_{MSE} = \frac{1}{M}\sum_{j=1}^{M} \left( \frac{1}{N}\sum_{i}^N r_d^2 + \frac{1}{N_e}\sum_{i=1}^{N_e} r_e^2 + \frac{1}{N_n}\sum_{i=1}^{N_n} r_n^2 + \frac{1}{n}\sum_{i=1}^{n} r_{um}^2 + \frac{1}{m}\sum_{i=1}^m r_{fm}^2  \right)
+\end{gather}
+\]</span></p>
+</div>
+</section>
 <section>
-<section id="why-is-stress-important-in-petroleum-engineering" class="title-slide slide level1 center">
-<h1>Why is stress important in petroleum engineering?</h1>
+<section id="forward-pde-problems" class="title-slide slide level1 center">
+<h1>Forward PDE problems</h1>
 
 </section>
-<section id="wellbore-failure-occurs-because-the-stress-around-the-well-exceeds-the-strength-of-the-rock." class="slide level2 smaller">
-<h2>Wellbore failure occurs because the stress around the well exceeds the strength of the rock.</h2>
+<section id="one-dimensional-linear-poisson-equation" class="slide level2">
+<h2>One-dimensional linear Poisson equation</h2>
+<p><span class="math display">\[
+\begin{gathered}
+    \lambda \frac{\partial^2 u}{\partial x^2} = f, \qquad x \in [-0.7, 0.7]
+\end{gathered}
+\]</span> where <span class="math inline">\(\lambda = 0.01\)</span> and <span class="math inline">\(u=\sin^3(6x)\)</span></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_linear_solution_u.png"></p>
+<figcaption>Solution <span class="math inline">\(u\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_linear_source_f.png"></p>
+<figcaption>Source <span class="math inline">\(f\)</span> from manufactured solution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="network-architecture-and-hyperparameters" class="slide level2">
+<h2>Network architecture and hyperparameters</h2>
+<ul>
+<li><p>2 neural networks: <span class="math inline">\(u_{NN}\)</span> and <span class="math inline">\(f_{NN}\)</span></p></li>
+<li><p>2 hidden layers with 20 and 40 neurons each</p></li>
+<li><p><span class="math inline">\(\tanh\)</span> activation function</p></li>
+<li><p>ADAM optimizer</p></li>
+<li><p><span class="math inline">\(10^{-3}\)</span> learning rate</p></li>
+<li><p>Xavier normalization</p></li>
+<li><p>10000 epochs</p></li>
+<li><p>500 outputs</p></li>
+</ul>
+</section>
+<section id="predictions-w-sigma-0.01-noise-on-measurements" class="slide level2">
+<h2>Predictions w/ <span class="math inline">\(\sigma = 0.01\)</span> noise on measurements</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_linear_u_raw_0.01_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span> w/ raw solutions</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_linear_f_raw_0.01_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(f\)</span> w/ raw solutions</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_linear_u_with_std_0.01_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span> w/ <span class="math inline">\(2\sigma\)</span> distribution</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_linear_f_with_std_0.01_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(f\)</span> w/ <span class="math inline">\(2\sigma\)</span> distribution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="predictions-w-sigma-0.1-noise-on-measurements" class="slide level2">
+<h2>Predictions w/ <span class="math inline">\(\sigma = 0.1\)</span> noise on measurements</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_linear_u_raw_0.1_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span> w/ raw solutions</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_linear_f_raw_0.1_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(f\)</span> w/ raw solutions</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_linear_u_with_std_0.1_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span> w/ <span class="math inline">\(2\sigma\)</span> distribution</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_linear_f_with_std_0.1_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(f\)</span> w/ <span class="math inline">\(2\sigma\)</span> distribution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sensitivity-to-random-network-parameter-initialization" class="slide level2">
+<h2>Sensitivity to random network parameter initialization</h2>
+<h3 id="sigma-0.1-noise"><span class="math inline">\(\sigma = 0.1\)</span> noise</h3>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img_mopinn/1d_linear_u_with_std_run_1.png" width="350"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img_mopinn/1d_linear_u_with_std_run_2.png" width="350"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img_mopinn/1d_linear_u_with_std_run_3.png" width="350"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img_mopinn/1d_linear_u_with_std_run_4.png" width="350"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="sensitivity-to-measurement-sampling" class="slide level2">
+<h2>Sensitivity to measurement sampling</h2>
+<h3 id="sigma-0.1-noise-1"><span class="math inline">\(\sigma = 0.1\)</span> noise</h3>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img_mopinn/1d_linear_u_with_std_data_1.png" width="400"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img_mopinn/1d_linear_u_with_std_data_2.png" width="400"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img_mopinn/1d_linear_u_with_std_data_3.png" width="400"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="img_mopinn/1d_linear_u_with_std_data_4.png" width="400"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="one-dimensional-nonlinear-poisson-equation" class="slide level2">
+<h2>One-dimensional nonlinear Poisson equation</h2>
+<p><span class="math display">\[
+\begin{gathered}
+    \lambda \frac{\partial^2 u}{\partial x^2} + k \tanh(u) = f, \qquad x \in [-0.7, 0.7]
+\end{gathered}
+\]</span> where <span class="math inline">\(\lambda = 0.01, k=0.7\)</span> and <span class="math inline">\(u=\sin^3(6x)\)</span></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_nonlinear_solution_u.png"></p>
+<figcaption>Solution <span class="math inline">\(u\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_nonlinear_source_f.png"></p>
+<figcaption>Source <span class="math inline">\(f\)</span> from manufactured solution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="predictions-w-sigma-0.01-noise-on-measurements-1" class="slide level2">
+<h2>Predictions w/ <span class="math inline">\(\sigma = 0.01\)</span> noise on measurements</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_nonlinear_u_raw_0.01_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span> w/ raw solutions</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_nonlinear_f_raw_0.01_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(f\)</span> w/ raw solutions</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_nonlinear_u_with_std_0.01_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span> w/ <span class="math inline">\(2\sigma\)</span> distribution</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_nonlinear_f_with_std_0.01_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(f\)</span> w/ <span class="math inline">\(2\sigma\)</span> distribution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="predictions-w-sigma-0.1-noise-on-measurements-1" class="slide level2">
+<h2>Predictions w/ <span class="math inline">\(\sigma = 0.1\)</span> noise on measurements</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_nonlinear_u_raw_0.1_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span> w/ raw solutions</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_nonlinear_f_raw_0.1_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(f\)</span> w/ raw solutions</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_nonlinear_u_with_std_0.1_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span> w/ <span class="math inline">\(2\sigma\)</span> distribution</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_nonlinear_f_with_std_0.1_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(f\)</span> w/ <span class="math inline">\(2\sigma\)</span> distribution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="two-dimensional-nonlinear-allen-cahn-equation" class="slide level2">
+<h2>Two-dimensional nonlinear Allen-Cahn equation</h2>
+<p><span class="math display">\[
+\begin{gathered}
+    \lambda \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) + u\left(u^2 -1 \right) = f, \qquad x,y \in [-1, 1]
+\end{gathered}
+\]</span> where <span class="math inline">\(\lambda = 0.01\)</span> and <span class="math inline">\(u=\sin(\pi x)\sin(\pi y)\)</span></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_ac_u_data.png"></p>
+<figcaption>Solution <span class="math inline">\(u\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_ac_f_data.png"></p>
+<figcaption>Source <span class="math inline">\(f\)</span> from manufactured solution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="network-architecture-and-hyperparameters-1" class="slide level2">
+<h2>Network architecture and hyperparameters</h2>
+<ul>
+<li><p>2 neural networks: <span class="math inline">\(u_{NN}\)</span> and <span class="math inline">\(f_{NN}\)</span></p></li>
+<li><p>3 hidden layers with 200 neurons each</p></li>
+<li><p><span class="math inline">\(\tanh\)</span> activation function</p></li>
+<li><p>ADAM optimizer</p></li>
+<li><p><span class="math inline">\(10^{-3}\)</span> learning rate</p></li>
+<li><p>Xavier normalization</p></li>
+<li><p>50000 epochs</p></li>
+<li><p>2000 outputs</p></li>
+</ul>
+</section>
+<section id="predictions-w-sigma-0.01-noise-on-measurements-2" class="slide level2">
+<h2>Predictions w/ <span class="math inline">\(\sigma = 0.01\)</span> noise on measurements</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_ac_0.01_noise_u.png" width="300"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_ac_0.01_noise_u_error.png" width="300"></p>
+<figcaption><span class="math inline">\(L_2\)</span> error</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_ac_0.01_noise_u_std.png" width="300"></p>
+<figcaption>Standard deviation of predictions</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_ac_0.01_noise_2_stds.png" width="250"></p>
+<figcaption>Bounded by 2<span class="math inline">\(\sigma\)</span> – <em>red = bounded, blue = not bounded</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="predictions-w-sigma-0.1-noise-on-measurements-2" class="slide level2">
+<h2>Predictions w/ <span class="math inline">\(\sigma = 0.1\)</span> noise on measurements</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_ac_0.1_noise_u.png" width="300"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_ac_0.1_noise_u_error.png" width="300"></p>
+<figcaption><span class="math inline">\(L_2\)</span> error</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_ac_0.1_noise_u_std.png" width="300"></p>
+<figcaption>Standard deviation of predictions</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_ac_0.1_noise_2_stds.png" width="250"></p>
+<figcaption>Bounded by 2<span class="math inline">\(\sigma\)</span> – <em>red = bounded, blue = not bounded</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="inverse-problems" class="title-slide slide level1 center">
+<h1>Inverse Problems</h1>
 
-<img data-src="img/wellbore.png" width="150" class="r-stretch quarto-figure-center"><p class="caption">© American Geophysical Union, © Centek Publishing <a href="http://petrowiki.org/img/thumb/b/b0/Devol2_1102final_Page_051_Image_0001.png/300px-Devol2_1102final_Page_051_Image_0001.png">Image Source</a></p></section>
-<section id="faults-will-slip-when-the-ratio-of-shear-to-normal-stress-on-the-fault-exceeds-its-frictional-strength." class="slide level2 smaller">
-<h2>Faults will slip when the ratio of shear to normal stress on the fault exceeds its frictional strength.</h2>
+</section>
+<section id="one-dimensional-nonlinear-poisson-equation-1" class="slide level2">
+<h2>One-dimensional nonlinear Poisson equation</h2>
+<p><span class="math display">\[
+\begin{gathered}
+    \lambda \frac{\partial^2 u}{\partial x^2} + k \tanh(u) = f, \qquad x \in [-0.7, 0.7]
+\end{gathered}
+\]</span> where <span class="math inline">\(\lambda = 0.01\)</span>.</p>
+<p><span class="math inline">\(k=[???, ???, ???, \dots, ???]\)</span> with <span class="math inline">\(N\)</span> entries corresponding to <span class="math inline">\(N\)</span> outputs of the MO-PINN</p>
+</section>
+<section id="predictions" class="slide level2">
+<h2>Predictions</h2>
+<h3 id="u-and-f"><span class="math inline">\(u\)</span> and <span class="math inline">\(f\)</span></h3>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_inverse_u_0.01_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span> w/ <span class="math inline">\(\sigma=0.01\)</span> noise</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_inverse_u_0.1_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(u\)</span> w/ <span class="math inline">\(\sigma=0.1\)</span> noise</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_inverse_f_0.01_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(f\)</span> w/ <span class="math inline">\(\sigma=0.01\)</span> noise</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_inverse_f_0.1_noise.png" width="350"></p>
+<figcaption>Prediction <span class="math inline">\(f\)</span> w/ <span class="math inline">\(\sigma=0.1\)</span> noise</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="inverse-estimates" class="slide level2">
+<h2>Inverse Estimates</h2>
+<h3 id="k"><span class="math inline">\(k\)</span></h3>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_inverse_k_distribution_0.01_noise.png" width="350"></p>
+<figcaption><span class="math inline">\(\sigma=0.01\)</span> noise, <span class="math inline">\(k_{avg} = 0.698\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_inverse_k_distribution_0.1_noise.png" width="350"></p>
+<figcaption><span class="math inline">\(\sigma=0.1\)</span> noise, <span class="math inline">\(k_{avg} = 0.678\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sensitivity-of-k_avg-w.r.t-number-of-outputs" class="slide level2">
+<h2>Sensitivity of <span class="math inline">\(k_{avg}\)</span> w.r.t number of outputs</h2>
+<h3 id="sigma0.1-noise"><span class="math inline">\(\sigma=0.1\)</span> noise</h3>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_inverse_k_10.png" width="350"></p>
+<figcaption>10 outputs, <span class="math inline">\(k_{avg} = 0.67\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_inverse_k_50.png" width="350"></p>
+<figcaption>50 outputs, <span class="math inline">\(k_{avg} = 0.684\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_inverse_k_100.png" width="350"></p>
+<figcaption>100 outputs, <span class="math inline">\(k_{avg} = 0.668\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/1d_inverse_k_500.png" width="350"></p>
+<figcaption>500 outputs, <span class="math inline">\(k_{avg} = 0.673\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="two-dimensional-allen-cahn-equation" class="slide level2">
+<h2>Two-dimensional Allen-Cahn Equation</h2>
+<p><span class="math display">\[
+\begin{gathered}
+    \lambda \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) + u\left(u^2 -1 \right) = f, \qquad x,y \in [-1, 1]
+\end{gathered}
+\]</span> where <span class="math inline">\(\lambda = 0.01\)</span> and <span class="math inline">\(u=\sin(\pi x)\sin(\pi y)\)</span></p>
+<p><span class="math inline">\(k=[???, ???, ???, \dots, ???]\)</span> with <span class="math inline">\(N\)</span> entries corresponding to <span class="math inline">\(N\)</span> outputs of the MO-PINN</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_inverse_u.png" width="350"></p>
+<figcaption>Solution <span class="math inline">\(u\)</span> and measurements</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_inverse_f.png" width="350"></p>
+<figcaption>Solution <span class="math inline">\(f\)</span> and measurements</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="inverse-estimates-1" class="slide level2">
+<h2>Inverse Estimates</h2>
+<h3 id="k-1"><span class="math inline">\(k\)</span></h3>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_inverse_k_0.01_noise.png" width="350"></p>
+<figcaption><span class="math inline">\(\sigma=0.01\)</span> noise, <span class="math inline">\(k_{avg} = 0.995\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/2d_inverse_k_0.1_noise.png" width="350"></p>
+<figcaption><span class="math inline">\(\sigma=0.1\)</span> noise, <span class="math inline">\(k_{avg} = 1.02\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="incorporating-prior-statistical-knowledge" class="title-slide slide level1 center">
+<h1>Incorporating prior statistical knowledge</h1>
 
-<img data-src="img/slip.png" width="150" class="r-stretch quarto-figure-center"><p class="caption">© USGS <a href="'http://geomaps.wr.usgs.gov/parks/deform/normalfault.gif'">Image Source</a></p></section>
-<section id="reservior-depletion-causes-changes-in-the-stress-state-at-depth-that-can-be-beneficial-or-detrimental-to-production." class="slide level2 smaller">
-<h2>Reservior depletion causes changes in the stress state at depth that can be beneficial, or detrimental, to production.</h2>
+</section>
+<section id="comparison-to-monte-carlo-fem" class="slide level2">
+<h2>Comparison to Monte Carlo FEM</h2>
+<h3 id="one-dimensional-linear-poisson-equation-1">One-dimensional linear Poisson equation</h3>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/validation_u_nn.png" width="350"></p>
+<figcaption>MO-PINN prediction of <span class="math inline">\(u\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/validation_u_fenics.png" width="350"></p>
+<figcaption>FEA prediction of <span class="math inline">\(u\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/validation_f_nn.png" width="350"></p>
+<figcaption>MO-PINN prediction of <span class="math inline">\(f\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/validation_f_fenics.png" width="350"></p>
+<figcaption>FEA prediction of <span class="math inline">\(f\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="comparison-of-distributions" class="slide level2">
+<h2>Comparison of distributions</h2>
+<h3 id="mo-pinn-vs.-fea-monte-carlo">MO-PINN vs.&nbsp;FEA Monte Carlo</h3>
 
-<img data-src="img/depletion.png" width="250" class="r-stretch quarto-figure-center"><p class="caption">© IESL <a href="http://iesl-global.com/wp-content/uploads/2014/06/ReservoirPressureIllustration.jpg">Image Source</a></p><aside class="notes">
-<p>Image is of a simulation that is used to identify changes in porosity and/or permeability due to pore pressure depletion.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<img data-src="img_mopinn/quantile.png" class="r-stretch quarto-figure-center"><p class="caption">Quantile-quantile plot of <span class="math inline">\(u\)</span> at 9 locations</p></section>
+<section id="u-predictions-with-only-5-measurements" class="slide level2">
+<h2><span class="math inline">\(u\)</span> predictions with only 5 measurements</h2>
+<h3 id="using-mean-and-std-to-enhance-learning">Using mean and std to enhance learning</h3>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/nn_alone_u.png" width="350"></p>
+<figcaption>Only 5 measurements</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/integration_only_mean_u.png" width="350"></p>
+<figcaption>5 measurements and mean</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/integration_u.png" width="350"></p>
+<figcaption>5 measurements, mean, and std</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="f-predictions-with-only-5-measurements" class="slide level2">
+<h2><span class="math inline">\(f\)</span> predictions with only 5 measurements</h2>
+<h3 id="using-mean-and-std-to-enhance-learning-1">Using mean and std to enhance learning</h3>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/nn_alone_f.png" width="350"></p>
+<figcaption>Only 5 measurements</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/integration_only_mean_f.png" width="350"></p>
+<figcaption>5 measurements and mean</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img_mopinn/integration_f.png" width="350"></p>
+<figcaption>5 measurements, mean, and std</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusions" class="slide level2">
+<h2>Conclusions</h2>
+<ul>
+<li>MO-PINNs appear promising for UQ</li>
+<li>MO-PINNs can learn solution, source terms, and parameters simultaneously</li>
+<li>MO-PINNs are faster than Monte Carlo forward solutions for the problem studied
+<ul>
+<li>Only need to train a single network</li>
+</ul></li>
+</ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-jiang2022pinn" class="csl-entry" role="listitem">
+Jiang, Xinchao, Xin Wanga, Ziming Wena, Enying Li, and Hu Wang. 2022. <span>“An e-PINN Assisted Practical Uncertainty Quantification for Inverse Problems.”</span> <em>arXiv Preprint arXiv:2209.10195</em>.
+</div>
+<div id="ref-raissi2019physics" class="csl-entry" role="listitem">
+Raissi, Maziar, Paris Perdikaris, and George E Karniadakis. 2019. <span>“Physics-Informed Neural Networks: A Deep Learning Framework for Solving Forward and Inverse Problems Involving Nonlinear Partial Differential Equations.”</span> <em>Journal of Computational Physics</em> 378: 686–707.
+</div>
+<div id="ref-yang2021b" class="csl-entry" role="listitem">
+Yang, Liu, Xuhui Meng, and George Em Karniadakis. 2021. <span>“B-PINNs: Bayesian Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Noisy Data.”</span> <em>Journal of Computational Physics</em> 425: 109913.
+</div>
+<div id="ref-mingyuan2022a" class="csl-entry" role="listitem">
+Yang, M., and J. T. Foster. 2022. <span>“Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties.”</span> <em>Computer Methods in Applied Mechanics and Engineering</em>, 115041. <a href="https://doi.org/10.1016/j.cma.2022.115041">https://doi.org/10.1016/j.cma.2022.115041</a>.
+</div>
+</div>
 
 <div class="footer footer-default">
 <p>USNCCM 17 – July 2023</p>
@@ -431,7 +1239,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
