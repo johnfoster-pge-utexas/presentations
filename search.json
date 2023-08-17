@@ -1,52 +1,220 @@
 [
   {
-    "objectID": "slides/usnccm17_tta.html#thanks-to-c.t.-wu",
-    "href": "slides/usnccm17_tta.html#thanks-to-c.t.-wu",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "Thanks to C.T. Wu",
-    "text": "Thanks to C.T. Wu\nTTA Chair 2019-2023"
+    "objectID": "slides/direct_2023_mopinn.html#physics-informed-neural-networks",
+    "href": "slides/direct_2023_mopinn.html#physics-informed-neural-networks",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Physics Informed Neural Networks",
+    "text": "Physics Informed Neural Networks\nPINNs\nIntroduced in (Raissi, Perdikaris, and Karniadakis 2019) as a general method for solving partial differential equations.\nAlready recieved &gt;5900 citations since posting on arXiv in 2018!"
   },
   {
-    "objectID": "slides/usnccm17_tta.html#current-organization",
-    "href": "slides/usnccm17_tta.html#current-organization",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "Current Organization",
-    "text": "Current Organization\n\nJohn T. Foster (Chair)\nPania Newell (Vice-Chair)\nSteve WaiChing Sun (Member-at-Large)\nMichael Hillman (Member-at-Large)"
+    "objectID": "slides/direct_2023_mopinn.html#generic-pinn-architecture",
+    "href": "slides/direct_2023_mopinn.html#generic-pinn-architecture",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Generic PINN architecture",
+    "text": "Generic PINN architecture"
   },
   {
-    "objectID": "slides/usnccm17_tta.html#introductions",
-    "href": "slides/usnccm17_tta.html#introductions",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "Introductions",
-    "text": "Introductions\n\nName and affiliation"
+    "objectID": "slides/direct_2023_mopinn.html#loss-function-for-generic-pinn-system",
+    "href": "slides/direct_2023_mopinn.html#loss-function-for-generic-pinn-system",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Loss function for generic PINN system",
+    "text": "Loss function for generic PINN system\n\\[\n\\begin{align}\n    r_d(u_{NN}, f_{NN}) &= \\mathcal{L} u_{NN} - f_{NN},\\qquad x \\in \\Omega\n    \\\\\n    r_e(u_{NN}) &= u_{NN} - h,\\qquad x \\in \\partial \\Omega_h\n    \\\\\n    r_n(u_{NN}) &= \\frac{\\partial u_{NN}}{\\partial x} - g,\\qquad x \\in \\partial \\Omega_g\n    \\\\\n    r_{u}(u_{NN}) &= u_{NN}(x^u_i) - u_m(x^u_i), \\qquad i=1,2,...,n\n    \\\\\n    r_{f}(f_{NN}) &= f_{NN}(x^f_i) - f_m(x^f_i), \\qquad i=1,2,...,m\n\\end{align}\n\\]\n\n\\[\n\\begin{gather}\n    L_{MSE} = \\frac{1}{N}\\sum_{i}^N r_d^2 + \\frac{1}{N_e}\\sum_{i=1}^{N_e} r_e^2 + \\frac{1}{N_n}\\sum_{i=1}^{N_n} r_n^2 + \\frac{1}{n}\\sum_{i=1}^{n} r_{u}^2 + \\frac{1}{m}\\sum_{i=1}^m r_{f}^2\n\\end{gather}\n\\]"
   },
   {
-    "objectID": "slides/usnccm17_tta.html#tta-charter",
-    "href": "slides/usnccm17_tta.html#tta-charter",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "TTA Charter",
-    "text": "TTA Charter\nEach TTA will be charged with the following tasks:\n\nOrganize mini-symposia in the technical thrust areas at every USNCCM;\nBe responsible for the organization of at least one thematic conference in a two-year cycle; and\nMaintain a TTA website on the USACM webpage documenting all activities."
+    "objectID": "slides/direct_2023_mopinn.html#extensions-of-pinns-for-uq",
+    "href": "slides/direct_2023_mopinn.html#extensions-of-pinns-for-uq",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Extensions of PINNs for UQ",
+    "text": "Extensions of PINNs for UQ\n\nB-PINNs (L. Yang, Meng, and Karniadakis 2021)\nE-PINN (Jiang et al. 2022)"
   },
   {
-    "objectID": "slides/usnccm17_tta.html#thematic-conferences",
-    "href": "slides/usnccm17_tta.html#thematic-conferences",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "Thematic Conferences",
-    "text": "Thematic Conferences\n\nThematic Conference Request\nPast TTA Conferences\n\nMeshfree and Novel Finite Elements with Applications, Berkeley, CA 2022\nMeshfree and Particle Methods: Applications and Theory Santa Fe, NM 2018\nNonlocal Methods in Fracture, Austin, TX 2018\nIsogeometric and Meshfree Methods, La Jolla, CA 2016\nMeshfree Methods for Large-Scale Computational Science and Engineering, Tampa, FL, 2014\nNonlocal Damage and Failure: Peridynamics and Other Nonlocal Methods, San Antonio, TX 2013\n\nUpcoming???\n\n“Meshfree Meeting” ??? Austin, TX ???\nOthers ???"
+    "objectID": "slides/direct_2023_mopinn.html#multi-output-pinn",
+    "href": "slides/direct_2023_mopinn.html#multi-output-pinn",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Multi-Output PINN",
+    "text": "Multi-Output PINN\nMO-PINN (M. Yang and Foster 2022)"
   },
   {
-    "objectID": "slides/usnccm17_tta.html#other-business",
-    "href": "slides/usnccm17_tta.html#other-business",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "Other business",
-    "text": "Other business\n\nTTA Seminar Series?\nMeeting frequency?\nSuggestions?\n\n\n\nUSNCCM 17 - Novel Methods TTA – July 2023"
+    "objectID": "slides/direct_2023_mopinn.html#loss-function-for-generic-mo-pinn-system",
+    "href": "slides/direct_2023_mopinn.html#loss-function-for-generic-mo-pinn-system",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Loss function for generic MO-PINN system",
+    "text": "Loss function for generic MO-PINN system\n\\[\n\\begin{align}\n    r_d(u_{NN}^j, f_{NN}^j) &= \\mathcal{L} u_{NN}^j - f_{NN}^j,\\qquad x \\in \\Omega\n    \\\\\n    r_e(u_{NN}^j) &= u_{NN}^j - h,\\qquad x \\in \\partial \\Omega_h\n    \\\\\n    r_n(u_{NN}^j) &= \\frac{\\partial u_{NN}^j}{\\partial x} - g,\\qquad x \\in \\partial \\Omega_g\n    \\\\\n    r_{um}(u_{NN}^j) &= u_{NN}^j(x^u_i) - \\left(u_m(x^u_i) + \\sigma_u^j\\right), \\qquad i=1,2,...,n\n    \\\\\n    r_{fm}(f_{NN}^j) &= f_{NN}^j(x^f_i) - \\left(f_m(x^f_i) + \\sigma_f^j\\right), \\qquad i=1,2,...,m \\\n\\end{align}\n\\]\n\n\\[\n\\begin{gather}\n    L_{MSE} = \\frac{1}{M}\\sum_{j=1}^{M} \\left( \\frac{1}{N}\\sum_{i}^N r_d^2 + \\frac{1}{N_e}\\sum_{i=1}^{N_e} r_e^2 + \\frac{1}{N_n}\\sum_{i=1}^{N_n} r_n^2 + \\frac{1}{n}\\sum_{i=1}^{n} r_{um}^2 + \\frac{1}{m}\\sum_{i=1}^m r_{fm}^2  \\right)\n\\end{gather}\n\\]"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Presentations",
-    "section": "",
-    "text": "Links\nUSNCCM 17 - MO-PINNS\nUSNCCM 17 - TTA Meeting"
+    "objectID": "slides/direct_2023_mopinn.html#one-dimensional-linear-poisson-equation",
+    "href": "slides/direct_2023_mopinn.html#one-dimensional-linear-poisson-equation",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "One-dimensional linear Poisson equation",
+    "text": "One-dimensional linear Poisson equation\n\\[\n\\begin{gathered}\n    \\lambda \\frac{\\partial^2 u}{\\partial x^2} = f, \\qquad x \\in [-0.7, 0.7]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin^3(6x)\\)\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#network-architecture-and-hyperparameters",
+    "href": "slides/direct_2023_mopinn.html#network-architecture-and-hyperparameters",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Network architecture and hyperparameters",
+    "text": "Network architecture and hyperparameters\n\n2 neural networks: \\(u_{NN}\\) and \\(f_{NN}\\)\n2 hidden layers with 20 and 40 neurons each\n\\(\\tanh\\) activation function\nADAM optimizer\n\\(10^{-3}\\) learning rate\nXavier normalization\n10000 epochs\n500 outputs"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements",
+    "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements",
+    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements",
+    "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements",
+    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#sensitivity-to-random-network-parameter-initialization",
+    "href": "slides/direct_2023_mopinn.html#sensitivity-to-random-network-parameter-initialization",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Sensitivity to random network parameter initialization",
+    "text": "Sensitivity to random network parameter initialization\n\\(\\sigma = 0.1\\) noise"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#sensitivity-to-measurement-sampling",
+    "href": "slides/direct_2023_mopinn.html#sensitivity-to-measurement-sampling",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Sensitivity to measurement sampling",
+    "text": "Sensitivity to measurement sampling\n\\(\\sigma = 0.1\\) noise"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#one-dimensional-nonlinear-poisson-equation",
+    "href": "slides/direct_2023_mopinn.html#one-dimensional-nonlinear-poisson-equation",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "One-dimensional nonlinear Poisson equation",
+    "text": "One-dimensional nonlinear Poisson equation\n\\[\n\\begin{gathered}\n    \\lambda \\frac{\\partial^2 u}{\\partial x^2} + k \\tanh(u) = f, \\qquad x \\in [-0.7, 0.7]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01, k=0.7\\) and \\(u=\\sin^3(6x)\\)\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements-1",
+    "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements-1",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements",
+    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-1",
+    "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-1",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements",
+    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#two-dimensional-nonlinear-allen-cahn-equation",
+    "href": "slides/direct_2023_mopinn.html#two-dimensional-nonlinear-allen-cahn-equation",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Two-dimensional nonlinear Allen-Cahn equation",
+    "text": "Two-dimensional nonlinear Allen-Cahn equation\n\\[\n\\begin{gathered}\n    \\lambda \\left(\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}\\right) + u\\left(u^2 -1 \\right) = f, \\qquad x,y \\in [-1, 1]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin(\\pi x)\\sin(\\pi y)\\)\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#network-architecture-and-hyperparameters-1",
+    "href": "slides/direct_2023_mopinn.html#network-architecture-and-hyperparameters-1",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Network architecture and hyperparameters",
+    "text": "Network architecture and hyperparameters\n\n2 neural networks: \\(u_{NN}\\) and \\(f_{NN}\\)\n3 hidden layers with 200 neurons each\n\\(\\tanh\\) activation function\nADAM optimizer\n\\(10^{-3}\\) learning rate\nXavier normalization\n50000 epochs\n2000 outputs"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements-2",
+    "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements-2",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements",
+    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\)\n\n\n\n\n\n\n\n\\(L_2\\) error\n\n\n\n\n\n\n\n\n\nStandard deviation of predictions\n\n\n\n\n\n\n\nBounded by 2\\(\\sigma\\) – red = bounded, blue = not bounded"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-2",
+    "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-2",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements",
+    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\)\n\n\n\n\n\n\n\n\\(L_2\\) error\n\n\n\n\n\n\n\n\n\nStandard deviation of predictions\n\n\n\n\n\n\n\nBounded by 2\\(\\sigma\\) – red = bounded, blue = not bounded"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#one-dimensional-nonlinear-poisson-equation-1",
+    "href": "slides/direct_2023_mopinn.html#one-dimensional-nonlinear-poisson-equation-1",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "One-dimensional nonlinear Poisson equation",
+    "text": "One-dimensional nonlinear Poisson equation\n\\[\n\\begin{gathered}\n    \\lambda \\frac{\\partial^2 u}{\\partial x^2} + k \\tanh(u) = f, \\qquad x \\in [-0.7, 0.7]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\).\n\\(k=[???, ???, ???, \\dots, ???]\\) with \\(N\\) entries corresponding to \\(N\\) outputs of the MO-PINN"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#predictions",
+    "href": "slides/direct_2023_mopinn.html#predictions",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Predictions",
+    "text": "Predictions\n\\(u\\) and \\(f\\)\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(\\sigma=0.01\\) noise\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(\\sigma=0.1\\) noise\n\n\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(\\sigma=0.01\\) noise\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(\\sigma=0.1\\) noise"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#inverse-estimates",
+    "href": "slides/direct_2023_mopinn.html#inverse-estimates",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Inverse Estimates",
+    "text": "Inverse Estimates\n\\(k_{exact} = 0.7\\)\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.698\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 0.678\\)"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#sensitivity-of-k_avg-w.r.t-number-of-outputs",
+    "href": "slides/direct_2023_mopinn.html#sensitivity-of-k_avg-w.r.t-number-of-outputs",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Sensitivity of \\(k_{avg}\\) w.r.t number of outputs",
+    "text": "Sensitivity of \\(k_{avg}\\) w.r.t number of outputs\n\\(\\sigma=0.1\\) noise\n\n\n\n\n\n\n10 outputs, \\(k_{avg} = 0.67\\)\n\n\n\n\n\n\n\n50 outputs, \\(k_{avg} = 0.684\\)\n\n\n\n\n\n\n\n\n\n100 outputs, \\(k_{avg} = 0.668\\)\n\n\n\n\n\n\n\n500 outputs, \\(k_{avg} = 0.673\\)"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#two-dimensional-allen-cahn-equation",
+    "href": "slides/direct_2023_mopinn.html#two-dimensional-allen-cahn-equation",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Two-dimensional Allen-Cahn Equation",
+    "text": "Two-dimensional Allen-Cahn Equation\n\\[\n\\begin{gathered}\n    \\lambda \\left(\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}\\right) + u\\left(u^2 -1 \\right) = f, \\qquad x,y \\in [-1, 1]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin(\\pi x)\\sin(\\pi y)\\)\n\\(k=[???, ???, ???, \\dots, ???]\\) with \\(N\\) entries corresponding to \\(N\\) outputs of the MO-PINN\n\n\n\n\n\n\nSolution \\(u\\) and measurements\n\n\n\n\n\n\n\nSolution \\(f\\) and measurements"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#inverse-estimates-1",
+    "href": "slides/direct_2023_mopinn.html#inverse-estimates-1",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Inverse Estimates",
+    "text": "Inverse Estimates\n\\(k_{exact} = 1.0\\)\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.995\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 1.02\\)"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#comparison-to-monte-carlo-fem",
+    "href": "slides/direct_2023_mopinn.html#comparison-to-monte-carlo-fem",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Comparison to Monte Carlo FEM",
+    "text": "Comparison to Monte Carlo FEM\nOne-dimensional linear Poisson equation\n\n\n\n\n\n\nMO-PINN prediction of \\(u\\)\n\n\n\n\n\n\n\nFEA prediction of \\(u\\)\n\n\n\n\n\n\n\n\n\nMO-PINN prediction of \\(f\\)\n\n\n\n\n\n\n\nFEA prediction of \\(f\\)"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#comparison-of-distributions",
+    "href": "slides/direct_2023_mopinn.html#comparison-of-distributions",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Comparison of distributions",
+    "text": "Comparison of distributions\nMO-PINN vs. FEA Monte Carlo\n\nQuantile-quantile plot of \\(u\\) at 9 locations"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#u-predictions-with-only-5-measurements",
+    "href": "slides/direct_2023_mopinn.html#u-predictions-with-only-5-measurements",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "\\(u\\) predictions with only 5 measurements",
+    "text": "\\(u\\) predictions with only 5 measurements\nUsing mean and std to enhance learning\n\n\n\n\n\n\nOnly 5 measurements\n\n\n\n\n\n\n\n5 measurements and mean\n\n\n\n\n\n\n\n5 measurements, mean, and std"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#f-predictions-with-only-5-measurements",
+    "href": "slides/direct_2023_mopinn.html#f-predictions-with-only-5-measurements",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "\\(f\\) predictions with only 5 measurements",
+    "text": "\\(f\\) predictions with only 5 measurements\nUsing mean and std to enhance learning\n\n\n\n\n\n\nOnly 5 measurements\n\n\n\n\n\n\n\n5 measurements and mean\n\n\n\n\n\n\n\n5 measurements, mean, and std"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#conclusions",
+    "href": "slides/direct_2023_mopinn.html#conclusions",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "Conclusions",
+    "text": "Conclusions\n\nMO-PINNs appear promising for UQ\nMO-PINNs can learn solution, source terms, and parameters simultaneously\nMO-PINNs are faster than Monte Carlo forward solutions for the problem studied\n\nOnly need to train a single network"
+  },
+  {
+    "objectID": "slides/direct_2023_mopinn.html#references",
+    "href": "slides/direct_2023_mopinn.html#references",
+    "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
+    "section": "References",
+    "text": "References\n\n\nJiang, Xinchao, Xin Wanga, Ziming Wena, Enying Li, and Hu Wang. 2022. “An e-PINN Assisted Practical Uncertainty Quantification for Inverse Problems.” arXiv Preprint arXiv:2209.10195.\n\n\nRaissi, Maziar, Paris Perdikaris, and George E Karniadakis. 2019. “Physics-Informed Neural Networks: A Deep Learning Framework for Solving Forward and Inverse Problems Involving Nonlinear Partial Differential Equations.” Journal of Computational Physics 378: 686–707.\n\n\nYang, Liu, Xuhui Meng, and George Em Karniadakis. 2021. “B-PINNs: Bayesian Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Noisy Data.” Journal of Computational Physics 425: 109913.\n\n\nYang, M., and J. T. Foster. 2022. “Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties.” Computer Methods in Applied Mechanics and Engineering, 115041. https://doi.org/10.1016/j.cma.2022.115041.\n\n\n\n\nDiReCT Annual Review Meeting - August 18, 2023"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#physics-informed-neural-networks",
@@ -264,5 +432,54 @@
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "References",
     "text": "References\n\n\nJiang, Xinchao, Xin Wanga, Ziming Wena, Enying Li, and Hu Wang. 2022. “An e-PINN Assisted Practical Uncertainty Quantification for Inverse Problems.” arXiv Preprint arXiv:2209.10195.\n\n\nRaissi, Maziar, Paris Perdikaris, and George E Karniadakis. 2019. “Physics-Informed Neural Networks: A Deep Learning Framework for Solving Forward and Inverse Problems Involving Nonlinear Partial Differential Equations.” Journal of Computational Physics 378: 686–707.\n\n\nYang, Liu, Xuhui Meng, and George Em Karniadakis. 2021. “B-PINNs: Bayesian Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Noisy Data.” Journal of Computational Physics 425: 109913.\n\n\nYang, M., and J. T. Foster. 2022. “Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties.” Computer Methods in Applied Mechanics and Engineering, 115041. https://doi.org/10.1016/j.cma.2022.115041.\n\n\n\n\nUSNCCM 17 – July 2023"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Presentations",
+    "section": "",
+    "text": "Links\nUSNCCM 17 - MO-PINNS\nUSNCCM 17 - TTA Meeting\nDiReCT Annual Meeting - MO-PINNS"
+  },
+  {
+    "objectID": "slides/usnccm17_tta.html#thanks-to-c.t.-wu",
+    "href": "slides/usnccm17_tta.html#thanks-to-c.t.-wu",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Thanks to C.T. Wu",
+    "text": "Thanks to C.T. Wu\nTTA Chair 2019-2023"
+  },
+  {
+    "objectID": "slides/usnccm17_tta.html#current-organization",
+    "href": "slides/usnccm17_tta.html#current-organization",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Current Organization",
+    "text": "Current Organization\n\nJohn T. Foster (Chair)\nPania Newell (Vice-Chair)\nSteve WaiChing Sun (Member-at-Large)\nMichael Hillman (Member-at-Large)"
+  },
+  {
+    "objectID": "slides/usnccm17_tta.html#introductions",
+    "href": "slides/usnccm17_tta.html#introductions",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Introductions",
+    "text": "Introductions\n\nName and affiliation"
+  },
+  {
+    "objectID": "slides/usnccm17_tta.html#tta-charter",
+    "href": "slides/usnccm17_tta.html#tta-charter",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "TTA Charter",
+    "text": "TTA Charter\nEach TTA will be charged with the following tasks:\n\nOrganize mini-symposia in the technical thrust areas at every USNCCM;\nBe responsible for the organization of at least one thematic conference in a two-year cycle; and\nMaintain a TTA website on the USACM webpage documenting all activities."
+  },
+  {
+    "objectID": "slides/usnccm17_tta.html#thematic-conferences",
+    "href": "slides/usnccm17_tta.html#thematic-conferences",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Thematic Conferences",
+    "text": "Thematic Conferences\n\nThematic Conference Request\nPast TTA Conferences\n\nMeshfree and Novel Finite Elements with Applications, Berkeley, CA 2022\nMeshfree and Particle Methods: Applications and Theory Santa Fe, NM 2018\nNonlocal Methods in Fracture, Austin, TX 2018\nIsogeometric and Meshfree Methods, La Jolla, CA 2016\nMeshfree Methods for Large-Scale Computational Science and Engineering, Tampa, FL, 2014\nNonlocal Damage and Failure: Peridynamics and Other Nonlocal Methods, San Antonio, TX 2013\n\nUpcoming???\n\n“Meshfree Meeting” ??? Austin, TX ???\nOthers ???"
+  },
+  {
+    "objectID": "slides/usnccm17_tta.html#other-business",
+    "href": "slides/usnccm17_tta.html#other-business",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Other business",
+    "text": "Other business\n\nTTA Seminar Series?\nMeeting frequency?\nSuggestions?\n\n\n\nUSNCCM 17 - Novel Methods TTA – July 2023"
   }
 ]
