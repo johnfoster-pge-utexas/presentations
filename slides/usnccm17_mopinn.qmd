@@ -229,7 +229,7 @@ where $\lambda = 0.01$ and  $u=\sin^3(6x)$
 
 ---
 
-## Network architecture and hyperparameters
+## Network architecture and hyperparameters 
 
  * 2 neural networks: $u_{NN}$ and $f_{NN}$
 
@@ -250,7 +250,7 @@ where $\lambda = 0.01$ and  $u=\sin^3(6x)$
 
 ---
 
-## Predictions w/ $\sigma = 0.01$ noise on measurements
+## Predictions w/ $\sigma = 0.01$ noise on measurements {.smaller}
 
 ::: {layout="[[1, 1], [1, 1]]"}
 
