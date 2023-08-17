@@ -1,0 +1,610 @@
+---
+format: 
+  clean-revealjs:
+    footer: "DiReCT Annual Review Meeting - August 18, 2023"
+    scrollable: false
+    touch: true
+  pptx:
+    quarto-required: 1.*
+execute:
+  freeze: true
+title: Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties
+author: 
+  - name: Mingyuan Yang 
+    email: mingyuanyang@pku.edu.cn 
+    affiliations: 
+      - "Peking University"
+      - "The University of Texas at Austin"
+  - name: John T. Foster
+    email: john.foster@utexas.edu
+    affiliations: 
+      - "Hildebrand Department of Petroleum and Geosystems Engineering"
+      - "Department of Aerospace Engineering and Engineering Mechanics"
+      - "Oden Institute for Computational Engineering and Science"
+      - "The University of Texas at Austin"
+date: August 18, 2023
+bibliography: bib_files/usnccm17_mopinn.bib 
+---
+
+## Physics Informed Neural Networks
+### PINNs
+
+Introduced in [@raissi2019physics] as a general method for solving partial differential equations.
+
+Already recieved >5900 citations since posting on arXiv in 2018!
+
+## Generic PINN architecture
+
+```{r, engine = 'tikz'}
+#| fig-align: "center"
+\usetikzlibrary{decorations.pathreplacing}
+\begin{tikzpicture}[shorten >=1pt]
+    \tikzstyle{unit}=[draw,shape=circle,minimum size=1.15cm]
+
+    \node[unit](x) at (0,3.5){$x$};
+    \node[unit](y) at (0,2){$y$};
+    \node[unit](z) at (0,0.5){$z$};
+    \node[unit](t) at (0,-1){$t$};
+
+    \node[unit](y1) at (3,2.5){$y_1$};
+    \node(dots) at (3,1.65){\vdots};
+    \node[unit](yc) at (3,0.5){$y_N$};
+
+    \node[unit](u) at (5,1.5){$u_{NN}$};
+
+    \node[unit](dt) at (8,3.5){$\frac{\partial u_{\mathit{NN}}}{\partial t}$};
+    \node[unit](grad) at (8,1.5){$\nabla \cdot u_{\mathit{NN}}$};
+    \node[unit](lap) at (8,-0.5){$\Delta u_{\mathit{NN}}$};
+
+    \node[unit](l) at (11,1.5){$Loss$};
+
+    \draw[->] (x) -- (y1);
+    \draw[->] (y) -- (y1);
+    \draw[->] (z) -- (y1);
+    \draw[->] (t) -- (y1);
+
+    \draw[->] (x) -- (yc);
+    \draw[->] (y) -- (yc);
+    \draw[->] (z) -- (yc);
+    \draw[->] (t) -- (yc);
+
+    \draw[->] (y1) -- (u);
+    \draw[->] (yc) -- (u);
+
+    \draw[->] (u) -- (dt);
+    \draw[->] (u) -- (grad);
+    \draw[->] (u) -- (lap);
+
+    \draw[->] (dt) -- (l);
+    \draw[->] (grad) -- (l);
+    \draw[->] (lap) -- (l);
+
+    \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (-0.5,4) -- (0.75,4) node [black,midway,yshift=+0.6cm]{Input layer};
+    \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (2.5,3) -- (3.75,3) node [black,midway,yshift=+0.6cm]{Hidden layer};
+    \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (4.5,2) -- (5.75,2) node [black,midway,yshift=+0.6cm]{Output layer};
+    \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (5.95,-1.5) -- (-0.5,-1.5) node [black,midway,yshift=-0.6cm]{Neural networks};
+    \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (4.5,4.2) -- (11.5,4.2) node [black,midway,yshift=+0.6cm]{Loss function};
+\end{tikzpicture}
+```
+
+---
+
+## Loss function for generic PINN system {.smaller}
+
+$$
+\begin{align}
+    r_d(u_{NN}, f_{NN}) &= \mathcal{L} u_{NN} - f_{NN},\qquad x \in \Omega
+    \\
+    r_e(u_{NN}) &= u_{NN} - h,\qquad x \in \partial \Omega_h
+    \\
+    r_n(u_{NN}) &= \frac{\partial u_{NN}}{\partial x} - g,\qquad x \in \partial \Omega_g 
+    \\
+    r_{u}(u_{NN}) &= u_{NN}(x^u_i) - u_m(x^u_i), \qquad i=1,2,...,n 
+    \\
+    r_{f}(f_{NN}) &= f_{NN}(x^f_i) - f_m(x^f_i), \qquad i=1,2,...,m 
+\end{align}
+$$
+
+::: {.fragment}
+$$
+\begin{gather}
+    L_{MSE} = \frac{1}{N}\sum_{i}^N r_d^2 + \frac{1}{N_e}\sum_{i=1}^{N_e} r_e^2 + \frac{1}{N_n}\sum_{i=1}^{N_n} r_n^2 + \frac{1}{n}\sum_{i=1}^{n} r_{u}^2 + \frac{1}{m}\sum_{i=1}^m r_{f}^2
+\end{gather}
+$$
+:::
+
+## Extensions of PINNs for UQ
+
+* B-PINNs [@yang2021b]
+* E-PINN [@jiang2022pinn]
+
+
+## Multi-Output PINN 
+### MO-PINN [@mingyuan2022a]
+
+```{r, engine = 'tikz'}
+#| fig-align: "center"
+\usetikzlibrary{decorations.pathreplacing}
+\begin{tikzpicture}[shorten >=1pt]
+  \tikzstyle{unit}=[draw,shape=circle,minimum size=1.15cm]
+  \node[unit](x) at (0,3.5){$x$};
+  \node[unit](y) at (0,2){$y$};
+  \node[unit](z) at (0,0.5){$z$};
+  \node[unit](t) at (0,-1){$t$};
+  \node[unit](y1) at (3,2.5){$y^1$};
+  \node(dots) at (3,1.65){\vdots};
+  \node[unit](yc) at (3,0.5){$y^N$};
+
+  \node[unit, fill={rgb:red,1;green,2;blue,5}](u1) at (5,2.5){$u_{NN}^1$};
+  \node(dots) at (5,1.65){\vdots};
+  \node[unit, fill={rgb:red,1;green,2;blue,5}](u2) at (5,0.5){$u_{NN}^M$};
+  %\node[unit](u) at (5,1.5){$u_{NN}$};
+
+  \node[unit](dt) at (8,4.0){$\frac{\partial u_{NN}}{\partial t}$};
+  \node[unit](grad) at (8,2.0){$\nabla \cdot u_{NN}$};
+  \node[unit](lap) at (8,0.2){$\Delta u_{NN}$};
+  \node[unit, fill={rgb:red,1;green,2;blue,5}](stats) at (8,-1.5){$P(u_{NN})$};
+
+  \node[unit](l) at (11,1.5){$Loss$};
+
+  \draw[->] (x) -- (y1);
+  \draw[->] (y) -- (y1);
+  \draw[->] (z) -- (y1);
+  \draw[->] (t) -- (y1);
+
+  \draw[->] (x) -- (yc);
+  \draw[->] (y) -- (yc);
+  \draw[->] (z) -- (yc);
+  \draw[->] (t) -- (yc);
+
+  \draw[->] (y1) -- (u1);
+  \draw[->] (yc) -- (u1);
+  \draw[->] (y1) -- (u2);
+  \draw[->] (yc) -- (u2);
+
+  \draw[->] (u1) -- (dt);
+  \draw[->] (u1) -- (grad);
+  \draw[->] (u1) -- (lap);
+  \draw[->] (u1) -- (stats);
+  \draw[->] (u2) -- (dt);
+  \draw[->] (u2) -- (grad);
+  \draw[->] (u2) -- (lap);
+  \draw[->] (u2) -- (stats);
+
+  \draw[->] (dt) -- (l);
+  \draw[->] (grad) -- (l);
+  \draw[->] (lap) -- (l);
+  \draw[->] (stats) -- (l);
+
+  \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (-0.5,4) -- (0.75,4) node [black,midway,yshift=+0.6cm]{\small Input layer};
+  \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (2.5,3) -- (3.75,3) node [black,midway,yshift=+0.6cm]{\small Hidden layer};
+  \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (5.75,-0.1) -- (4.5,-0.1) node [black,midway,yshift=-0.6cm]{\small Output layer};
+  \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (5.95,-1.5) -- (-0.5,-1.5) node [black,midway,yshift=-0.6cm]{\small Neural networks};
+  \draw [decorate,decoration={brace,amplitude=10pt},xshift=-4pt,yshift=0pt] (4.5,4.6) -- (11.5,4.6) node [black,midway,yshift=+0.6cm]{\small Loss function};
+\end{tikzpicture}
+```
+
+## Loss function for generic MO-PINN system {.smaller}
+
+$$
+\begin{align}
+    r_d(u_{NN}^j, f_{NN}^j) &= \mathcal{L} u_{NN}^j - f_{NN}^j,\qquad x \in \Omega
+    \\
+    r_e(u_{NN}^j) &= u_{NN}^j - h,\qquad x \in \partial \Omega_h
+    \\
+    r_n(u_{NN}^j) &= \frac{\partial u_{NN}^j}{\partial x} - g,\qquad x \in \partial \Omega_g
+    \\
+    r_{um}(u_{NN}^j) &= u_{NN}^j(x^u_i) - \left(u_m(x^u_i) + \sigma_u^j\right), \qquad i=1,2,...,n 
+    \\
+    r_{fm}(f_{NN}^j) &= f_{NN}^j(x^f_i) - \left(f_m(x^f_i) + \sigma_f^j\right), \qquad i=1,2,...,m \
+\end{align}
+$$
+
+::: {.fragment}
+$$
+\begin{gather}
+    L_{MSE} = \frac{1}{M}\sum_{j=1}^{M} \left( \frac{1}{N}\sum_{i}^N r_d^2 + \frac{1}{N_e}\sum_{i=1}^{N_e} r_e^2 + \frac{1}{N_n}\sum_{i=1}^{N_n} r_n^2 + \frac{1}{n}\sum_{i=1}^{n} r_{um}^2 + \frac{1}{m}\sum_{i=1}^m r_{fm}^2  \right)
+\end{gather}
+$$
+:::
+# Forward PDE problems
+
+---
+
+
+## One-dimensional linear Poisson equation
+
+$$
+\begin{gathered}
+    \lambda \frac{\partial^2 u}{\partial x^2} = f, \qquad x \in [-0.7, 0.7]
+\end{gathered}
+$$ 
+where $\lambda = 0.01$ and  $u=\sin^3(6x)$
+
+::: {layout="[[1, 1]]"}
+
+![Solution $u$](img_mopinn/1d_linear_solution_u.png)
+
+![Source $f$ from manufactured solution](img_mopinn/1d_linear_source_f.png)
+
+:::
+
+---
+
+## Network architecture and hyperparameters 
+
+ * 2 neural networks: $u_{NN}$ and $f_{NN}$
+
+ * 2 hidden layers with 20 and 40 neurons each
+
+ * $\tanh$ activation function
+
+ * ADAM optimizer 
+
+ * $10^{-3}$ learning rate
+
+ * Xavier normalization
+
+ * 10000 epochs
+
+ * 500 outputs
+
+
+---
+
+## Predictions w/ $\sigma = 0.01$ noise on measurements {.smaller}
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$ w/ raw solutions](img_mopinn/1d_linear_u_raw_0.01_noise.png){width=350px}
+
+![Prediction $f$ w/ raw solutions](img_mopinn/1d_linear_f_raw_0.01_noise.png){width=350px}
+
+![Prediction $u$ w/ $2\sigma$ distribution](img_mopinn/1d_linear_u_with_std_0.01_noise.png){width=350px}
+
+![Prediction $f$ w/ $2\sigma$ distribution](img_mopinn/1d_linear_f_with_std_0.01_noise.png){width=350px}
+
+:::
+
+---
+
+## Predictions w/ $\sigma = 0.1$ noise on measurements
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$ w/ raw solutions](img_mopinn/1d_linear_u_raw_0.1_noise.png){width=350px}
+
+![Prediction $f$ w/ raw solutions](img_mopinn/1d_linear_f_raw_0.1_noise.png){width=350px}
+
+![Prediction $u$ w/ $2\sigma$ distribution](img_mopinn/1d_linear_u_with_std_0.1_noise.png){width=350px}
+
+![Prediction $f$ w/ $2\sigma$ distribution](img_mopinn/1d_linear_f_with_std_0.1_noise.png){width=350px}
+
+:::
+
+---
+
+## Sensitivity to random network parameter initialization 
+### $\sigma = 0.1$ noise
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![](img_mopinn/1d_linear_u_with_std_run_1.png){width=350px}
+
+![](img_mopinn/1d_linear_u_with_std_run_2.png){width=350px}
+
+![](img_mopinn/1d_linear_u_with_std_run_3.png){width=350px}
+
+![](img_mopinn/1d_linear_u_with_std_run_4.png){width=350px}
+
+:::
+
+---
+
+
+## Sensitivity to measurement sampling 
+### $\sigma = 0.1$ noise
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![](img_mopinn/1d_linear_u_with_std_data_1.png){width=400px}
+
+![](img_mopinn/1d_linear_u_with_std_data_2.png){width=400px}
+
+![](img_mopinn/1d_linear_u_with_std_data_3.png){width=400px}
+
+![](img_mopinn/1d_linear_u_with_std_data_4.png){width=400px}
+
+:::
+
+## One-dimensional nonlinear Poisson equation
+
+$$
+\begin{gathered}
+    \lambda \frac{\partial^2 u}{\partial x^2} + k \tanh(u) = f, \qquad x \in [-0.7, 0.7]
+\end{gathered}
+$$ 
+where $\lambda = 0.01, k=0.7$ and  $u=\sin^3(6x)$
+
+::: {layout="[[1, 1]]"}
+
+![Solution $u$](img_mopinn/1d_nonlinear_solution_u.png)
+
+![Source $f$ from manufactured solution](img_mopinn/1d_nonlinear_source_f.png)
+
+:::
+
+---
+
+## Predictions w/ $\sigma = 0.01$ noise on measurements
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$ w/ raw solutions](img_mopinn/1d_nonlinear_u_raw_0.01_noise.png){width=350px}
+
+![Prediction $f$ w/ raw solutions](img_mopinn/1d_nonlinear_f_raw_0.01_noise.png){width=350px}
+
+![Prediction $u$ w/ $2\sigma$ distribution](img_mopinn/1d_nonlinear_u_with_std_0.01_noise.png){width=350px}
+
+![Prediction $f$ w/ $2\sigma$ distribution](img_mopinn/1d_nonlinear_f_with_std_0.01_noise.png){width=350px}
+
+:::
+
+---
+
+## Predictions w/ $\sigma = 0.1$ noise on measurements
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$ w/ raw solutions](img_mopinn/1d_nonlinear_u_raw_0.1_noise.png){width=350px}
+
+![Prediction $f$ w/ raw solutions](img_mopinn/1d_nonlinear_f_raw_0.1_noise.png){width=350px}
+
+![Prediction $u$ w/ $2\sigma$ distribution](img_mopinn/1d_nonlinear_u_with_std_0.1_noise.png){width=350px}
+
+![Prediction $f$ w/ $2\sigma$ distribution](img_mopinn/1d_nonlinear_f_with_std_0.1_noise.png){width=350px}
+
+:::
+
+--- 
+
+## Two-dimensional nonlinear Allen-Cahn equation
+
+$$
+\begin{gathered}
+    \lambda \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) + u\left(u^2 -1 \right) = f, \qquad x,y \in [-1, 1]
+\end{gathered}
+$$ 
+where $\lambda = 0.01$ and  $u=\sin(\pi x)\sin(\pi y)$
+
+::: {layout="[[1, 1]]"}
+
+![Solution $u$](img_mopinn/2d_ac_u_data.png)
+
+![Source $f$ from manufactured solution](img_mopinn/2d_ac_f_data.png)
+
+:::
+
+---
+
+## Network architecture and hyperparameters
+
+ * 2 neural networks: $u_{NN}$ and $f_{NN}$
+
+ * 3 hidden layers with 200 neurons each
+
+ * $\tanh$ activation function
+
+ * ADAM optimizer 
+
+ * $10^{-3}$ learning rate
+
+ * Xavier normalization
+
+ * 50000 epochs
+
+ * 2000 outputs
+
+
+---
+
+## Predictions w/ $\sigma = 0.01$ noise on measurements
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$](img_mopinn/2d_ac_0.01_noise_u.png){width=300px}
+
+![$L_2$ error](img_mopinn/2d_ac_0.01_noise_u_error.png){width=300px}
+
+![Standard deviation of predictions](img_mopinn/2d_ac_0.01_noise_u_std.png){width=300px}
+
+![Bounded by 2$\sigma$ -- *red = bounded, blue = not bounded*](img_mopinn/2d_ac_0.01_noise_2_stds.png){width=250px}
+
+:::
+
+---
+
+## Predictions w/ $\sigma = 0.1$ noise on measurements
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$](img_mopinn/2d_ac_0.1_noise_u.png){width=300px}
+
+![$L_2$ error](img_mopinn/2d_ac_0.1_noise_u_error.png){width=300px}
+
+![Standard deviation of predictions](img_mopinn/2d_ac_0.1_noise_u_std.png){width=300px}
+
+![Bounded by 2$\sigma$ -- *red = bounded, blue = not bounded*](img_mopinn/2d_ac_0.1_noise_2_stds.png){width=250px}
+
+:::
+
+# Inverse Problems
+
+---
+
+## One-dimensional nonlinear Poisson equation
+
+$$
+\begin{gathered}
+    \lambda \frac{\partial^2 u}{\partial x^2} + k \tanh(u) = f, \qquad x \in [-0.7, 0.7]
+\end{gathered}
+$$ 
+where $\lambda = 0.01$.
+
+$k=[???, ???, ???, \dots, ???]$ with $N$ entries corresponding to $N$ outputs of the MO-PINN
+
+---
+
+## Predictions 
+### $u$ and $f$
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![Prediction $u$ w/ $\sigma=0.01$ noise](img_mopinn/1d_inverse_u_0.01_noise.png){width=350px}
+
+![Prediction $u$ w/ $\sigma=0.1$ noise](img_mopinn/1d_inverse_u_0.1_noise.png){width=350px}
+
+![Prediction $f$ w/ $\sigma=0.01$ noise](img_mopinn/1d_inverse_f_0.01_noise.png){width=350px}
+
+![Prediction $f$ w/ $\sigma=0.1$ noise](img_mopinn/1d_inverse_f_0.1_noise.png){width=350px}
+
+:::
+
+---
+
+## Inverse Estimates 
+### $k_{exact} = 0.7$
+
+::: {layout-ncol=2}
+
+![$\sigma=0.01$ noise, $k_{avg} = 0.698$](img_mopinn/1d_inverse_k_distribution_0.01_noise.png){width=350px}
+
+![$\sigma=0.1$ noise, $k_{avg} = 0.678$](img_mopinn/1d_inverse_k_distribution_0.1_noise.png){width=350px}
+
+:::
+
+---
+
+## Sensitivity of $k_{avg}$ w.r.t number of outputs 
+### $\sigma=0.1$ noise
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![10 outputs, $k_{avg} = 0.67$](img_mopinn/1d_inverse_k_10.png){width=350px}
+
+![50 outputs, $k_{avg} = 0.684$](img_mopinn/1d_inverse_k_50.png){width=350px}
+
+![100 outputs, $k_{avg} = 0.668$](img_mopinn/1d_inverse_k_100.png){width=350px}
+
+![500 outputs, $k_{avg} = 0.673$](img_mopinn/1d_inverse_k_500.png){width=350px}
+
+:::
+
+---
+
+## Two-dimensional Allen-Cahn Equation 
+
+$$
+\begin{gathered}
+    \lambda \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) + u\left(u^2 -1 \right) = f, \qquad x,y \in [-1, 1]
+\end{gathered}
+$$ 
+where $\lambda = 0.01$ and  $u=\sin(\pi x)\sin(\pi y)$
+
+
+$k=[???, ???, ???, \dots, ???]$ with $N$ entries corresponding to $N$ outputs of the MO-PINN
+
+::: {layout-ncol=2}
+
+![Solution $u$ and measurements](img_mopinn/2d_inverse_u.png){width=350px}
+
+![Solution $f$ and measurements](img_mopinn/2d_inverse_f.png){width=350px}
+
+:::
+
+---
+
+## Inverse Estimates
+### $k_{exact} = 1.0$
+
+::: {layout-ncol=2}
+
+![$\sigma=0.01$ noise,  $k_{avg} = 0.995$](img_mopinn/2d_inverse_k_0.01_noise.png){width=350px}
+
+![$\sigma=0.1$ noise,  $k_{avg} = 1.02$](img_mopinn/2d_inverse_k_0.1_noise.png){width=350px}
+
+:::
+
+# Incorporating prior statistical knowledge
+
+
+---
+
+## Comparison to Monte Carlo FEM 
+### One-dimensional linear Poisson equation
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![MO-PINN prediction of $u$](img_mopinn/validation_u_nn.png){width=350px}
+
+![FEA prediction of $u$](img_mopinn/validation_u_fenics.png){width=350px}
+
+![MO-PINN prediction of $f$](img_mopinn/validation_f_nn.png){width=350px}
+
+![FEA prediction of $f$](img_mopinn/validation_f_fenics.png){width=350px}
+
+:::
+
+---
+
+## Comparison of distributions
+### MO-PINN vs. FEA Monte Carlo
+
+![Quantile-quantile plot of $u$ at 9 locations](img_mopinn/quantile.png)
+
+---
+
+## $u$ predictions with only 5 measurements 
+### Using mean and std to enhance learning 
+
+::: {layout-ncol=3}
+
+![Only 5 measurements](img_mopinn/nn_alone_u.png){width=350px}
+
+![5 measurements and mean](img_mopinn/integration_only_mean_u){width=350px}
+
+![5 measurements, mean, and std](img_mopinn/integration_u.png){width=350px}
+
+:::
+
+---
+
+## $f$ predictions with only 5 measurements 
+### Using mean and std to enhance learning 
+
+::: {layout-ncol=3}
+
+![Only 5 measurements](img_mopinn/nn_alone_f.png){width=350px}
+
+![5 measurements and mean](img_mopinn/integration_only_mean_f){width=350px}
+
+![5 measurements, mean, and std](img_mopinn/integration_f.png){width=350px}
+
+:::
+
+---
+
+## Conclusions
+
+
+* MO-PINNs appear promising for UQ
+* MO-PINNs can learn solution, source terms, and parameters simultaneously
+* MO-PINNs are faster than Monte Carlo forward solutions for the problem studied
+  * Only need to train a single network
+
+---
+
+## References
+
+::: {#refs}
+:::
