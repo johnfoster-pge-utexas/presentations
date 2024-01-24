@@ -61,4 +61,4 @@ date: January 24, 2024
 
 ## Review and Update PGE approved electives 
 
- * [Current list](https://www.pge.utexas.edu/sites/default/files/PDFs/Undergraduate/Approved%20Electives%20List.pdf)
+ * [Current list](https://www.pge.utexas.edu/images/PGE_Approved_Technical_Electives_22-24.pdf)
