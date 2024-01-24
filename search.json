@@ -1,5 +1,68 @@
 [
   {
+    "objectID": "slides/usnccm17_tta.html#thanks-to-c.t.-wu",
+    "href": "slides/usnccm17_tta.html#thanks-to-c.t.-wu",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Thanks to C.T. Wu",
+    "text": "Thanks to C.T. Wu\nTTA Chair 2019-2023"
+  },
+  {
+    "objectID": "slides/usnccm17_tta.html#current-organization",
+    "href": "slides/usnccm17_tta.html#current-organization",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Current Organization",
+    "text": "Current Organization\n\nJohn T. Foster (Chair)\nPania Newell (Vice-Chair)\nSteve WaiChing Sun (Member-at-Large)\nMichael Hillman (Member-at-Large)"
+  },
+  {
+    "objectID": "slides/usnccm17_tta.html#introductions",
+    "href": "slides/usnccm17_tta.html#introductions",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Introductions",
+    "text": "Introductions\n\nName and affiliation"
+  },
+  {
+    "objectID": "slides/usnccm17_tta.html#tta-charter",
+    "href": "slides/usnccm17_tta.html#tta-charter",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "TTA Charter",
+    "text": "TTA Charter\nEach TTA will be charged with the following tasks:\n\nOrganize mini-symposia in the technical thrust areas at every USNCCM;\nBe responsible for the organization of at least one thematic conference in a two-year cycle; and\nMaintain a TTA website on the USACM webpage documenting all activities."
+  },
+  {
+    "objectID": "slides/usnccm17_tta.html#thematic-conferences",
+    "href": "slides/usnccm17_tta.html#thematic-conferences",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Thematic Conferences",
+    "text": "Thematic Conferences\n\nThematic Conference Request\nPast TTA Conferences\n\nMeshfree and Novel Finite Elements with Applications, Berkeley, CA 2022\nMeshfree and Particle Methods: Applications and Theory Santa Fe, NM 2018\nNonlocal Methods in Fracture, Austin, TX 2018\nIsogeometric and Meshfree Methods, La Jolla, CA 2016\nMeshfree Methods for Large-Scale Computational Science and Engineering, Tampa, FL, 2014\nNonlocal Damage and Failure: Peridynamics and Other Nonlocal Methods, San Antonio, TX 2013\n\nUpcoming???\n\n“Meshfree Meeting” ??? Austin, TX ???\nOthers ???"
+  },
+  {
+    "objectID": "slides/usnccm17_tta.html#other-business",
+    "href": "slides/usnccm17_tta.html#other-business",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Other business",
+    "text": "Other business\n\nTTA Seminar Series?\nMeeting frequency?\nSuggestions?\n\n\n\nUSNCCM 17 - Novel Methods TTA – July 2023"
+  },
+  {
+    "objectID": "slides/undergrad_studies_012424.html#agenda",
+    "href": "slides/undergrad_studies_012424.html#agenda",
+    "title": "PGE Undergraduate Studies Committee Meeting",
+    "section": "Agenda",
+    "text": "Agenda\n\n“Industry Software” Training\nPGE BS / McCombs BA Dual Degree\nReview and updating of the approved elective courses list"
+  },
+  {
+    "objectID": "slides/undergrad_studies_012424.html#industry-software-training",
+    "href": "slides/undergrad_studies_012424.html#industry-software-training",
+    "title": "PGE Undergraduate Studies Committee Meeting",
+    "section": "“Industry Software” Training",
+    "text": "“Industry Software” Training\n\nHow to offer?\n\nVoluntary enrollment\nElective Course\n\n\n\n\nPotential Vendors\n\nComboCurve, (Douglas McMaster doug.j.mcmaster@gmail.com)\nSpotfire (Bryan McDowell bryan.mcdowell@sabata.us)\nARIES, QED (Courtney Stephens cstephens@QEDea.com)\nWhitson (Mathias Carlsen carlsen@whitson.com)\nKAPPA (Vincent Artus, artus@kappaeng.com and Irina Kostyleva, kostyleva@kappaeng.com)\nNSI (Dante Guerra; dguerra@nsitech.com)\nHarmony/S&P Global (Alireza, alireza.haghighat@spglobal.com)\nReFrac (Mark McClure)\nUnconventional Reservoir Engineering (Yoshi, Yogashri Umesh Pradhan ypradhan.pge@utexas.edu)\nEnverus\nPhDWin\n\n\n\n\nPGE Undergraduate Studies Committee Meeting"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Presentations",
+    "section": "",
+    "text": "Links\nUSNCCM 17 - MO-PINNS\nUSNCCM 17 - TTA Meeting\nDiReCT Annual Meeting - MO-PINNS\nUndergrad Studies Committee Meeting - 01/24/2024"
+  },
+  {
     "objectID": "slides/direct_2023_mopinn.html#physics-informed-neural-networks",
     "href": "slides/direct_2023_mopinn.html#physics-informed-neural-networks",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
@@ -432,54 +495,5 @@
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "References",
     "text": "References\n\n\nJiang, Xinchao, Xin Wanga, Ziming Wena, Enying Li, and Hu Wang. 2022. “An e-PINN Assisted Practical Uncertainty Quantification for Inverse Problems.” arXiv Preprint arXiv:2209.10195.\n\n\nRaissi, Maziar, Paris Perdikaris, and George E Karniadakis. 2019. “Physics-Informed Neural Networks: A Deep Learning Framework for Solving Forward and Inverse Problems Involving Nonlinear Partial Differential Equations.” Journal of Computational Physics 378: 686–707.\n\n\nYang, Liu, Xuhui Meng, and George Em Karniadakis. 2021. “B-PINNs: Bayesian Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Noisy Data.” Journal of Computational Physics 425: 109913.\n\n\nYang, M., and J. T. Foster. 2022. “Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties.” Computer Methods in Applied Mechanics and Engineering, 115041. https://doi.org/10.1016/j.cma.2022.115041.\n\n\n\n\nUSNCCM 17 – July 2023"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Presentations",
-    "section": "",
-    "text": "Links\nUSNCCM 17 - MO-PINNS\nUSNCCM 17 - TTA Meeting\nDiReCT Annual Meeting - MO-PINNS"
-  },
-  {
-    "objectID": "slides/usnccm17_tta.html#thanks-to-c.t.-wu",
-    "href": "slides/usnccm17_tta.html#thanks-to-c.t.-wu",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "Thanks to C.T. Wu",
-    "text": "Thanks to C.T. Wu\nTTA Chair 2019-2023"
-  },
-  {
-    "objectID": "slides/usnccm17_tta.html#current-organization",
-    "href": "slides/usnccm17_tta.html#current-organization",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "Current Organization",
-    "text": "Current Organization\n\nJohn T. Foster (Chair)\nPania Newell (Vice-Chair)\nSteve WaiChing Sun (Member-at-Large)\nMichael Hillman (Member-at-Large)"
-  },
-  {
-    "objectID": "slides/usnccm17_tta.html#introductions",
-    "href": "slides/usnccm17_tta.html#introductions",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "Introductions",
-    "text": "Introductions\n\nName and affiliation"
-  },
-  {
-    "objectID": "slides/usnccm17_tta.html#tta-charter",
-    "href": "slides/usnccm17_tta.html#tta-charter",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "TTA Charter",
-    "text": "TTA Charter\nEach TTA will be charged with the following tasks:\n\nOrganize mini-symposia in the technical thrust areas at every USNCCM;\nBe responsible for the organization of at least one thematic conference in a two-year cycle; and\nMaintain a TTA website on the USACM webpage documenting all activities."
-  },
-  {
-    "objectID": "slides/usnccm17_tta.html#thematic-conferences",
-    "href": "slides/usnccm17_tta.html#thematic-conferences",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "Thematic Conferences",
-    "text": "Thematic Conferences\n\nThematic Conference Request\nPast TTA Conferences\n\nMeshfree and Novel Finite Elements with Applications, Berkeley, CA 2022\nMeshfree and Particle Methods: Applications and Theory Santa Fe, NM 2018\nNonlocal Methods in Fracture, Austin, TX 2018\nIsogeometric and Meshfree Methods, La Jolla, CA 2016\nMeshfree Methods for Large-Scale Computational Science and Engineering, Tampa, FL, 2014\nNonlocal Damage and Failure: Peridynamics and Other Nonlocal Methods, San Antonio, TX 2013\n\nUpcoming???\n\n“Meshfree Meeting” ??? Austin, TX ???\nOthers ???"
-  },
-  {
-    "objectID": "slides/usnccm17_tta.html#other-business",
-    "href": "slides/usnccm17_tta.html#other-business",
-    "title": "Novel Methods in Computational Engineeering and Sciences",
-    "section": "Other business",
-    "text": "Other business\n\nTTA Seminar Series?\nMeeting frequency?\nSuggestions?\n\n\n\nUSNCCM 17 - Novel Methods TTA – July 2023"
   }
 ]
