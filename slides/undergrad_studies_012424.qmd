@@ -22,9 +22,14 @@ date: January 24, 2024
 
 ## "Industry Software" Training
 
+ * Supported by EAC and student leaders
  * How to offer?
-   * Voluntary enrollment
-   * Elective Course
+   * Voluntary registration and attendance
+   * Elective course
+     * Full or half day Fridays? Other formats?
+     * Cockrell School approval?
+     * Who teaches?
+ * Action Items?
 
 ::: {.fragment}
 ### Potential Vendors
@@ -36,9 +41,24 @@ date: January 24, 2024
   5. KAPPA (Vincent Artus, artus@kappaeng.com and Irina Kostyleva, kostyleva@kappaeng.com)
   6. NSI (Dante Guerra; dguerra@nsitech.com)
   7. Harmony/S&P Global (Alireza, alireza.haghighat@spglobal.com)
-  8. ReFrac (Mark McClure)
+  8. ResFrac (Mark McClure)
   9. Unconventional Reservoir Engineering (Yoshi, Yogashri Umesh Pradhan
   ypradhan.pge@utexas.edu)
   10. Enverus 
   11. PhDWin
 :::
+
+## PGE BS / McCombs BA Dual Degree
+
+ * Is this a good idea?
+   * Budget Council and Dept. Chair are enthusiastic
+ * ECE/McCombs Honors Program - [https://ecb.utexas.edu/](https://ecb.utexas.edu/)
+   * Does it have to be honors?
+ * Action Items?
+   * Draft cirriculum
+   * Setup meeting with McCombs
+
+
+## Review and Update PGE approved electives 
+
+ * [Current list](https://www.pge.utexas.edu/sites/default/files/PDFs/Undergraduate/Approved%20Electives%20List.pdf)
