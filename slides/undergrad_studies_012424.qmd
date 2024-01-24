@@ -1,0 +1,44 @@
+---
+format: 
+  clean-revealjs:
+    footer: "PGE Undergraduate Studies Committee Meeting"
+    scrollable: true
+execute:
+  freeze: true
+title: "PGE Undergraduate Studies Committee Meeting"
+author: 
+  - name: John T. Foster (Chair)
+    email: john.foster@utexas.edu
+date: January 24, 2024
+---
+
+## Agenda
+
+* "Industry Software" Training
+
+* PGE BS / McCombs BA Dual Degree
+
+* Review and updating of the approved elective courses list
+
+## "Industry Software" Training
+
+ * How to offer?
+   * Voluntary enrollment
+   * Elective Course
+
+::: {.fragment}
+### Potential Vendors
+
+  1. ComboCurve, (Douglas McMaster doug.j.mcmaster@gmail.com)
+  2. Spotfire (Bryan McDowell bryan.mcdowell@sabata.us)
+  3. ARIES, QED (Courtney Stephens cstephens@QEDea.com)
+  4. Whitson (Mathias Carlsen carlsen@whitson.com)
+  5. KAPPA (Vincent Artus, artus@kappaeng.com and Irina Kostyleva, kostyleva@kappaeng.com)
+  6. NSI (Dante Guerra; dguerra@nsitech.com)
+  7. Harmony/S&P Global (Alireza, alireza.haghighat@spglobal.com)
+  8. ReFrac (Mark McClure)
+  9. Unconventional Reservoir Engineering (Yoshi, Yogashri Umesh Pradhan
+  ypradhan.pge@utexas.edu)
+  10. Enverus 
+  11. PhDWin
+:::

@@ -5,3 +5,5 @@
 [USNCCM 17 - TTA Meeting](./slides/usnccm17_tta.qmd)
 
 [DiReCT Annual Meeting - MO-PINNS](./slides/direct_2023_mopinn.qmd)
+
+[Undergrad Studies Committee Meeting - 01/24/2024](./slides/undergrad_studies_012424.qmd)
