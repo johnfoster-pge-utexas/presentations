@@ -1,0 +1,42 @@
+---
+format: 
+  clean-revealjs:
+    footer: "16th WCCM -- July 2024"
+    scrollable: false
+    touch: true
+execute:
+  freeze: true
+title: "The rancher, the hunter, the Renaissance man:"
+subtitle: "A tribute to my beloved friend Tinsley Oden"
+title-slide-attributes: 
+  data-background-image: img_oden/oden_foster.jpg
+  data-background-size: "cover"
+  data-background-position: "center"
+  data-background-opacity: "0.3"
+author: 
+  - name: John T. Foster
+    email: john.foster@utexas.edu
+    affiliations: 
+      - "Oden Institute"
+      # - "Hildebrand Department of Petroleum and Geosystems Engineering"
+      # - "Department of Aerospace Engineering and Engineering Mechanics"
+      # - "The University of Texas at Austin"
+date: July 23, 2024
+---
+
+## The Rancher 
+### Oden Ranch 
+::: {layout="[[1, 1], [1, 1]]"}
+
+![10 outputs, $k_{avg} = 0.67$](img_mopinn/1d_inverse_k_10.png){width=350px}
+
+![50 outputs, $k_{avg} = 0.684$](img_mopinn/1d_inverse_k_50.png){width=350px}
+
+![100 outputs, $k_{avg} = 0.668$](img_mopinn/1d_inverse_k_100.png){width=350px}
+
+![500 outputs, $k_{avg} = 0.673$](img_mopinn/1d_inverse_k_500.png){width=350px}
+
+:::
+
+---
+

@@ -7,3 +7,5 @@
 [DiReCT Annual Meeting - MO-PINNS](./slides/direct_2023_mopinn.qmd)
 
 [Undergrad Studies Committee Meeting - 01/24/2024](./slides/undergrad_studies_012424.qmd)
+
+[WCCC 16 - Oden](./slides/wccm24_oden.qmd)
