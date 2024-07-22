@@ -1,1 +1,1 @@
-Sitemap: https://github.com/johnfoster-pge-utexas/presentations/sitemap.xml
+Sitemap: https://johnfoster-pge-utexas.github.io/presentations/sitemap.xml

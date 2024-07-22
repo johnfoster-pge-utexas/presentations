@@ -8,12 +8,12 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.5.55">
 
   <meta name="author" content="Mingyuan Yang">
   <meta name="author" content="John T. Foster">
   <meta name="dcterms.date" content="2023-08-18">
-  <title>Presentations - Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties</title>
+  <title>Presentations – Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -35,6 +35,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -179,7 +180,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -398,7 +400,7 @@ John T. Foster
 <section id="generic-pinn-architecture" class="slide level2">
 <h2>Generic PINN architecture</h2>
 
-<img data-src="direct_2023_mopinn_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<img data-src="direct_2023_mopinn_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="loss-function-for-generic-pinn-system" class="slide level2 smaller">
 <h2>Loss function for generic PINN system</h2>
 <p><span class="math display">\[
@@ -433,7 +435,7 @@ John T. Foster
 <h2>Multi-Output PINN</h2>
 <h3 id="mo-pinn-mingyuan2022a">MO-PINN <span class="citation" data-cites="mingyuan2022a">(<a href="#/references" role="doc-biblioref" onclick="">M. Yang and Foster 2022</a>)</span></h3>
 
-<img data-src="direct_2023_mopinn_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<img data-src="direct_2023_mopinn_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="loss-function-for-generic-mo-pinn-system" class="slide level2 smaller">
 <h2>Loss function for generic MO-PINN system</h2>
 <p><span class="math display">\[
@@ -469,9 +471,12 @@ John T. Foster
     \lambda \frac{\partial^2 u}{\partial x^2} = f, \qquad x \in [-0.7, 0.7]
 \end{gathered}
 \]</span> where <span class="math inline">\(\lambda = 0.01\)</span> and <span class="math inline">\(u=\sin^3(6x)\)</span></p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_linear_solution_u.png"></p>
@@ -479,7 +484,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_linear_source_f.png"></p>
@@ -505,9 +510,12 @@ John T. Foster
 </section>
 <section id="predictions-w-sigma-0.01-noise-on-measurements" class="slide level2 smaller">
 <h2>Predictions w/ <span class="math inline">\(\sigma = 0.01\)</span> noise on measurements</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1], [1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_linear_u_raw_0.01_noise.png" width="350"></p>
@@ -515,7 +523,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_linear_f_raw_0.01_noise.png" width="350"></p>
@@ -524,8 +532,8 @@ John T. Foster
 </div>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_linear_u_with_std_0.01_noise.png" width="350"></p>
@@ -533,7 +541,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_linear_f_with_std_0.01_noise.png" width="350"></p>
@@ -546,9 +554,12 @@ John T. Foster
 </section>
 <section id="predictions-w-sigma-0.1-noise-on-measurements" class="slide level2">
 <h2>Predictions w/ <span class="math inline">\(\sigma = 0.1\)</span> noise on measurements</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1], [1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_linear_u_raw_0.1_noise.png" width="350"></p>
@@ -556,7 +567,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_linear_f_raw_0.1_noise.png" width="350"></p>
@@ -565,8 +576,8 @@ John T. Foster
 </div>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_linear_u_with_std_0.1_noise.png" width="350"></p>
@@ -574,7 +585,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_linear_f_with_std_0.1_noise.png" width="350"></p>
@@ -588,8 +599,11 @@ John T. Foster
 <section id="sensitivity-to-random-network-parameter-initialization" class="slide level2">
 <h2>Sensitivity to random network parameter initialization</h2>
 <h3 id="sigma-0.1-noise"><span class="math inline">\(\sigma = 0.1\)</span> noise</h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1], [1, 1]]">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img data-src="img_mopinn/1d_linear_u_with_std_run_1.png" width="350"></p>
 </div>
@@ -597,7 +611,7 @@ John T. Foster
 <p><img data-src="img_mopinn/1d_linear_u_with_std_run_2.png" width="350"></p>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img data-src="img_mopinn/1d_linear_u_with_std_run_3.png" width="350"></p>
 </div>
@@ -610,8 +624,11 @@ John T. Foster
 <section id="sensitivity-to-measurement-sampling" class="slide level2">
 <h2>Sensitivity to measurement sampling</h2>
 <h3 id="sigma-0.1-noise-1"><span class="math inline">\(\sigma = 0.1\)</span> noise</h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1], [1, 1]]">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img data-src="img_mopinn/1d_linear_u_with_std_data_1.png" width="400"></p>
 </div>
@@ -619,7 +636,7 @@ John T. Foster
 <p><img data-src="img_mopinn/1d_linear_u_with_std_data_2.png" width="400"></p>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img data-src="img_mopinn/1d_linear_u_with_std_data_3.png" width="400"></p>
 </div>
@@ -636,9 +653,12 @@ John T. Foster
     \lambda \frac{\partial^2 u}{\partial x^2} + k \tanh(u) = f, \qquad x \in [-0.7, 0.7]
 \end{gathered}
 \]</span> where <span class="math inline">\(\lambda = 0.01, k=0.7\)</span> and <span class="math inline">\(u=\sin^3(6x)\)</span></p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_nonlinear_solution_u.png"></p>
@@ -646,7 +666,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_nonlinear_source_f.png"></p>
@@ -659,9 +679,12 @@ John T. Foster
 </section>
 <section id="predictions-w-sigma-0.01-noise-on-measurements-1" class="slide level2">
 <h2>Predictions w/ <span class="math inline">\(\sigma = 0.01\)</span> noise on measurements</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1], [1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_nonlinear_u_raw_0.01_noise.png" width="350"></p>
@@ -669,7 +692,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_nonlinear_f_raw_0.01_noise.png" width="350"></p>
@@ -678,8 +701,8 @@ John T. Foster
 </div>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_nonlinear_u_with_std_0.01_noise.png" width="350"></p>
@@ -687,7 +710,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_nonlinear_f_with_std_0.01_noise.png" width="350"></p>
@@ -700,9 +723,12 @@ John T. Foster
 </section>
 <section id="predictions-w-sigma-0.1-noise-on-measurements-1" class="slide level2">
 <h2>Predictions w/ <span class="math inline">\(\sigma = 0.1\)</span> noise on measurements</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1], [1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_nonlinear_u_raw_0.1_noise.png" width="350"></p>
@@ -710,7 +736,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_nonlinear_f_raw_0.1_noise.png" width="350"></p>
@@ -719,8 +745,8 @@ John T. Foster
 </div>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_nonlinear_u_with_std_0.1_noise.png" width="350"></p>
@@ -728,7 +754,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_nonlinear_f_with_std_0.1_noise.png" width="350"></p>
@@ -746,9 +772,12 @@ John T. Foster
     \lambda \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) + u\left(u^2 -1 \right) = f, \qquad x,y \in [-1, 1]
 \end{gathered}
 \]</span> where <span class="math inline">\(\lambda = 0.01\)</span> and <span class="math inline">\(u=\sin(\pi x)\sin(\pi y)\)</span></p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_ac_u_data.png"></p>
@@ -756,7 +785,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_ac_f_data.png"></p>
@@ -782,9 +811,12 @@ John T. Foster
 </section>
 <section id="predictions-w-sigma-0.01-noise-on-measurements-2" class="slide level2">
 <h2>Predictions w/ <span class="math inline">\(\sigma = 0.01\)</span> noise on measurements</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1], [1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_ac_0.01_noise_u.png" width="300"></p>
@@ -792,7 +824,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_ac_0.01_noise_u_error.png" width="300"></p>
@@ -801,8 +833,8 @@ John T. Foster
 </div>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_ac_0.01_noise_u_std.png" width="300"></p>
@@ -810,7 +842,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_ac_0.01_noise_2_stds.png" width="250"></p>
@@ -823,9 +855,12 @@ John T. Foster
 </section>
 <section id="predictions-w-sigma-0.1-noise-on-measurements-2" class="slide level2">
 <h2>Predictions w/ <span class="math inline">\(\sigma = 0.1\)</span> noise on measurements</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1], [1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_ac_0.1_noise_u.png" width="300"></p>
@@ -833,7 +868,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_ac_0.1_noise_u_error.png" width="300"></p>
@@ -842,8 +877,8 @@ John T. Foster
 </div>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_ac_0.1_noise_u_std.png" width="300"></p>
@@ -851,7 +886,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_ac_0.1_noise_2_stds.png" width="250"></p>
@@ -879,9 +914,12 @@ John T. Foster
 <section id="predictions" class="slide level2">
 <h2>Predictions</h2>
 <h3 id="u-and-f"><span class="math inline">\(u\)</span> and <span class="math inline">\(f\)</span></h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1], [1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_inverse_u_0.01_noise.png" width="350"></p>
@@ -889,7 +927,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_inverse_u_0.1_noise.png" width="350"></p>
@@ -898,8 +936,8 @@ John T. Foster
 </div>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_inverse_f_0.01_noise.png" width="350"></p>
@@ -907,7 +945,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_inverse_f_0.1_noise.png" width="350"></p>
@@ -921,9 +959,12 @@ John T. Foster
 <section id="inverse-estimates" class="slide level2">
 <h2>Inverse Estimates</h2>
 <h3 id="k_exact-0.7"><span class="math inline">\(k_{exact} = 0.7\)</span></h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_inverse_k_distribution_0.01_noise.png" width="350"></p>
@@ -931,7 +972,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_inverse_k_distribution_0.1_noise.png" width="350"></p>
@@ -945,9 +986,12 @@ John T. Foster
 <section id="sensitivity-of-k_avg-w.r.t-number-of-outputs" class="slide level2">
 <h2>Sensitivity of <span class="math inline">\(k_{avg}\)</span> w.r.t number of outputs</h2>
 <h3 id="sigma0.1-noise"><span class="math inline">\(\sigma=0.1\)</span> noise</h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1], [1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_inverse_k_10.png" width="350"></p>
@@ -955,7 +999,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_inverse_k_50.png" width="350"></p>
@@ -964,8 +1008,8 @@ John T. Foster
 </div>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_inverse_k_100.png" width="350"></p>
@@ -973,7 +1017,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/1d_inverse_k_500.png" width="350"></p>
@@ -992,9 +1036,12 @@ John T. Foster
 \end{gathered}
 \]</span> where <span class="math inline">\(\lambda = 0.01\)</span> and <span class="math inline">\(u=\sin(\pi x)\sin(\pi y)\)</span></p>
 <p><span class="math inline">\(k=[???, ???, ???, \dots, ???]\)</span> with <span class="math inline">\(N\)</span> entries corresponding to <span class="math inline">\(N\)</span> outputs of the MO-PINN</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_inverse_u.png" width="350"></p>
@@ -1002,7 +1049,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_inverse_f.png" width="350"></p>
@@ -1016,9 +1063,12 @@ John T. Foster
 <section id="inverse-estimates-1" class="slide level2">
 <h2>Inverse Estimates</h2>
 <h3 id="k_exact-1.0"><span class="math inline">\(k_{exact} = 1.0\)</span></h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_inverse_k_0.01_noise.png" width="350"></p>
@@ -1026,7 +1076,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/2d_inverse_k_0.1_noise.png" width="350"></p>
@@ -1045,9 +1095,12 @@ John T. Foster
 <section id="comparison-to-monte-carlo-fem" class="slide level2">
 <h2>Comparison to Monte Carlo FEM</h2>
 <h3 id="one-dimensional-linear-poisson-equation-1">One-dimensional linear Poisson equation</h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1, 1], [1, 1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/validation_u_nn.png" width="350"></p>
@@ -1055,7 +1108,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/validation_u_fenics.png" width="350"></p>
@@ -1064,8 +1117,8 @@ John T. Foster
 </div>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/validation_f_nn.png" width="350"></p>
@@ -1073,7 +1126,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/validation_f_fenics.png" width="350"></p>
@@ -1092,9 +1145,12 @@ John T. Foster
 <section id="u-predictions-with-only-5-measurements" class="slide level2">
 <h2><span class="math inline">\(u\)</span> predictions with only 5 measurements</h2>
 <h3 id="using-mean-and-std-to-enhance-learning">Using mean and std to enhance learning</h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/nn_alone_u.png" width="350"></p>
@@ -1102,7 +1158,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/integration_only_mean_u.png" width="350"></p>
@@ -1110,7 +1166,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/integration_u.png" width="350"></p>
@@ -1124,9 +1180,12 @@ John T. Foster
 <section id="f-predictions-with-only-5-measurements" class="slide level2">
 <h2><span class="math inline">\(f\)</span> predictions with only 5 measurements</h2>
 <h3 id="using-mean-and-std-to-enhance-learning-1">Using mean and std to enhance learning</h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/nn_alone_f.png" width="350"></p>
@@ -1134,7 +1193,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/integration_only_mean_f.png" width="350"></p>
@@ -1142,7 +1201,7 @@ John T. Foster
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img_mopinn/integration_f.png" width="350"></p>
@@ -1166,7 +1225,7 @@ John T. Foster
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-jiang2022pinn" class="csl-entry" role="listitem">
 Jiang, Xinchao, Xin Wanga, Ziming Wena, Enying Li, and Hu Wang. 2022. <span>“An e-PINN Assisted Practical Uncertainty Quantification for Inverse Problems.”</span> <em>arXiv Preprint arXiv:2209.10195</em>.
 </div>
@@ -1181,8 +1240,10 @@ Yang, M., and J. T. Foster. 2022. <span>“Multi-Output Physics-Informed Neural 
 </div>
 </div>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>DiReCT Annual Review Meeting - August 18, 2023</p>
+</div>
 </div>
 </section></section>
     </div>
@@ -1212,7 +1273,6 @@ Yang, M., and J. T. Foster. 2022. <span>“Multi-Output Physics-Informed Neural 
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1468,18 +1528,7 @@ Yang, M., and J. T. Foster. 2022. <span>“Multi-Output Physics-Informed Neural 
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1511,11 +1560,50 @@ Yang, M., and J. T. Foster. 2022. <span>“Multi-Output Physics-Informed Neural 
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/johnfoster-pge-utexas\.github\.io\/presentations\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1525,8 +1613,17 @@ Yang, M., and J. T. Foster. 2022. <span>“Multi-Output Physics-Informed Neural 
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1540,7 +1637,11 @@ Yang, M., and J. T. Foster. 2022. <span>“Multi-Output Physics-Informed Neural 
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

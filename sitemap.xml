@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/johnfoster-pge-utexas/presentations/slides/usnccm17_tta.html</loc>
-    <lastmod>2024-01-24T14:54:52.947Z</lastmod>
+    <loc>https://johnfoster-pge-utexas.github.io/presentations/index.html</loc>
+    <lastmod>2024-07-22T21:05:53.431Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/johnfoster-pge-utexas/presentations/slides/undergrad_studies_012424.html</loc>
-    <lastmod>2024-01-24T14:54:51.995Z</lastmod>
+    <loc>https://johnfoster-pge-utexas.github.io/presentations/slides/usnccm17_mopinn.html</loc>
+    <lastmod>2024-07-22T21:05:53.491Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/johnfoster-pge-utexas/presentations/index.html</loc>
-    <lastmod>2024-01-24T14:54:50.107Z</lastmod>
+    <loc>https://johnfoster-pge-utexas.github.io/presentations/slides/direct_2023_mopinn.html</loc>
+    <lastmod>2024-07-22T21:05:53.431Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/johnfoster-pge-utexas/presentations/slides/direct_2023_mopinn.html</loc>
-    <lastmod>2024-01-24T14:54:51.667Z</lastmod>
+    <loc>https://johnfoster-pge-utexas.github.io/presentations/slides/wccm24_oden.html</loc>
+    <lastmod>2024-07-22T21:05:53.491Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/johnfoster-pge-utexas/presentations/slides/usnccm17_mopinn.html</loc>
-    <lastmod>2024-01-24T14:54:52.635Z</lastmod>
+    <loc>https://johnfoster-pge-utexas.github.io/presentations/slides/undergrad_studies_012424.html</loc>
+    <lastmod>2024-07-22T21:05:53.491Z</lastmod>
+  </url>
+  <url>
+    <loc>https://johnfoster-pge-utexas.github.io/presentations/slides/usnccm17_tta.html</loc>
+    <lastmod>2024-07-22T21:05:53.491Z</lastmod>
   </url>
 </urlset>
