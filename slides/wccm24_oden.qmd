@@ -26,17 +26,28 @@ date: July 23, 2024
 
 ## The Rancher 
 ### Oden Ranch 
-::: {layout="[[1, 1], [1, 1]]"}
+::: {.columns}
 
-![10 outputs, $k_{avg} = 0.67$](img_mopinn/1d_inverse_k_10.png){width=350px}
+::: {.column width=55%}
+![](img_oden/ranch_gate.jpg)
+:::
 
-![50 outputs, $k_{avg} = 0.684$](img_mopinn/1d_inverse_k_50.png){width=350px}
-
-![100 outputs, $k_{avg} = 0.668$](img_mopinn/1d_inverse_k_100.png){width=350px}
-
-![500 outputs, $k_{avg} = 0.673$](img_mopinn/1d_inverse_k_500.png){width=350px}
+::: {.column width=45%}
+<iframe src="https://www.google.com/maps/d/embed?mid=1ySEIO7jnaqRa6DaEQMe9QXWMZhbG8rs&ehbc=2E312F"
+  width="640" 
+  height="480" 
+  frameborder="0" 
+  style="border:0"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+:::
 
 :::
+
+___
+
+
+![](img_oden/oden_lake.jpg)
 
 ---
 
