@@ -24,12 +24,13 @@ author:
 date: July 23, 2024
 ---
 
-## The Rancher 
-### Oden Ranch 
+# The Rancher 
+
+## Oden Ranch 
 ::: {.columns}
 
 ::: {.column width=55%}
-![](img_oden/ranch_gate.jpg)
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/ranch_gate.jpg)
 :::
 
 ::: {.column width=45%}
