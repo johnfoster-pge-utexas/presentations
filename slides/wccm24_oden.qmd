@@ -46,8 +46,17 @@ date: July 23, 2024
 
 ___
 
+::: {.columns}
 
-![](img_oden/oden_lake.jpg)
+::: {.column width=53%}
+![<span>&#x1F4F7;</span>: Oden Institute](img_oden/oden_hat.jpg)
+:::
+
+::: {.column width=47%}
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/oden_lake.jpg)
+:::
+
+:::
 
 ---
 
