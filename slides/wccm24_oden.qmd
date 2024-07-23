@@ -6,22 +6,23 @@ format:
     touch: true
 execute:
   freeze: true
-title: "The rancher, the hunter, the Renaissance man:"
-subtitle: "A tribute to my beloved friend Tinsley Oden"
+title: "<br>" 
+# The rancher, the hunter, the Renaissance man:"
+# subtitle: "A tribute to my beloved friend Tinsley Oden"
 title-slide-attributes: 
-  data-background-image: img_oden/oden_foster.jpg
-  data-background-size: "cover"
+  data-background-image: img_oden/title_background.png
+  data-background-size: "contain"
   data-background-position: "center"
-  data-background-opacity: "0.3"
-author: 
-  - name: John T. Foster
-    email: john.foster@utexas.edu
-    affiliations: 
-      - "Oden Institute"
-      # - "Hildebrand Department of Petroleum and Geosystems Engineering"
-      # - "Department of Aerospace Engineering and Engineering Mechanics"
-      # - "The University of Texas at Austin"
-date: July 23, 2024
+  data-background-opacity: "0.9"
+# author: 
+#   - name: John T. Foster
+#     email: john.foster@utexas.edu
+#     affiliations: 
+#       - "Oden Institute"
+#       # - "Hildebrand Department of Petroleum and Geosystems Engineering"
+#       # - "Department of Aerospace Engineering and Engineering Mechanics"
+#       # - "The University of Texas at Austin"
+# date: July 23, 2024
 ---
 
 # The Rancher 
@@ -60,4 +61,98 @@ ___
 :::
 
 ---
+
+## Wildlife 
+
+::: {layout="[[1, 1], [1, 1]]"}
+
+![](img_oden/elk.jpg)
+
+![](img_oden/bobcat.jpg)
+
+![](img_oden/red_deer.jpg)
+
+![](img_oden/whitetail.jpg){height=250px}
+
+:::
+
+## Jacks bass
+
+![<span>&#x1F4F7;</span>: Chad Landis](img_oden/jack_hog.jpg)
+
+
+# The Hunter
+
+## House pics, Africa
+
+## Hunting mentor 
+
+::: {.columns}
+
+::: {.column width=50%}
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/jack_hog.jpg)
+:::
+
+::: {.column width=50%}
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/jack_hog.jpg)
+:::
+
+:::
+
+---
+
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/jack_tinsley.jpg)
+
+# The Renaissance Man
+
+## Bluebonnet Cafe -- Marble Falls, TX
+
+::: {.columns}
+
+::: {.column width=50%}
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/bb2.jpg)
+:::
+
+::: {.column width=50%}
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/bb1.jpg)
+:::
+
+:::
+
+--- 
+
+
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/bb3.jpg)
+
+## Little Boy Blue {.scrollable .smaller}
+### Eugene Field 
+
+::: {.fragment}
+
+>The little toy dog is covered with dust,  
+$\quad$ But sturdy and staunch he stands;  
+And the little toy soldier is red with rust,  
+$\quad$ And his musket molds in his hands.  
+Time was when the little toy dog was new,  
+$\quad$ And the soldier was passing fair;  
+And that was the time when our Little Boy Blue  
+$\quad$ Kissed them and put them there.  
+<br>
+"Now, don't you go till I come," he said,  
+$\quad$ "And don't you make any noise!"  
+So, toddling off to his trundle-bed,  
+$\quad$ He dreamed of the pretty toys;  
+And, as he was dreaming, an angel song  
+$\quad$ Awakened our Little Body Blue  
+Oh! the years are many, the years are long,  
+$\quad$ But the little toy friends are true!  
+<br>
+Ay, faithful to Little Boy Blue they stand,  
+$\quad$ Each in the same old place  
+Awaiting the touch of a little hand,  
+$\quad$ The smile of a little face;  
+And they wonder, as waiting the long years through  
+$\quad$ In the dust of that little chair,  
+What has become of our Little Boy Blue,  
+$\quad$ Since he kissed them and put them there.
 
