@@ -65,11 +65,28 @@ ___
 
 ::: {.columns}
 
-::: {.column width=53%}
+::: {.column width=50%}
+![<span>&#x1F4F7;</span>: Oden Institute](img_oden/flower1.jpg){width=80%}
+:::
+
+::: {.column width=50%}
+![<span>&#x1F4F7;</span>: Oden Institute](img_oden/flower2.jpg){width=80%}
+:::
+
+:::
+
+::: {.notes}
+Spring time on the ranch brought lots of beautiful Texas flowers.  Pictured here are the iconic Bluebonnets.
+:::
+___
+
+::: {.columns}
+
+::: {.column width=34%}
 ![<span>&#x1F4F7;</span>: Oden Institute](img_oden/oden_hat.jpg)
 :::
 
-::: {.column width=47%}
+::: {.column width=66%}
 ![<span>&#x1F4F7;</span>: John T. Foster](img_oden/oden_lake.jpg)
 :::
 
@@ -83,17 +100,13 @@ Pictured on the left is Tinsley in his trademark ranch atire talking to Jon Bass
 
 ---
 
-## Wildlife 
+## Ranch Wildlife 
 
-::: {layout="[[1, 1], [1, 1]]"}
+::: {layout="[53, 47]"}
 
-![](img_oden/2elk.jpg)
+![<span>&#x1F4F7;</span>: J. Tinsley Oden](img_oden/2elk.jpg)
 
-![](img_oden/bobcat.jpg)
-
-![](img_oden/red_deer.jpg)
-
-![](img_oden/whitetail.jpg){height=150px}
+![<span>&#x1F4F7;</span>: J. Tinsley Oden](img_oden/bobcat.jpg)
 
 :::
 
@@ -103,6 +116,16 @@ Most of what was "ranched" at Oden Ranch, but not in an animal husbandry sense, 
 This photos came from game cameras that are motion activated and located near some of the feeders on the property.  He loved to look at, and share with me interesting sightings from these cameras.
 
 He could name most of the native plant species around the ranch.  Among his favorite was the rare "Texas Maduro" which has a beatiful red colored, barkless trunk and branches.  He was particularly good at identifying water-fowl perhaps from his growing up in central Lousianan.  Although he hated cormorants for some reason...
+:::
+
+---
+
+::: {layout="[60, 40]"}
+
+![<span>&#x1F4F7;</span>: J. Tinsley Oden](img_oden/red_deer.jpg)
+
+![<span>&#x1F4F7;</span>: J. Tinsley Oden](img_oden/whitetail.jpg)
+
 :::
 
 ## Oden Ranch Record Bass 
@@ -121,18 +144,14 @@ Tinsley was a proud and accomplished hunter.  He respected other hunters and out
 He went on expedition hunts for caribu in the Northern Territories of Canada, hunted Brown bear on Kodiak Island Alaska, elk, mule deer, and antelope in the Rocky Mountain Western United States, puma in Argentina, and plains game and predetors in Africa.  Often, he would use the ocassion of an invited talk to "tack on" a hunt.  The meat from animals harvested was always cared for, never wasted.  While I never got to experience it my self, he told me that Barbara was an excellent venison chef.
 :::
 
-## House pics, Africa
+## Adventurer
 
-::: {.columns}
+::: {layout="[[33, 33, 33]]"}
+![<span>&#x1F4F7;</span>: Oden Institute](img_oden/zebra.jpg){width=60%}
 
-::: {.column width=48%}
-![<span>&#x1F4F7;</span>: Oden Institute](img_oden/zebra.jpg)
-:::
-
-::: {.column width=52%}
-![](img_oden/bear.jpg)
 ![](img_oden/plains.jpg)
-:::
+
+![](img_oden/bear.jpg)
 
 :::
 
@@ -145,11 +164,11 @@ Several of his taxidermidied animals were on display at the ranch house.  While 
 ::: {.columns}
 
 ::: {.column width=50%}
-![<span>&#x1F4F7;</span>: John T. Foster](img_oden/jack_hog.jpg)
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/jack_hog.jpg){width=80%}
 :::
 
 ::: {.column width=50%}
-![<span>&#x1F4F7;</span>: John T. Foster](img_oden/jack_turkey.jpg)
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/jack_turkey.jpg){width=80%}
 :::
 
 :::
@@ -179,11 +198,11 @@ Tinsely was very proud of Jack that day.
 ::: {.columns}
 
 ::: {.column width=50%}
-![<span>&#x1F4F7;</span>: John T. Foster](img_oden/chris_hike.jpg)
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/chris_hike.jpg){width=80%}
 :::
 
 ::: {.column width=50%}
-![<span>&#x1F4F7;</span>: John T. Foster](img_oden/hike.jpg)
+![<span>&#x1F4F7;</span>: John T. Foster](img_oden/hike.jpg){width=80%}
 :::
 
 :::
