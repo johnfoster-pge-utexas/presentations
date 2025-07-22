@@ -1,5 +1,7 @@
 **Links**
 
+[USNCCM 18 - TTA Meeting](./slides/usnccm18_tta.qmd)
+
 [USNCCM 17 - MO-PINNS](./slides/usnccm17_mopinn.qmd)
 
 [USNCCM 17 - TTA Meeting](./slides/usnccm17_tta.qmd)
@@ -9,3 +11,4 @@
 [Undergrad Studies Committee Meeting - 01/24/2024](./slides/undergrad_studies_012424.qmd)
 
 [WCCC 16 - Oden](./slides/wccm24_oden.qmd)
+
