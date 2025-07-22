@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Presentations",
     "section": "",
-    "text": "Links\nUSNCCM 17 - MO-PINNS\nUSNCCM 17 - TTA Meeting\nDiReCT Annual Meeting - MO-PINNS\nUndergrad Studies Committee Meeting - 01/24/2024\nWCCC 16 - Oden"
+    "text": "Links\nUSNCCM 18 - TTA Meeting\nUSNCCM 17 - MO-PINNS\nUSNCCM 17 - TTA Meeting\nDiReCT Annual Meeting - MO-PINNS\nUndergrad Studies Committee Meeting - 01/24/2024\nWCCC 16 - Oden"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#physics-informed-neural-networks",
@@ -53,7 +53,7 @@
     "href": "slides/usnccm17_mopinn.html#one-dimensional-linear-poisson-equation",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "One-dimensional linear Poisson equation",
-    "text": "One-dimensional linear Poisson equation\n\\[\n\\begin{gathered}\n    \\lambda \\frac{\\partial^2 u}{\\partial x^2} = f, \\qquad x \\in [-0.7, 0.7]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin^3(6x)\\)\n\n\n\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
+    "text": "One-dimensional linear Poisson equation\n\\[\n\\begin{gathered}\n    \\lambda \\frac{\\partial^2 u}{\\partial x^2} = f, \\qquad x \\in [-0.7, 0.7]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin^3(6x)\\)\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#network-architecture-and-hyperparameters",
@@ -67,14 +67,14 @@
     "href": "slides/usnccm17_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements",
     "href": "slides/usnccm17_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#sensitivity-to-random-network-parameter-initialization",
@@ -95,28 +95,28 @@
     "href": "slides/usnccm17_mopinn.html#one-dimensional-nonlinear-poisson-equation",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "One-dimensional nonlinear Poisson equation",
-    "text": "One-dimensional nonlinear Poisson equation\n\\[\n\\begin{gathered}\n    \\lambda \\frac{\\partial^2 u}{\\partial x^2} + k \\tanh(u) = f, \\qquad x \\in [-0.7, 0.7]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01, k=0.7\\) and \\(u=\\sin^3(6x)\\)\n\n\n\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
+    "text": "One-dimensional nonlinear Poisson equation\n\\[\n\\begin{gathered}\n    \\lambda \\frac{\\partial^2 u}{\\partial x^2} + k \\tanh(u) = f, \\qquad x \\in [-0.7, 0.7]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01, k=0.7\\) and \\(u=\\sin^3(6x)\\)\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements-1",
     "href": "slides/usnccm17_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements-1",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-1",
     "href": "slides/usnccm17_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-1",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#two-dimensional-nonlinear-allen-cahn-equation",
     "href": "slides/usnccm17_mopinn.html#two-dimensional-nonlinear-allen-cahn-equation",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Two-dimensional nonlinear Allen-Cahn equation",
-    "text": "Two-dimensional nonlinear Allen-Cahn equation\n\\[\n\\begin{gathered}\n    \\lambda \\left(\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}\\right) + u\\left(u^2 -1 \\right) = f, \\qquad x,y \\in [-1, 1]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin(\\pi x)\\sin(\\pi y)\\)\n\n\n\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
+    "text": "Two-dimensional nonlinear Allen-Cahn equation\n\\[\n\\begin{gathered}\n    \\lambda \\left(\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}\\right) + u\\left(u^2 -1 \\right) = f, \\qquad x,y \\in [-1, 1]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin(\\pi x)\\sin(\\pi y)\\)\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#network-architecture-and-hyperparameters-1",
@@ -130,14 +130,14 @@
     "href": "slides/usnccm17_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements-2",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\)\n\n\n\n\n\n\n\n\\(L_2\\) error\n\n\n\n\n\n\n\n\n\nStandard deviation of predictions\n\n\n\n\n\n\n\nBounded by 2\\(\\sigma\\) – red = bounded, blue = not bounded"
+    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\)\n\n\n\n\n\n\n\n\\(L_2\\) error\n\n\n\n\n\n\n\n\n\nStandard deviation of predictions\n\n\n\n\n\n\n\nBounded by 2\\(\\sigma\\) – red = bounded, blue = not bounded"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-2",
     "href": "slides/usnccm17_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-2",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\)\n\n\n\n\n\n\n\n\\(L_2\\) error\n\n\n\n\n\n\n\n\n\nStandard deviation of predictions\n\n\n\n\n\n\n\nBounded by 2\\(\\sigma\\) – red = bounded, blue = not bounded"
+    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\)\n\n\n\n\n\n\n\n\\(L_2\\) error\n\n\n\n\n\n\n\n\n\nStandard deviation of predictions\n\n\n\n\n\n\n\nBounded by 2\\(\\sigma\\) – red = bounded, blue = not bounded"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#one-dimensional-nonlinear-poisson-equation-1",
@@ -151,42 +151,42 @@
     "href": "slides/usnccm17_mopinn.html#predictions",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions",
-    "text": "Predictions\n\\(u\\) and \\(f\\)\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(\\sigma=0.01\\) noise\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(\\sigma=0.1\\) noise\n\n\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(\\sigma=0.01\\) noise\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(\\sigma=0.1\\) noise"
+    "text": "Predictions\n\\(u\\) and \\(f\\)\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(\\sigma=0.01\\) noise\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(\\sigma=0.1\\) noise\n\n\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(\\sigma=0.01\\) noise\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(\\sigma=0.1\\) noise"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#inverse-estimates",
     "href": "slides/usnccm17_mopinn.html#inverse-estimates",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Inverse Estimates",
-    "text": "Inverse Estimates\n\\(k_{exact} = 0.7\\)\n\n\n\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.698\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 0.678\\)"
+    "text": "Inverse Estimates\n\\(k_{exact} = 0.7\\)\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.698\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 0.678\\)"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#sensitivity-of-k_avg-w.r.t-number-of-outputs",
     "href": "slides/usnccm17_mopinn.html#sensitivity-of-k_avg-w.r.t-number-of-outputs",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Sensitivity of \\(k_{avg}\\) w.r.t number of outputs",
-    "text": "Sensitivity of \\(k_{avg}\\) w.r.t number of outputs\n\\(\\sigma=0.1\\) noise\n\n\n\n\n\n\n\n\n\n10 outputs, \\(k_{avg} = 0.67\\)\n\n\n\n\n\n\n\n50 outputs, \\(k_{avg} = 0.684\\)\n\n\n\n\n\n\n\n\n\n100 outputs, \\(k_{avg} = 0.668\\)\n\n\n\n\n\n\n\n500 outputs, \\(k_{avg} = 0.673\\)"
+    "text": "Sensitivity of \\(k_{avg}\\) w.r.t number of outputs\n\\(\\sigma=0.1\\) noise\n\n\n\n\n\n\n10 outputs, \\(k_{avg} = 0.67\\)\n\n\n\n\n\n\n\n50 outputs, \\(k_{avg} = 0.684\\)\n\n\n\n\n\n\n\n\n\n100 outputs, \\(k_{avg} = 0.668\\)\n\n\n\n\n\n\n\n500 outputs, \\(k_{avg} = 0.673\\)"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#two-dimensional-allen-cahn-equation",
     "href": "slides/usnccm17_mopinn.html#two-dimensional-allen-cahn-equation",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Two-dimensional Allen-Cahn Equation",
-    "text": "Two-dimensional Allen-Cahn Equation\n\\[\n\\begin{gathered}\n    \\lambda \\left(\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}\\right) + u\\left(u^2 -1 \\right) = f, \\qquad x,y \\in [-1, 1]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin(\\pi x)\\sin(\\pi y)\\)\n\\(k=[???, ???, ???, \\dots, ???]\\) with \\(N\\) entries corresponding to \\(N\\) outputs of the MO-PINN\n\n\n\n\n\n\n\n\n\nSolution \\(u\\) and measurements\n\n\n\n\n\n\n\nSolution \\(f\\) and measurements"
+    "text": "Two-dimensional Allen-Cahn Equation\n\\[\n\\begin{gathered}\n    \\lambda \\left(\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}\\right) + u\\left(u^2 -1 \\right) = f, \\qquad x,y \\in [-1, 1]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin(\\pi x)\\sin(\\pi y)\\)\n\\(k=[???, ???, ???, \\dots, ???]\\) with \\(N\\) entries corresponding to \\(N\\) outputs of the MO-PINN\n\n\n\n\n\n\nSolution \\(u\\) and measurements\n\n\n\n\n\n\n\nSolution \\(f\\) and measurements"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#inverse-estimates-1",
     "href": "slides/usnccm17_mopinn.html#inverse-estimates-1",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Inverse Estimates",
-    "text": "Inverse Estimates\n\\(k_{exact} = 1.0\\)\n\n\n\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.995\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 1.02\\)"
+    "text": "Inverse Estimates\n\\(k_{exact} = 1.0\\)\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.995\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 1.02\\)"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#comparison-to-monte-carlo-fem",
     "href": "slides/usnccm17_mopinn.html#comparison-to-monte-carlo-fem",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Comparison to Monte Carlo FEM",
-    "text": "Comparison to Monte Carlo FEM\nOne-dimensional linear Poisson equation\n\n\n\n\n\n\n\n\n\nMO-PINN prediction of \\(u\\)\n\n\n\n\n\n\n\nFEA prediction of \\(u\\)\n\n\n\n\n\n\n\n\n\nMO-PINN prediction of \\(f\\)\n\n\n\n\n\n\n\nFEA prediction of \\(f\\)"
+    "text": "Comparison to Monte Carlo FEM\nOne-dimensional linear Poisson equation\n\n\n\n\n\n\nMO-PINN prediction of \\(u\\)\n\n\n\n\n\n\n\nFEA prediction of \\(u\\)\n\n\n\n\n\n\n\n\n\nMO-PINN prediction of \\(f\\)\n\n\n\n\n\n\n\nFEA prediction of \\(f\\)"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#comparison-of-distributions",
@@ -200,14 +200,14 @@
     "href": "slides/usnccm17_mopinn.html#u-predictions-with-only-5-measurements",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "\\(u\\) predictions with only 5 measurements",
-    "text": "\\(u\\) predictions with only 5 measurements\nUsing mean and std to enhance learning\n\n\n\n\n\n\n\n\n\nOnly 5 measurements\n\n\n\n\n\n\n\n5 measurements and mean\n\n\n\n\n\n\n\n5 measurements, mean, and std"
+    "text": "\\(u\\) predictions with only 5 measurements\nUsing mean and std to enhance learning\n\n\n\n\n\n\nOnly 5 measurements\n\n\n\n\n\n\n\n5 measurements and mean\n\n\n\n\n\n\n\n5 measurements, mean, and std"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#f-predictions-with-only-5-measurements",
     "href": "slides/usnccm17_mopinn.html#f-predictions-with-only-5-measurements",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "\\(f\\) predictions with only 5 measurements",
-    "text": "\\(f\\) predictions with only 5 measurements\nUsing mean and std to enhance learning\n\n\n\n\n\n\n\n\n\nOnly 5 measurements\n\n\n\n\n\n\n\n5 measurements and mean\n\n\n\n\n\n\n\n5 measurements, mean, and std"
+    "text": "\\(f\\) predictions with only 5 measurements\nUsing mean and std to enhance learning\n\n\n\n\n\n\nOnly 5 measurements\n\n\n\n\n\n\n\n5 measurements and mean\n\n\n\n\n\n\n\n5 measurements, mean, and std"
   },
   {
     "objectID": "slides/usnccm17_mopinn.html#conclusions",
@@ -221,7 +221,7 @@
     "href": "slides/usnccm17_mopinn.html#references",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "References",
-    "text": "References\n\n\nJiang, Xinchao, Xin Wanga, Ziming Wena, Enying Li, and Hu Wang. 2022. “An e-PINN Assisted Practical Uncertainty Quantification for Inverse Problems.” arXiv Preprint arXiv:2209.10195.\n\n\nRaissi, Maziar, Paris Perdikaris, and George E Karniadakis. 2019. “Physics-Informed Neural Networks: A Deep Learning Framework for Solving Forward and Inverse Problems Involving Nonlinear Partial Differential Equations.” Journal of Computational Physics 378: 686–707.\n\n\nYang, Liu, Xuhui Meng, and George Em Karniadakis. 2021. “B-PINNs: Bayesian Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Noisy Data.” Journal of Computational Physics 425: 109913.\n\n\nYang, M., and J. T. Foster. 2022. “Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties.” Computer Methods in Applied Mechanics and Engineering, 115041. https://doi.org/10.1016/j.cma.2022.115041.\n\n\n\n\n\nUSNCCM 17 – July 2023"
+    "text": "References\n\n\nJiang, Xinchao, Xin Wanga, Ziming Wena, Enying Li, and Hu Wang. 2022. “An e-PINN Assisted Practical Uncertainty Quantification for Inverse Problems.” arXiv Preprint arXiv:2209.10195.\n\n\nRaissi, Maziar, Paris Perdikaris, and George E Karniadakis. 2019. “Physics-Informed Neural Networks: A Deep Learning Framework for Solving Forward and Inverse Problems Involving Nonlinear Partial Differential Equations.” Journal of Computational Physics 378: 686–707.\n\n\nYang, Liu, Xuhui Meng, and George Em Karniadakis. 2021. “B-PINNs: Bayesian Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Noisy Data.” Journal of Computational Physics 425: 109913.\n\n\nYang, M., and J. T. Foster. 2022. “Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties.” Computer Methods in Applied Mechanics and Engineering, 115041. https://doi.org/10.1016/j.cma.2022.115041."
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#physics-informed-neural-networks",
@@ -270,7 +270,7 @@
     "href": "slides/direct_2023_mopinn.html#one-dimensional-linear-poisson-equation",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "One-dimensional linear Poisson equation",
-    "text": "One-dimensional linear Poisson equation\n\\[\n\\begin{gathered}\n    \\lambda \\frac{\\partial^2 u}{\\partial x^2} = f, \\qquad x \\in [-0.7, 0.7]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin^3(6x)\\)\n\n\n\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
+    "text": "One-dimensional linear Poisson equation\n\\[\n\\begin{gathered}\n    \\lambda \\frac{\\partial^2 u}{\\partial x^2} = f, \\qquad x \\in [-0.7, 0.7]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin^3(6x)\\)\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#network-architecture-and-hyperparameters",
@@ -284,14 +284,14 @@
     "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements",
     "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#sensitivity-to-random-network-parameter-initialization",
@@ -312,28 +312,28 @@
     "href": "slides/direct_2023_mopinn.html#one-dimensional-nonlinear-poisson-equation",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "One-dimensional nonlinear Poisson equation",
-    "text": "One-dimensional nonlinear Poisson equation\n\\[\n\\begin{gathered}\n    \\lambda \\frac{\\partial^2 u}{\\partial x^2} + k \\tanh(u) = f, \\qquad x \\in [-0.7, 0.7]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01, k=0.7\\) and \\(u=\\sin^3(6x)\\)\n\n\n\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
+    "text": "One-dimensional nonlinear Poisson equation\n\\[\n\\begin{gathered}\n    \\lambda \\frac{\\partial^2 u}{\\partial x^2} + k \\tanh(u) = f, \\qquad x \\in [-0.7, 0.7]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01, k=0.7\\) and \\(u=\\sin^3(6x)\\)\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements-1",
     "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements-1",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-1",
     "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-1",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
+    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\) w/ raw solutions\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ raw solutions\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(2\\sigma\\) distribution\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(2\\sigma\\) distribution"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#two-dimensional-nonlinear-allen-cahn-equation",
     "href": "slides/direct_2023_mopinn.html#two-dimensional-nonlinear-allen-cahn-equation",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Two-dimensional nonlinear Allen-Cahn equation",
-    "text": "Two-dimensional nonlinear Allen-Cahn equation\n\\[\n\\begin{gathered}\n    \\lambda \\left(\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}\\right) + u\\left(u^2 -1 \\right) = f, \\qquad x,y \\in [-1, 1]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin(\\pi x)\\sin(\\pi y)\\)\n\n\n\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
+    "text": "Two-dimensional nonlinear Allen-Cahn equation\n\\[\n\\begin{gathered}\n    \\lambda \\left(\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}\\right) + u\\left(u^2 -1 \\right) = f, \\qquad x,y \\in [-1, 1]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin(\\pi x)\\sin(\\pi y)\\)\n\n\n\n\n\n\nSolution \\(u\\)\n\n\n\n\n\n\n\nSource \\(f\\) from manufactured solution"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#network-architecture-and-hyperparameters-1",
@@ -347,14 +347,14 @@
     "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.01-noise-on-measurements-2",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\)\n\n\n\n\n\n\n\n\\(L_2\\) error\n\n\n\n\n\n\n\n\n\nStandard deviation of predictions\n\n\n\n\n\n\n\nBounded by 2\\(\\sigma\\) – red = bounded, blue = not bounded"
+    "text": "Predictions w/ \\(\\sigma = 0.01\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\)\n\n\n\n\n\n\n\n\\(L_2\\) error\n\n\n\n\n\n\n\n\n\nStandard deviation of predictions\n\n\n\n\n\n\n\nBounded by 2\\(\\sigma\\) – red = bounded, blue = not bounded"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-2",
     "href": "slides/direct_2023_mopinn.html#predictions-w-sigma-0.1-noise-on-measurements-2",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements",
-    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\)\n\n\n\n\n\n\n\n\\(L_2\\) error\n\n\n\n\n\n\n\n\n\nStandard deviation of predictions\n\n\n\n\n\n\n\nBounded by 2\\(\\sigma\\) – red = bounded, blue = not bounded"
+    "text": "Predictions w/ \\(\\sigma = 0.1\\) noise on measurements\n\n\n\n\n\n\nPrediction \\(u\\)\n\n\n\n\n\n\n\n\\(L_2\\) error\n\n\n\n\n\n\n\n\n\nStandard deviation of predictions\n\n\n\n\n\n\n\nBounded by 2\\(\\sigma\\) – red = bounded, blue = not bounded"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#one-dimensional-nonlinear-poisson-equation-1",
@@ -368,42 +368,42 @@
     "href": "slides/direct_2023_mopinn.html#predictions",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Predictions",
-    "text": "Predictions\n\\(u\\) and \\(f\\)\n\n\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(\\sigma=0.01\\) noise\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(\\sigma=0.1\\) noise\n\n\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(\\sigma=0.01\\) noise\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(\\sigma=0.1\\) noise"
+    "text": "Predictions\n\\(u\\) and \\(f\\)\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(\\sigma=0.01\\) noise\n\n\n\n\n\n\n\nPrediction \\(u\\) w/ \\(\\sigma=0.1\\) noise\n\n\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(\\sigma=0.01\\) noise\n\n\n\n\n\n\n\nPrediction \\(f\\) w/ \\(\\sigma=0.1\\) noise"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#inverse-estimates",
     "href": "slides/direct_2023_mopinn.html#inverse-estimates",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Inverse Estimates",
-    "text": "Inverse Estimates\n\\(k_{exact} = 0.7\\)\n\n\n\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.698\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 0.678\\)"
+    "text": "Inverse Estimates\n\\(k_{exact} = 0.7\\)\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.698\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 0.678\\)"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#sensitivity-of-k_avg-w.r.t-number-of-outputs",
     "href": "slides/direct_2023_mopinn.html#sensitivity-of-k_avg-w.r.t-number-of-outputs",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Sensitivity of \\(k_{avg}\\) w.r.t number of outputs",
-    "text": "Sensitivity of \\(k_{avg}\\) w.r.t number of outputs\n\\(\\sigma=0.1\\) noise\n\n\n\n\n\n\n\n\n\n10 outputs, \\(k_{avg} = 0.67\\)\n\n\n\n\n\n\n\n50 outputs, \\(k_{avg} = 0.684\\)\n\n\n\n\n\n\n\n\n\n100 outputs, \\(k_{avg} = 0.668\\)\n\n\n\n\n\n\n\n500 outputs, \\(k_{avg} = 0.673\\)"
+    "text": "Sensitivity of \\(k_{avg}\\) w.r.t number of outputs\n\\(\\sigma=0.1\\) noise\n\n\n\n\n\n\n10 outputs, \\(k_{avg} = 0.67\\)\n\n\n\n\n\n\n\n50 outputs, \\(k_{avg} = 0.684\\)\n\n\n\n\n\n\n\n\n\n100 outputs, \\(k_{avg} = 0.668\\)\n\n\n\n\n\n\n\n500 outputs, \\(k_{avg} = 0.673\\)"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#two-dimensional-allen-cahn-equation",
     "href": "slides/direct_2023_mopinn.html#two-dimensional-allen-cahn-equation",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Two-dimensional Allen-Cahn Equation",
-    "text": "Two-dimensional Allen-Cahn Equation\n\\[\n\\begin{gathered}\n    \\lambda \\left(\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}\\right) + u\\left(u^2 -1 \\right) = f, \\qquad x,y \\in [-1, 1]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin(\\pi x)\\sin(\\pi y)\\)\n\\(k=[???, ???, ???, \\dots, ???]\\) with \\(N\\) entries corresponding to \\(N\\) outputs of the MO-PINN\n\n\n\n\n\n\n\n\n\nSolution \\(u\\) and measurements\n\n\n\n\n\n\n\nSolution \\(f\\) and measurements"
+    "text": "Two-dimensional Allen-Cahn Equation\n\\[\n\\begin{gathered}\n    \\lambda \\left(\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}\\right) + u\\left(u^2 -1 \\right) = f, \\qquad x,y \\in [-1, 1]\n\\end{gathered}\n\\] where \\(\\lambda = 0.01\\) and \\(u=\\sin(\\pi x)\\sin(\\pi y)\\)\n\\(k=[???, ???, ???, \\dots, ???]\\) with \\(N\\) entries corresponding to \\(N\\) outputs of the MO-PINN\n\n\n\n\n\n\nSolution \\(u\\) and measurements\n\n\n\n\n\n\n\nSolution \\(f\\) and measurements"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#inverse-estimates-1",
     "href": "slides/direct_2023_mopinn.html#inverse-estimates-1",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Inverse Estimates",
-    "text": "Inverse Estimates\n\\(k_{exact} = 1.0\\)\n\n\n\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.995\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 1.02\\)"
+    "text": "Inverse Estimates\n\\(k_{exact} = 1.0\\)\n\n\n\n\n\n\n\\(\\sigma=0.01\\) noise, \\(k_{avg} = 0.995\\)\n\n\n\n\n\n\n\n\\(\\sigma=0.1\\) noise, \\(k_{avg} = 1.02\\)"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#comparison-to-monte-carlo-fem",
     "href": "slides/direct_2023_mopinn.html#comparison-to-monte-carlo-fem",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "Comparison to Monte Carlo FEM",
-    "text": "Comparison to Monte Carlo FEM\nOne-dimensional linear Poisson equation\n\n\n\n\n\n\n\n\n\nMO-PINN prediction of \\(u\\)\n\n\n\n\n\n\n\nFEA prediction of \\(u\\)\n\n\n\n\n\n\n\n\n\nMO-PINN prediction of \\(f\\)\n\n\n\n\n\n\n\nFEA prediction of \\(f\\)"
+    "text": "Comparison to Monte Carlo FEM\nOne-dimensional linear Poisson equation\n\n\n\n\n\n\nMO-PINN prediction of \\(u\\)\n\n\n\n\n\n\n\nFEA prediction of \\(u\\)\n\n\n\n\n\n\n\n\n\nMO-PINN prediction of \\(f\\)\n\n\n\n\n\n\n\nFEA prediction of \\(f\\)"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#comparison-of-distributions",
@@ -417,14 +417,14 @@
     "href": "slides/direct_2023_mopinn.html#u-predictions-with-only-5-measurements",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "\\(u\\) predictions with only 5 measurements",
-    "text": "\\(u\\) predictions with only 5 measurements\nUsing mean and std to enhance learning\n\n\n\n\n\n\n\n\n\nOnly 5 measurements\n\n\n\n\n\n\n\n5 measurements and mean\n\n\n\n\n\n\n\n5 measurements, mean, and std"
+    "text": "\\(u\\) predictions with only 5 measurements\nUsing mean and std to enhance learning\n\n\n\n\n\n\nOnly 5 measurements\n\n\n\n\n\n\n\n5 measurements and mean\n\n\n\n\n\n\n\n5 measurements, mean, and std"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#f-predictions-with-only-5-measurements",
     "href": "slides/direct_2023_mopinn.html#f-predictions-with-only-5-measurements",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "\\(f\\) predictions with only 5 measurements",
-    "text": "\\(f\\) predictions with only 5 measurements\nUsing mean and std to enhance learning\n\n\n\n\n\n\n\n\n\nOnly 5 measurements\n\n\n\n\n\n\n\n5 measurements and mean\n\n\n\n\n\n\n\n5 measurements, mean, and std"
+    "text": "\\(f\\) predictions with only 5 measurements\nUsing mean and std to enhance learning\n\n\n\n\n\n\nOnly 5 measurements\n\n\n\n\n\n\n\n5 measurements and mean\n\n\n\n\n\n\n\n5 measurements, mean, and std"
   },
   {
     "objectID": "slides/direct_2023_mopinn.html#conclusions",
@@ -438,7 +438,70 @@
     "href": "slides/direct_2023_mopinn.html#references",
     "title": "Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties",
     "section": "References",
-    "text": "References\n\n\nJiang, Xinchao, Xin Wanga, Ziming Wena, Enying Li, and Hu Wang. 2022. “An e-PINN Assisted Practical Uncertainty Quantification for Inverse Problems.” arXiv Preprint arXiv:2209.10195.\n\n\nRaissi, Maziar, Paris Perdikaris, and George E Karniadakis. 2019. “Physics-Informed Neural Networks: A Deep Learning Framework for Solving Forward and Inverse Problems Involving Nonlinear Partial Differential Equations.” Journal of Computational Physics 378: 686–707.\n\n\nYang, Liu, Xuhui Meng, and George Em Karniadakis. 2021. “B-PINNs: Bayesian Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Noisy Data.” Journal of Computational Physics 425: 109913.\n\n\nYang, M., and J. T. Foster. 2022. “Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties.” Computer Methods in Applied Mechanics and Engineering, 115041. https://doi.org/10.1016/j.cma.2022.115041.\n\n\n\n\n\nDiReCT Annual Review Meeting - August 18, 2023"
+    "text": "References\n\n\nJiang, Xinchao, Xin Wanga, Ziming Wena, Enying Li, and Hu Wang. 2022. “An e-PINN Assisted Practical Uncertainty Quantification for Inverse Problems.” arXiv Preprint arXiv:2209.10195.\n\n\nRaissi, Maziar, Paris Perdikaris, and George E Karniadakis. 2019. “Physics-Informed Neural Networks: A Deep Learning Framework for Solving Forward and Inverse Problems Involving Nonlinear Partial Differential Equations.” Journal of Computational Physics 378: 686–707.\n\n\nYang, Liu, Xuhui Meng, and George Em Karniadakis. 2021. “B-PINNs: Bayesian Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Noisy Data.” Journal of Computational Physics 425: 109913.\n\n\nYang, M., and J. T. Foster. 2022. “Multi-Output Physics-Informed Neural Networks for Forward and Inverse PDE Problems with Uncertainties.” Computer Methods in Applied Mechanics and Engineering, 115041. https://doi.org/10.1016/j.cma.2022.115041."
+  },
+  {
+    "objectID": "slides/undergrad_studies_012424.html#agenda",
+    "href": "slides/undergrad_studies_012424.html#agenda",
+    "title": "PGE Undergraduate Studies Committee Meeting",
+    "section": "Agenda",
+    "text": "Agenda\n\n“Industry Software” Training\nPGE BS / McCombs BA Dual Degree\nReview and updating of the approved elective courses list"
+  },
+  {
+    "objectID": "slides/undergrad_studies_012424.html#industry-software-training",
+    "href": "slides/undergrad_studies_012424.html#industry-software-training",
+    "title": "PGE Undergraduate Studies Committee Meeting",
+    "section": "“Industry Software” Training",
+    "text": "“Industry Software” Training\n\nSupported by EAC and student leaders\nHow to offer?\n\nVoluntary registration and attendance\nElective course\n\nFull or half day Fridays? Other formats?\nCockrell School approval?\nWho teaches?\n\n\nAction Items?\n\n\nPotential Vendors\n\nComboCurve, (Douglas McMaster doug.j.mcmaster@gmail.com)\nSpotfire (Bryan McDowell bryan.mcdowell@sabata.us)\nARIES, QED (Courtney Stephens cstephens@QEDea.com)\nWhitson (Mathias Carlsen carlsen@whitson.com)\nKAPPA (Vincent Artus, artus@kappaeng.com and Irina Kostyleva, kostyleva@kappaeng.com)\nNSI (Dante Guerra; dguerra@nsitech.com)\nHarmony/S&P Global (Alireza, alireza.haghighat@spglobal.com)\nResFrac (Mark McClure)\nUnconventional Reservoir Engineering (Yoshi, Yogashri Umesh Pradhan ypradhan.pge@utexas.edu)\nEnverus\nPhDWin"
+  },
+  {
+    "objectID": "slides/undergrad_studies_012424.html#pge-bs-mccombs-ba-dual-degree",
+    "href": "slides/undergrad_studies_012424.html#pge-bs-mccombs-ba-dual-degree",
+    "title": "PGE Undergraduate Studies Committee Meeting",
+    "section": "PGE BS / McCombs BA Dual Degree",
+    "text": "PGE BS / McCombs BA Dual Degree\n\nIs this a good idea?\n\nBudget Council and Dept. Chair are enthusiastic\n\nECE/McCombs Honors Program - https://ecb.utexas.edu/\n\nDoes it have to be honors?\n\nAction Items?\n\nDraft cirriculum\nSetup meeting with McCombs"
+  },
+  {
+    "objectID": "slides/undergrad_studies_012424.html#review-and-update-pge-approved-electives",
+    "href": "slides/undergrad_studies_012424.html#review-and-update-pge-approved-electives",
+    "title": "PGE Undergraduate Studies Committee Meeting",
+    "section": "Review and Update PGE approved electives",
+    "text": "Review and Update PGE approved electives\n\nCurrent list"
+  },
+  {
+    "objectID": "slides/usnccm18_tta.html#current-organization",
+    "href": "slides/usnccm18_tta.html#current-organization",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Current Organization",
+    "text": "Current Organization\n\nJohn T. Foster (Chair)\nPania Newell (Vice-Chair)\nSteve WaiChing Sun (Member-at-Large)\nMichael Hillman (Member-at-Large)"
+  },
+  {
+    "objectID": "slides/usnccm18_tta.html#introductions",
+    "href": "slides/usnccm18_tta.html#introductions",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Introductions",
+    "text": "Introductions\n\nName and affiliation"
+  },
+  {
+    "objectID": "slides/usnccm18_tta.html#tta-charter",
+    "href": "slides/usnccm18_tta.html#tta-charter",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "TTA Charter",
+    "text": "TTA Charter\nEach TTA will be charged with the following tasks:\n\nOrganize mini-symposia in the technical thrust areas at every USNCCM;\nBe responsible for the organization of at least one thematic conference in a two-year cycle; and\nMaintain a TTA website on the USACM webpage documenting all activities."
+  },
+  {
+    "objectID": "slides/usnccm18_tta.html#tta-seminar-series",
+    "href": "slides/usnccm18_tta.html#tta-seminar-series",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "TTA Seminar Series",
+    "text": "TTA Seminar Series\n\n\n\n\n\nFall 2024\n\n\n\n\n\n\nSpring 2025"
+  },
+  {
+    "objectID": "slides/usnccm18_tta.html#thematic-conferences",
+    "href": "slides/usnccm18_tta.html#thematic-conferences",
+    "title": "Novel Methods in Computational Engineeering and Sciences",
+    "section": "Thematic Conferences",
+    "text": "Thematic Conferences\n\nThematic Conference Request\nPast TTA Conferences\n\nMeshfree and Novel Finite Elements with Applications, Berkeley, CA 2022\nMeshfree and Particle Methods: Applications and Theory Santa Fe, NM 2018\nNonlocal Methods in Fracture, Austin, TX 2018\nIsogeometric and Meshfree Methods, La Jolla, CA 2016\nMeshfree Methods for Large-Scale Computational Science and Engineering, Tampa, FL, 2014\nNonlocal Damage and Failure: Peridynamics and Other Nonlocal Methods, San Antonio, TX 2013\n\nUpcoming???\n\n“Meshfree Meeting” ??? Austin, TX ???\nOthers ???"
   },
   {
     "objectID": "slides/wccm24_oden.html#oden-ranch",
@@ -452,7 +515,7 @@
     "href": "slides/wccm24_oden.html#ranch-wildlife",
     "title": "",
     "section": "Ranch Wildlife",
-    "text": "Ranch Wildlife\n\n\n\n\n\n\n\n\n\n📷: J. Tinsley Oden\n\n\n\n\n\n\n\n📷: J. Tinsley Oden\n\n\n\n\n\n\nMost of what was “ranched” at Oden Ranch, but not in an animal husbandry sense, but through care and preservation of habitat was the wildlife. The ranch had many Texas natives: whitetail deer being the primary hunted game, but also predeators such as bobcat and mountain lion. Tinsley told me a story once that while drivng the property, he came across a fresh cougar kill. A nice whitetail buck. He returned to the barn to retrive a saw, in order to go back and saw the antlers off the dead deer, only to return to find the deer gone. Having been dragged into the brush… That could only mean the predator was likely watching from a nearby tree when Tinsley first discovered the deer. The ranch also unfornately has many invasive “wild boars” which he and Texas wildlife bioligst despised because they compete with deer for food and destroy habitat. Tinsley was very excited to discover a non-native European red deer on the property. As well as, technically native, but long exterpated and reintroduced elk.\nThis photos came from game cameras that are motion activated and located near some of the feeders on the property. He loved to look at, and share with me interesting sightings from these cameras.\nHe could name most of the native plant species around the ranch. Among his favorite was the rare “Texas Maduro” which has a beatiful red colored, barkless trunk and branches. He was particularly good at identifying water-fowl perhaps from his growing up in central Lousianan. Although he hated cormorants for some reason…"
+    "text": "Ranch Wildlife\n\n\n\n\n\n\n📷: J. Tinsley Oden\n\n\n\n\n\n\n\n📷: J. Tinsley Oden\n\n\n\n\n\n\nMost of what was “ranched” at Oden Ranch, but not in an animal husbandry sense, but through care and preservation of habitat was the wildlife. The ranch had many Texas natives: whitetail deer being the primary hunted game, but also predeators such as bobcat and mountain lion. Tinsley told me a story once that while drivng the property, he came across a fresh cougar kill. A nice whitetail buck. He returned to the barn to retrive a saw, in order to go back and saw the antlers off the dead deer, only to return to find the deer gone. Having been dragged into the brush… That could only mean the predator was likely watching from a nearby tree when Tinsley first discovered the deer. The ranch also unfornately has many invasive “wild boars” which he and Texas wildlife bioligst despised because they compete with deer for food and destroy habitat. Tinsley was very excited to discover a non-native European red deer on the property. As well as, technically native, but long exterpated and reintroduced elk.\nThis photos came from game cameras that are motion activated and located near some of the feeders on the property. He loved to look at, and share with me interesting sightings from these cameras.\nHe could name most of the native plant species around the ranch. Among his favorite was the rare “Texas Maduro” which has a beatiful red colored, barkless trunk and branches. He was particularly good at identifying water-fowl perhaps from his growing up in central Lousianan. Although he hated cormorants for some reason…"
   },
   {
     "objectID": "slides/wccm24_oden.html#oden-ranch-record-bass",
@@ -466,7 +529,7 @@
     "href": "slides/wccm24_oden.html#adventurer",
     "title": "",
     "section": "Adventurer",
-    "text": "Adventurer\n\n\n\n\n\n\n\n\n\n📷: Oden Institute\n\n\n\n\n\n\n\n\n\n\n\n\nSeveral of his taxidermidied animals were on display at the ranch house. While some folks see taxidermy as a distastful celebration over the death of an animal. While I personally don’t have any taxidermy in my home most hunters, and Tinsley was no different, see the taxidermy as way to remember the adventure. He could tell you detailed stories about how every animal was harvested. The location, the weather, the hunting partners who adventured with him. Jon Bass got to go on several of these adventures. In reading his self-published, “Diary of a Tanzanian Safari,” I found the stoies of the people he was with just as intersting as the details of the hunt. I still recall how he developed a personal friendship with Paul, the African Profesional Hunter (i.e. guide) that accompanied him on that trip."
+    "text": "Adventurer\n\n\n\n\n\n\n📷: Oden Institute\n\n\n\n\n\n\n\n\n\n\n\n\nSeveral of his taxidermidied animals were on display at the ranch house. While some folks see taxidermy as a distastful celebration over the death of an animal. While I personally don’t have any taxidermy in my home most hunters, and Tinsley was no different, see the taxidermy as way to remember the adventure. He could tell you detailed stories about how every animal was harvested. The location, the weather, the hunting partners who adventured with him. Jon Bass got to go on several of these adventures. In reading his self-published, “Diary of a Tanzanian Safari,” I found the stoies of the people he was with just as intersting as the details of the hunt. I still recall how he developed a personal friendship with Paul, the African Profesional Hunter (i.e. guide) that accompanied him on that trip."
   },
   {
     "objectID": "slides/wccm24_oden.html#hunting-mentor",
@@ -529,35 +592,7 @@
     "href": "slides/wccm24_oden.html#little-boy-blue",
     "title": "",
     "section": "Little Boy Blue",
-    "text": "Little Boy Blue\nEugene Field\n\n\nThe little toy dog is covered with dust,\n\\(\\quad\\) But sturdy and staunch he stands;\nAnd the little toy soldier is red with rust,\n\\(\\quad\\) And his musket molds in his hands.\nTime was when the little toy dog was new,\n\\(\\quad\\) And the soldier was passing fair;\nAnd that was the time when our Little Boy Blue\n\\(\\quad\\) Kissed them and put them there.\n “Now, don’t you go till I come,” he said,\n\\(\\quad\\) “And don’t you make any noise!”\nSo, toddling off to his trundle-bed,\n\\(\\quad\\) He dreamed of the pretty toys;\nAnd, as he was dreaming, an angel song\n\\(\\quad\\) Awakened our Little Body Blue\nOh! the years are many, the years are long,\n\\(\\quad\\) But the little toy friends are true!\n Ay, faithful to Little Boy Blue they stand,\n\\(\\quad\\) Each in the same old place\nAwaiting the touch of a little hand,\n\\(\\quad\\) The smile of a little face;\nAnd they wonder, as waiting the long years through\n\\(\\quad\\) In the dust of that little chair,\nWhat has become of our Little Boy Blue,\n\\(\\quad\\) Since he kissed them and put them there.\n\n\n\n\n16th WCCM – July 2024"
-  },
-  {
-    "objectID": "slides/undergrad_studies_012424.html#agenda",
-    "href": "slides/undergrad_studies_012424.html#agenda",
-    "title": "PGE Undergraduate Studies Committee Meeting",
-    "section": "Agenda",
-    "text": "Agenda\n\n“Industry Software” Training\nPGE BS / McCombs BA Dual Degree\nReview and updating of the approved elective courses list"
-  },
-  {
-    "objectID": "slides/undergrad_studies_012424.html#industry-software-training",
-    "href": "slides/undergrad_studies_012424.html#industry-software-training",
-    "title": "PGE Undergraduate Studies Committee Meeting",
-    "section": "“Industry Software” Training",
-    "text": "“Industry Software” Training\n\nSupported by EAC and student leaders\nHow to offer?\n\nVoluntary registration and attendance\nElective course\n\nFull or half day Fridays? Other formats?\nCockrell School approval?\nWho teaches?\n\n\nAction Items?\n\n\n\nPotential Vendors\n\nComboCurve, (Douglas McMaster doug.j.mcmaster@gmail.com)\nSpotfire (Bryan McDowell bryan.mcdowell@sabata.us)\nARIES, QED (Courtney Stephens cstephens@QEDea.com)\nWhitson (Mathias Carlsen carlsen@whitson.com)\nKAPPA (Vincent Artus, artus@kappaeng.com and Irina Kostyleva, kostyleva@kappaeng.com)\nNSI (Dante Guerra; dguerra@nsitech.com)\nHarmony/S&P Global (Alireza, alireza.haghighat@spglobal.com)\nResFrac (Mark McClure)\nUnconventional Reservoir Engineering (Yoshi, Yogashri Umesh Pradhan ypradhan.pge@utexas.edu)\nEnverus\nPhDWin"
-  },
-  {
-    "objectID": "slides/undergrad_studies_012424.html#pge-bs-mccombs-ba-dual-degree",
-    "href": "slides/undergrad_studies_012424.html#pge-bs-mccombs-ba-dual-degree",
-    "title": "PGE Undergraduate Studies Committee Meeting",
-    "section": "PGE BS / McCombs BA Dual Degree",
-    "text": "PGE BS / McCombs BA Dual Degree\n\nIs this a good idea?\n\nBudget Council and Dept. Chair are enthusiastic\n\nECE/McCombs Honors Program - https://ecb.utexas.edu/\n\nDoes it have to be honors?\n\nAction Items?\n\nDraft cirriculum\nSetup meeting with McCombs"
-  },
-  {
-    "objectID": "slides/undergrad_studies_012424.html#review-and-update-pge-approved-electives",
-    "href": "slides/undergrad_studies_012424.html#review-and-update-pge-approved-electives",
-    "title": "PGE Undergraduate Studies Committee Meeting",
-    "section": "Review and Update PGE approved electives",
-    "text": "Review and Update PGE approved electives\n\nCurrent list\n\n\n\n\nPGE Undergraduate Studies Committee Meeting"
+    "text": "Little Boy Blue\nEugene Field\n\n\nThe little toy dog is covered with dust,\n\\(\\quad\\) But sturdy and staunch he stands;\nAnd the little toy soldier is red with rust,\n\\(\\quad\\) And his musket molds in his hands.\nTime was when the little toy dog was new,\n\\(\\quad\\) And the soldier was passing fair;\nAnd that was the time when our Little Boy Blue\n\\(\\quad\\) Kissed them and put them there.\n “Now, don’t you go till I come,” he said,\n\\(\\quad\\) “And don’t you make any noise!”\nSo, toddling off to his trundle-bed,\n\\(\\quad\\) He dreamed of the pretty toys;\nAnd, as he was dreaming, an angel song\n\\(\\quad\\) Awakened our Little Body Blue\nOh! the years are many, the years are long,\n\\(\\quad\\) But the little toy friends are true!\n Ay, faithful to Little Boy Blue they stand,\n\\(\\quad\\) Each in the same old place\nAwaiting the touch of a little hand,\n\\(\\quad\\) The smile of a little face;\nAnd they wonder, as waiting the long years through\n\\(\\quad\\) In the dust of that little chair,\nWhat has become of our Little Boy Blue,\n\\(\\quad\\) Since he kissed them and put them there."
   },
   {
     "objectID": "slides/usnccm17_tta.html#thanks-to-c.t.-wu",
@@ -599,6 +634,6 @@
     "href": "slides/usnccm17_tta.html#other-business",
     "title": "Novel Methods in Computational Engineeering and Sciences",
     "section": "Other business",
-    "text": "Other business\n\nTTA Seminar Series?\nMeeting frequency?\nSuggestions?\n\n\n\n\nUSNCCM 17 - Novel Methods TTA – July 2023"
+    "text": "Other business\n\nTTA Seminar Series?\nMeeting frequency?\nSuggestions?"
   }
 ]
